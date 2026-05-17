@@ -27,4 +27,48 @@ window.addEventListener('scroll', () => {
   }
 
   lastScroll = currentScroll;
+}
+);
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.category').forEach(cat => {
+  observer.observe(cat);
+});
+
+const filterBtns = document.querySelectorAll('.filter-btn');
+const productLinks = document.querySelectorAll('.product-grid a');
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const filter = btn.dataset.filter;
+
+    productLinks.forEach(product => {
+      const metal = product.dataset.metal;
+      const price = parseInt(product.dataset.price);
+
+      if (filter === 'all') {
+        product.style.display = 'block';
+      } else if (filter === 'gold' && metal === 'gold') {
+        product.style.display = 'block';
+      } else if (filter === 'silver' && metal === 'silver') {
+        product.style.display = 'block';
+      } else if (filter === 'under500' && price < 500) {
+        product.style.display = 'block';
+      } else if (filter === 'under1000' && price < 1000) {
+        product.style.display = 'block';
+      } else {
+        product.style.display = 'none';
+      }
+    });
+  });
 });

@@ -105,6 +105,8 @@ nav a:hover{
   height: 600px;
   overflow: hidden;
   z-index: 1;
+  margin-bottom: 0;
+  padding: 0;
 }
 
 .hero-slide {
@@ -112,7 +114,7 @@ nav a:hover{
   top: 0;
   left: 0;
   width: 100%;
-  height: 500px;
+  height: 600px;
   object-fit: cover;
   opacity: 0;
   transition: opacity 1s ease;
@@ -128,7 +130,6 @@ nav a:hover{
   left: 2rem;
   color: var(--white);
   margin: 0;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .hero-text h1 {
@@ -193,7 +194,7 @@ a {
 .categories {
   display: flex;
   gap: 2rem;
-  padding: 3rem;
+  padding: 2rem 3rem 3rem;
   z-index: 1;
   position: relative;
   img {
@@ -239,7 +240,6 @@ a {
   opacity: 0;
   transition: opacity 0.4s ease;
   white-space: nowrap;
-  border-bottom: 1px solid var(--dark-brown);
 }
 
 .category-img-wrap:hover .explore {
@@ -247,7 +247,8 @@ a {
 }
 .banner {
   text-align: center;
-  padding: 2rem 3rem;
+  padding: 2rem 3rem 0rem;
+  margin: 0;
 }
 
 .big-img {
@@ -274,10 +275,10 @@ a {
 }
 
 .product-grid {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
-  padding: 2rem;
-  flex-wrap: wrap;
+  padding: 0.5rem 2rem 2rem;
 }
 
 .product {
@@ -470,3 +471,79 @@ footer {
   border-top: 1px solid var(--support);
 }
 
+.category {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.category.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.banner-split {
+  display: flex;
+  align-items: center;
+  height: 600px;
+  padding: 0 3rem;
+  gap: 2rem;
+}
+
+.banner-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.banner-image {
+  flex: 1;
+  height: 100%;
+}
+
+.banner-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.category-hero {
+  width: 100%;
+  height: 400px;
+}
+
+.category-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.filters {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 2rem 0rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: none;
+  border: 1px solid var(--dark-brown);
+  padding: 0.5rem 1.5rem;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  color: var(--dark-brown);
+}
+
+.filter-btn.active {
+  background: var(--dark-brown);
+  color: var(--white);
+}
+
+.filter-btn:hover {
+  background: var(--dark-brown);
+  color: var(--white);
+}
