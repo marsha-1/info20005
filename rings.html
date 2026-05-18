@@ -10,13 +10,25 @@
     <link rel="stylesheet" href="style.css"> 
   </head>
   <body>
+    <div id="search-overlay">
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="Search products..." onkeydown="if(event.key === 'Enter') window.location.href='search.html?q=' + this.value">        
+        <button onclick="document.getElementById('search-overlay').style.display='none'">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div id="search-results"></div>
+    </div>
+
     <div class="ticker">
       <span>FREE SHIPPING ON ALL ORDERS &nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp; NEW COLLECTION NOW AVAILABLE &nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp; HANDCRAFTED FINE OPAL JEWELLERY &nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp; ENJOY 10% OFF YOUR FIRST ORDER &nbsp;&nbsp;&nbsp;</span>
     </div> 
 
     <header>
       <div class="header-inner">
-        <button class="icon"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <button class="icon" onclick="document.getElementById('search-overlay').style.display='flex'">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>        
         <div class="logo-wrap">
           <img class="logo" src="logo/logo.png" width="120px" height="auto">
           <div class="logo-dot"></div>
@@ -42,11 +54,11 @@
     </section>
 
     <div class="filters">
-    <button class="filter-btn active" data-filter="all">ALL</button>
-    <button class="filter-btn" data-filter="gold">GOLD</button>
-    <button class="filter-btn" data-filter="silver">SILVER</button>
-    <button class="filter-btn" data-filter="under500">UNDER AU$500</button>
-    <button class="filter-btn" data-filter="under1000">UNDER AU$1000</button>
+        <button class="filter-btn active" data-filter="all">ALL</button>
+        <button class="filter-btn" data-filter="gold">GOLD</button>
+        <button class="filter-btn" data-filter="silver">SILVER</button>
+        <button class="filter-btn" data-filter="under500">UNDER AU$500</button>
+        <button class="filter-btn" data-filter="under1000">UNDER AU$1000</button>
     </div>
 
     <section class="product-grid">
@@ -242,7 +254,7 @@
       </div>
       <p class="copyright">Copyright © 2026 Marsha. All Rights Reserved.</h2>    
     </footer>
-
     <script src="script.js"></script>
+    <script src="products.js"></script>
   </body>
 </html>

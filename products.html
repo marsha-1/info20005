@@ -10,12 +10,24 @@
     <link rel="stylesheet" href="style.css"> 
   </head>
   <body>
+    <div id="search-overlay">
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="Search products..." onkeydown="if(event.key === 'Enter') window.location.href='search.html?q=' + this.value">        
+        <button onclick="document.getElementById('search-overlay').style.display='none'">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div id="search-results"></div>
+    </div>
+
     <div class="ticker">
       <span>FREE SHIPPING ON ALL ORDERS &nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp; NEW COLLECTION NOW AVAILABLE &nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp; HANDCRAFTED FINE OPAL JEWELLERY &nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp; ENJOY 10% OFF YOUR FIRST ORDER &nbsp;&nbsp;&nbsp;</span>
     </div> 
     <header>
       <div class="header-inner">
-        <button class="icon"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <button class="icon" onclick="document.getElementById('search-overlay').style.display='flex'">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>        
         <div class="logo-wrap">
           <img class="logo" src="logo/logo.png" width="120px" height="auto">
           <div class="logo-dot"></div>
@@ -61,46 +73,46 @@
     </section>
 
     <section class="product-video">
-      <iframe id="product-video" width="100%" height="600px"frameborder="0" allowfullscreen></iframe>
+      <iframe id="product-video" width="100%" height="500px"frameborder="0" allowfullscreen style="border-radius: 5px;"></iframe>
     </section>
 
     <section class="keep-exploring">
       <h1 style="font-weight: 800; font-size: 40px;">KEEP EXPLORING</h1>
       <div class="categories">
-        <div class="category">
+        <a class="category explore-card" href="#">          
           <div class="category-img-wrap">
             <img src="" class="explore-img">
             <p class="explore">QUICK VIEW</p>
           </div>
           <h2 id="explore-name-1"></h2>
           <p id="explore-price-1"></p>
+        </a>
+        <a class="category explore-card" href="#">
+            <div class="category-img-wrap">
+              <img src="" class="explore-img">
+              <p class="explore">QUICK VIEW</p>
+            </div>
+            <h2 id="explore-name-2"></h2>
+            <p id="explore-price-2"></p>
+          </a>
+          <a class="category explore-card" href="#">
+            <div class="category-img-wrap">
+              <img src="" class="explore-img">
+              <p class="explore">QUICK VIEW</p>
+            </div>
+            <h2 id="explore-name-3"></h2>
+            <p id="explore-price-3"></p>
+          </a>
+          <a class="category explore-card" href="#">
+            <div class="category-img-wrap">
+              <img src="" class="explore-img">
+              <p class="explore">QUICK VIEW</p>
+            </div>
+            <h2 id="explore-name-4"></h2>
+            <p id="explore-price-4"></p>
+          </a>      
         </div>
-        <div class="category">
-          <div class="category-img-wrap">
-            <img src="" class="explore-img">
-            <p class="explore">QUICK VIEW</p>
-          </div>
-          <h2 id="explore-name-2"></h2>
-          <p id="explore-price-2"></p>
-        </div>
-        <div class="category">
-          <div class="category-img-wrap">
-            <img src="" class="explore-img">
-            <p class="explore">QUICK VIEW</p>
-          </div>
-          <h2 id="explore-name-3"></h2>
-          <p id="explore-price-3"></p>
-        </div>
-        <div class="category">
-          <div class="category-img-wrap">
-            <img src="" class="explore-img">
-            <p class="explore">QUICK VIEW</p>
-          </div>
-          <h2 id="explore-name-4"></h2>
-          <p id="explore-price-4"></p>
-        </div>
-      </div>
-    </section>
+      </section>
 
     <script src="products.js"></script>
     <script src="script.js"></script>
