@@ -1,3 +1,80 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const cartContainer = document.getElementById("cart-container");
+  const cartCount = document.getElementById("cart-count");
+  const cartSubtotal = document.getElementById("cart-subtotal");
+
+  if (!cartContainer) return;
+
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  cartCount.textContent = `YOU HAVE ${cart.length} ITEM${cart.length !== 1 ? "S" : ""} IN YOUR CART.`;
+
+  let total = 0;
+  cartContainer.innerHTML = "";
+
+  if (cart.length === 0) {
+    cartContainer.innerHTML = "<p>Your cart is empty.</p>";
+    cartSubtotal.textContent = "AU$0.00";
+    return;
+  }
+
+  cart.forEach((product, index) => {
+    const price = Number(product.price.replace("AU$", "").replace(",", ""));
+    total += price;
+
+    cartContainer.innerHTML += `
+      <div class="cart-item">
+        <img src="${product.image}" alt="${product.name}">
+
+        <div>
+          <h2>${product.name}</h2>
+          <p>${product.price}</p>
+        </div>
+      <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>        
+      </div>
+    `;
+  });
+
+  cartSubtotal.textContent = `AU$${total.toLocaleString("en-AU", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  })}`;
+});
+
+function removeFromCart(index) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.splice(index, 1);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  location.reload();
+}
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const addBtn = document.querySelector(".add-to-cart");
+
+  if (!addBtn) return;
+
+  addBtn.addEventListener("click", () => {
+    const id = new URLSearchParams(window.location.search).get("id");
+    const product = products[id];
+
+    if (!product) return;
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    cart.push({
+      id: id,
+      name: product.name,
+      price: product.price,
+      image: product.image
+    });
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    console.log("Added to cart");
+  });
+});
+
 const slides = document.querySelectorAll('.hero-slide');
 let current = 0;
 
@@ -148,4 +225,16 @@ setTimeout(() => {
 
 closeBtn.addEventListener("click", () => {
     popup.style.display = "none";
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const addBtn = document.querySelector(".add-to-cart");
+
+  if (!addBtn) return;
+
+  addBtn.addEventListener("click", () => {
+    const id = new URLSearchParams(window.location.search).get("id");
+
+    console.log(id);
+  });
 });

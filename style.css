@@ -139,15 +139,24 @@ nav a:hover{
     font-style: italic;
     margin: 0;
     color: var(--white);
+    animation: fadeUp 1s ease forwards;
 }
 
-.hero-text h3 {
+.hero-text h2 {
     font-family: 'Public Sans', sans-serif;    
     font-size: 20px;
     letter-spacing: 0px;
     font-weight: normal;
     margin: 0;
     color: var(---white);
+    animation: fadeUp 1s ease forwards;
+}
+
+@keyframes fadeUp{
+  from{
+    opacity: 0;
+    transform: translateX(-30px);
+  }
 }
 
 h1 {
@@ -166,6 +175,8 @@ h2 {
     font-weight: normal;
     margin: 0;
     color: var(--dark-brown);
+    margin-bottom: 5px;
+    padding-top: 5px;
 }
 
 h3 {
@@ -358,7 +369,7 @@ footer {
   width: 100%;  
   height: 500px;
   object-fit: cover;
-  border-radius: 5px;
+  border-radius: 6px;
 }
 
 .product-info {
@@ -430,7 +441,7 @@ footer {
   object-fit: cover;
   cursor: pointer;
   opacity: 0.7;
-  border-radius: 5px;
+  border-radius: 6px;
 }
 
 .thumbnail:hover {
@@ -497,6 +508,63 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  animation: fadeUp 1s ease forwards;
+
+}
+
+.hover-container{
+    display:inline-block;
+    position:relative;
+}
+
+.explosive-text{
+    font-size:3rem;
+    color:var(--dark-brown);
+    position:relative;
+    display:inline-block;
+    transition:transform .3s ease-out;
+}
+
+.explosive-text:hover{
+    transform:scale(1.1);
+}
+
+.explosive-text:hover::before,
+.explosive-text:hover::after{
+    content:'';
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:200%;
+    height:200%;
+    border-radius:50%;
+    transform:translate(-50%,-50%) scale(0);
+    animation:burst .6s ease-out forwards;
+    pointer-events:none;
+}
+
+.explosive-text:hover::before{
+    background:radial-gradient(circle,
+    rgba(255,255,255,.3), transparent);
+    z-index:-1;
+}
+
+.explosive-text:hover::after{
+    background:radial-gradient(circle,
+    rgba(182,160,120,.4), transparent);
+    z-index:-2;
+}
+
+@keyframes burst{
+    0%{
+        transform:translate(-50%,-50%) scale(0);
+        opacity:1;
+    }
+
+    100%{
+        transform:translate(-50%,-50%) scale(1.5);
+        opacity:0;
+    }
 }
 
 .banner-image {
@@ -660,4 +728,89 @@ footer {
   background:#5c4033;
   color:white;
   cursor:pointer;
+}
+
+.btn-pulse {
+  background-color: #3498db;
+  color: white;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.cart-page{
+  display:grid;
+  gap:3rem;
+  padding:4rem;
+}
+
+.cart-item{
+  display:grid;
+  grid-template-columns:150px 1fr auto;
+  gap:1.5rem;
+  align-items:center;
+  border-bottom:1px solid #8b5e4a;
+  padding:1.5rem 0;
+}
+
+.cart-item img{
+  width:150px;
+  height:150px;
+  object-fit:cover;
+  border-radius: 6px;
+}
+
+.cart-subtotal{
+  display:flex;
+  justify-content:space-between;
+  padding-top:2rem;
+  font-size:1.2rem;
+  color: var(--dark-brown);
+}
+
+.checkout-btn{
+  margin-top:2rem;
+  width:100%;
+  padding:1rem;
+  background:var(--dark-brown);
+  color:white;
+  border:none;
+}
+
+.remove-btn{
+    color:var(--text-brown);
+    border: none;
+    font-size:14px;
+    letter-spacing:.08em;
+    cursor:pointer;
+    padding:0;
+    text-transform:uppercase;
+    position:relative;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.remove-btn::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-3px;
+    width:100%;
+    height:1px;
+    background:var(--dark-brown);
+    transform:scaleX(0);
+    transition:.3s;
+}
+
+.remove-btn:hover::after{
+    transform:scaleX(1);
 }
