@@ -70,6 +70,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     localStorage.setItem("cart", JSON.stringify(cart));
+    const popup = document.getElementById("cart-popup");
+
+    popup.style.display = "block";
+
+    setTimeout(() => {
+        popup.style.display = "none";
+    }, 4000);
 
     console.log("Added to cart");
   });
@@ -216,25 +223,29 @@ if (searchResultsGrid) {
   }
 }
 
-const popup = document.getElementById("popup");
-const closeBtn = document.getElementById("close-popup");
 
-setTimeout(() => {
-    popup.style.display = "flex";
-}, 2000);
+function toggleFav(btn, id) {
+  let favs = JSON.parse(localStorage.getItem('favourites') || '[]');
+  
+  if (favs.includes(id)) {
+    favs = favs.filter(f => f !== id);
+    btn.classList.remove('active');
+    btn.innerHTML = '<i class="fa-regular fa-heart"></i>';
+  } else {
+    favs.push(id);
+    btn.classList.add('active');
+    btn.innerHTML = '<i class="fa-solid fa-heart" style="color:#c0392b"></i>';
+  }
+  
+  localStorage.setItem('favourites', JSON.stringify(favs));
+}
 
-closeBtn.addEventListener("click", () => {
-    popup.style.display = "none";
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  const addBtn = document.querySelector(".add-to-cart");
-
-  if (!addBtn) return;
-
-  addBtn.addEventListener("click", () => {
-    const id = new URLSearchParams(window.location.search).get("id");
-
-    console.log(id);
-  });
+// load saved favourites on page load
+document.querySelectorAll('.heart-btn').forEach(btn => {
+  const id = btn.getAttribute('onclick').match(/'([^']+)'\)/)[1];
+  const favs = JSON.parse(localStorage.getItem('favourites') || '[]');
+  if (favs.includes(id)) {
+    btn.classList.add('active');
+    btn.innerHTML = '<i class="fa-solid fa-heart" style="color:#c0392b"></i>';
+  }
 });

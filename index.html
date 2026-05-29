@@ -6,8 +6,9 @@
     <title>Majulix Opal Jewellery</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">  
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">    
     <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="mobile.css" media="(max-width: 844px)">
   </head>
   <body>
     <div id="search-overlay">
@@ -24,25 +25,34 @@
     </div> 
     <header>
       <div class="header-inner">
-        <button class="icon" onclick="document.getElementById('search-overlay').style.display='flex'">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </button>        
         <div class="logo-wrap">
-          <img class="logo" src="logo/logo.png" width="120px" height="auto">
+          <img class="logo" src="logo/logo.png" width="90px" height="auto">
           <div class="logo-dot"></div>
         </div>
+        <nav>
+          <a href="#">ENGAGEMENT</a>
+          <a href="#">MEN'S</a> 
+          <a href="#">GIFTS</a>
+          <a href="#">STATEMENT</a>
+          <a href="#" style="color: #A64B4B;">CLEARANCE</a>       
+        </nav>
+        <div class="header-icons">
+        <button class="icon" onclick="document.getElementById('search-overlay').style.display='flex'">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <button class="icon">
+          <i class="fa-regular fa-heart"></i>
+        </button>        
+        <button class="icon">
+          <i class="fa-regular fa-user"></i>
+        </button>
         <a href="cart.html">
           <button class="icon">
             <i class="fa-solid fa-bag-shopping"></i>
           </button> 
         </a>
+        </div>
       </div>
-      <nav>
-        <a href="rings.html">RINGS</a>
-        <a href="earrings.html">EARRINGS</a>
-        <a href="bracelets.html">BRACELETS</a>
-        <a href="necklaces.html">NECKLACES</a>       
-      </nav>
     </header>
 
     <section class="hero">
@@ -51,239 +61,250 @@
       <img class="hero-slide" src="hero/hero3.JPEG">
       <div class="hero-text">
         <h1 style="color: #F4F1EE;">OPAL IN THE LIGHT</h1>
-        <h2 style="color: #F4F1EE; font-weight: 500;">Each piece is shaped by natural Australian opal.<br>Simple, unique, and easy to wear every day.</h2>
+        <h2 style="color: #F4F1EE; font-weight: 400;">Each piece is shaped by natural Australian opal.<br>Simple, unique, and easy to wear every day.</h2>
+        <a href="#" class="hero-btn">OUR STORY</a>
       </div>
     </section>
     <section class="banner">
-      <h1 style="font-size: 40px;" class="explosive-text">SHOP BY CATEGORIES</h1>
+      <h1 style="font-size: 30px;">SHOP BY CATEGORIES</h1>
+      <p style="font-size: 18px; margin-bottom: 0;"><a href="#">SHOP ALL</a></p>
     </section>
-
-    <section class="categories">
+    <section class="categories" style="gap: 10px;">
       <div class="category">  
         <div class="category-img-wrap">
           <img src="categories/rings.jpg">
           <p class="explore"><a href=rings.html>EXPLPORE MORE</a></p>
         </div>
+        <h2 style="font-size: 20px;">RINGS</h2>
       </div>
-
       <div class="category">
         <div class="category-img-wrap">
           <img src="categories/earrings.jpg">
           <p class="explore"><a href=earrings.html>EXPLPORE MORE</a></p>
         </div>
+        <h2 style="font-size: 20px;">EARRINGS</h2>
       </div>
-
       <div class="category">
         <div class="category-img-wrap">
           <img src="categories/bracelets.jpg">
-          <p class="explore">EXPLORE MORE</p>
+          <p class="explore"><a href=bracelets.html>EXPLORE MORE</a></p>
         </div>
+        <h2 style="font-size: 20px;">BRACELETS</h2>
       </div>
-
       <div class="category">
         <div class="category-img-wrap">
           <img src="categories/necklaces.jpg">
-          <p class="explore">EXPLORE MORE</p>
+          <p class="explore"><a href="necklaces.html">EXPLORE MORE</a></p>
         </div>
+        <h2 style="font-size: 20px;">NECKLACES</h2>
+      </div>
+      <div class="category">
+        <div class="category-img-wrap">
+          <img src="unset/rainbow opal.jpg">
+          <p class="explore"><a href="#">EXPLORE MORE</a></p>
+        </div>
+        <h2 style="font-size: 20px;">UNSET OPALS</h2>
       </div>
     </section>
 
-    <section class="banner-split">
-      <div class="banner-text">
-        <h2 style="font-size: 40px; font-weight: 500;">Discover Timeless Opals</h2>
-        <h2 style="font-size: 20px; font-weight: 400;">Celebrate the beauty of natural opals with pieces designed to shine in every moment. Featuring vibrant Australian opals with unique patterns, each piece is crafted to bring elegance to everyday wear. Timeless, distinctive, and made to stand out.</h2>
+    <section class="banner">
+      <h1 style="font-size: 30px; padding-top: 30px;">EXCLUSIVE COLLECTION</h1>
+      <p style="font-size: 18px;">A curated collection of opal jewellery, crafted to stand apart.</p>
+    </section>
+    <section class="categories">
+      <div class="category">  
+      <a href="products.html?id=#" data-metal="silver" data-price="349">
+        <div class="category-img-wrap">
+          <img src="necklaces/Moonbeam Drop Necklace.jpg">
+          <p class="explore">EXPLPORE MORE</p>
+          <span class="product-tag">SALE</span>
+          <button class="heart-btn">
+            <i class="fa-regular fa-heart"></i>
+          </button>
+        </div>
+        <div style="margin-top: 5px;">
+          <span class="sale-price">AU$349</span>
+          <span class="original-price">AU$499</span>
+        </div>
+        <h2>10.15CT QUEENSLAND BOULDER NECKLACE <br>| STRELING SILVER | 'MOONBEAM DROP'</h2>
       </div>
-      <div class="banner-image">
-        <img src="hero/img1.png">
+      <div class="category">  
+      <a href="products.html?id=#" data-metal="gold" data-price="8999">
+        <div class="category-img-wrap">
+          <img src="necklaces/Spectral Fire Boulder Necklace.jpg">
+          <p class="explore"><a href=rings.html>EXPLPORE MORE</a></p>
+          <span class="product-tag">SALE</span>
+          <button class="heart-btn">
+            <i class="fa-regular fa-heart"></i>
+          </button>
+        </div>
+        <div style="margin-top: 5px;">
+          <span class="sale-price">AU$5,999</span>
+          <span class="original-price">AU$8,999</span>
+        </div>
+        <h2>30CT QUEENSLAND BOULDER NECKLACE <br>| 10K YELLOW GOLD | 'SPECTRAL FIRE'</h2>
+      </div>
+      <div class="category"> 
+      <a href="products.html?id=#" data-metal="silver" data-price="649">
+        <div class="category-img-wrap">
+          <img src="rings/Ocean Trilogy.jpg">
+          <p class="explore"><a href=rings.html>EXPLPORE MORE</a></p>
+          <span class="product-tag">SALE</span>
+          <button class="heart-btn">
+            <i class="fa-regular fa-heart"></i>
+          </button>
+        </div>
+        <div style="margin-top: 5px;">
+          <span class="sale-price">AU$649</span>
+          <span class="original-price">AU$999</span>
+        </div>
+        <h2>17.85CT LIGHTNING RIDGE BLACK OPAL RINGS | STRELING SILVER | 'OCEAN TRILOGY'</h2>
+      </div>
+      <div class="category">  
+      <a href="products.html?id=#" data-metal="silver" data-price="999">
+        <div class="category-img-wrap">
+          <img src="bracelets/Coastal Wave.jpg">
+          <p class="explore"><a href=rings.html>EXPLPORE MORE</a></p>
+          <span class="product-tag">SALE</span>
+          <button class="heart-btn">
+            <i class="fa-regular fa-heart"></i>
+          </button>
+        </div>
+        <div style="margin-top: 5px;">
+          <span class="sale-price">AU$999</span>
+          <span class="original-price">AU$1,499</span>
+        </div>
+        <h2>20.80CT SOLID SEMI-BLACK OPAL BRACELET <br>| STRELING SILVER | 'COASTAL WAVE'</h2>
       </div>
     </section>
 
-<!--RINGS-->
-    <section class="banner">
-      <h1 style="font-size: 40px;" class="explosive-text">RINGS OF REFINEMENT</h1>
-      <h3 style="margin-top: 0.5rem">Crafted to linger, designed to last</h3>
-      <h3 style="margin-top: 0.5rem; font-size: 18px;"><a href="rings.html">DISCOVER THE CRAFTMANSHIP</a></h3>
+    <section class="promo-section">
+      <div class="promo-inner">
+        <h2>JOIN TODAY AND GET 10% OFF</h2>
+        <div class="promo-copy">
+          <p>Become a member with us to unlock early access to new collections, exclusive offers, personalized shopping experiences, and special birthday rewards.</p>
+          <p>As our welcome gifts, enjoy 10% off your first purchase.</p>
+          <p>Terms and Conditions apply*</p>
+        </div>
+        <a href="#" class="promo-button">JOIN FOR FREE</a>
+      </div>
     </section>
-    <section class="big-img">
-      <img src="categories/rings1.jpg">
+
+    <section class="feature-grid">
+      <div class="feature-card">
+          <img src="hero/img2.png">
+          <div class="feature-content">
+              <h2>SIGNATURE BRACELETS</h2>
+              <p>Create your signature look with opal bracelets designed to be worn alone or stacked together.</p>
+              <p><a href="#">SHOP NOW</a></p>
+          </div>
+      </div>
+      <div class="feature-card">
+          <img src="hero/img1.png">
+
+          <div class="feature-content">
+              <h2>NEW ARRIVALS</h2>
+              <p>Discover new favourites, ready to be added to your collection.</p>
+              <p><a href="#">SHOP NOW</a></p>
+          </div>
+      </div>
+      <div class="feature-card">
+          <img src="hero/img3.png" alt="">
+
+          <div class="feature-content">
+              <h2>TIMELESS RINGS.</h2>
+              <p>Discover beautifully crafted rings for every moment.</p>
+              <p><a href="#">SHOP NOW</a></p>
+          </div>
+      </div>
     </section>
-    <section class="categories">
-      <div class="category">
-        <div class="category-img-wrap">
-          <img src="rings/Blue Natural Boulder Opal Ring.jpg">
-          <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2>Blue Natural Boulder<br>Opal Ring</h2>
-        <p>AU$2,509.15</p>
-      </div>
-      <div class="category">
-        <div class="category-img-wrap">
-          <img src="rings/Bright Green Black  Natural Crystal Opal Ring.jpg">
-          <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2>Bright Green Black<br>Natural Crystal Opal Ring</h2>
-        <p>AU$2,066.65</p> 
-      </div>
-      <div class="category">
-        <div class="category-img-wrap">
-          <img src="rings/Tezcatlipoca Natural Boulder Opal Ring.jpg">
-          <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2>Tezcatlipoca Natural<br>Boulder Opal Ring</h2>
-        <p>AU$4,351.65</p>
-      </div>
-      <div class="category">
-        <div class="category-img-wrap">
-          <img src="rings/Earthen Blaze Queensland Boulder Opal Ring.jpg">
-          <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2>Earthen Blaze Queensland<br>Boulder Opal Ring</h2>
-        <p>AU$2,006.65</p>
-      </div>
-    </section>    
-    <!--EARRINGS-->
-    <section class="banner">
-      <h1 style="font-size: 40px;" class="explosive-text">WHISPERS AT THE EAR</h1>
-      <h3 style="margin-top: 0.5rem">Subtle brilliance, softly worn</h3>
-      <h3 style="margin-top: 0.5rem; font-size: 18px;"><a href="earrings.html">DISCOVER THE CRAFTMANSHIP</a></h3>
-    </section>
-    <section class="big-img">
-      <img src="categories/earrings1.jpg" style="object-position: 50% 90%">
+
+    <section class="banner" style="padding-top: 0;">
+      <h1 style="font-size: 30px;">UNSET OPALS</h1>
+      <p style="font-size: 18px;">Showcasing the unique beauty of genuine Australian opals.</p>
     </section>
     <section class="categories">
-      <div class="category">
+      <div class="category">  
+        <a href="products.html?id=#" data-price="1,499">
         <div class="category-img-wrap">
-          <img src="earrings/Coastal Eclipse Boulder Opal Earrings.jpg">
-          <p class="explore">QUICK VIEW</p>
+          <img src="unset/blue rockpool.jpg">
+          <p class="explore">EXPLPORE MORE</p>
+          <button class="heart-btn">
+            <i class="fa-regular fa-heart"></i>
+          </button>
         </div>
-        <h2>Coastal Eclipser<br>Boulder Opal Drop Earrings</h2>
-        <p>AU$1,671.65</p>
+        <p>AU$1,499</p>
+        <h2>1.70CT QUEENSLAND BOULDER UNSET OPAL <br>| 'BLUE ROCKPOOL' |</h2>
       </div>
-      <div class="category">    
+      <div class="category">  
+        <a href="products.html?id=#" data-price="1,999">
         <div class="category-img-wrap">
-          <img src="earrings/Flash and Awe Opal Drop Earrings.jpg">
-          <p class="explore">QUICK VIEW</p>
+          <img src="unset/ocean pair.jpg">
+          <p class="explore">EXPLPORE MORE</p>
+          <button class="heart-btn">
+            <i class="fa-regular fa-heart"></i>
+          </button>
         </div>
-        <h2>Flasg and Awe<br>Opal Drop Earrings</h2>
-        <p>AU$1,001.65</p> 
+        <p>AU$1,999</p>
+        <h2>11.90CT QUEENSLAND BOULDER UNSET OPAL | 'OCEAN PAIR' |</h2>
       </div>
-      <div class="category">
+      <div class="category">  
+        <a href="products.html?id=#" data-price="1,499">
         <div class="category-img-wrap">
-          <img src="earrings/Green Stars Large  Crystal Opal Earrings.jpg">
-          <p class="explore">QUICK VIEW</p>
+          <img src="unset/celestial.jpg">
+          <p class="explore">EXPLPORE MORE</p>
+          <span class="product-tag">SALE</span>
+          <button class="heart-btn">
+            <i class="fa-regular fa-heart"></i>
+          </button>
         </div>
-        <h2>Green Stars Large<br>Crystal Opal Earrings</h2>
-        <p>AU$3,011.65</p>
+        <div style="margin-top: 5px;">
+          <span class="sale-price">AU$1,499</span>
+          <span class="original-price">AU$1,999</span>
+        <h2>6.90CT SOLID AUSTRALIAN CRYSTAL OPAL <br>| 'CELESTAL' |</h2>
+        </div>
       </div>
-      <div class="category">
+      <div class="category">  
+        <a href="products.html?id=#" data-price="2,499">
         <div class="category-img-wrap">
-          <img src="earrings/Lagoon View  Boulder Opal Earrings.jpg">
-          <p class="explore">QUICK VIEW</p>
+          <img src="unset/misty morning.jpg">
+          <p class="explore">EXPLPORE MORE</p>
+          <button class="heart-btn">
+            <i class="fa-regular fa-heart"></i>
+          </button>
         </div>
-        <h2>Lagoon View<br>Boulder Opal Earrings</h2>
-        <p>AU$2,174.15</p>
+        <p>AU$2,499</p>
+        <h2>6.50CT QUEENSLAND BOULDER UNSET OPAL <br>| 'MISTY MORNING' |</h2>
       </div>
-    </section> 
-    <!--BRACELETS-->
-    <section class="banner">
-      <h1 style="font-size: 40px;" class="explosive-text">MADE FOR THE HAND</h1>
-      <h3 style="margin-top: 0.5rem">An invitation to carry elegance in every gesture</h3>
-      <h3 style="margin-top: 0.5rem; font-size: 18px;"><a href="bracelets.html">DISCOVER THE CRAFTMANSHIP</a></h3>
     </section>
-    <section class="big-img">
-      <img src="categories/bracelets1.jpg">
+
+    <div class="benefit-header"> 
+      <h1 style="font-size: 23px;">WHY SHOP WITH US?</h1>
+    <section class="benefits">
+      <div class="benefit-item">
+        <i class="fa-solid fa-gem"></i>
+        <p>Authentic Australian Opals</p>
+      </div>
+
+      <div class="benefit-item">
+        <i class="fa-solid fa-truck"></i>
+        <p>Free Shipping</p>
+      </div>
+
+      <div class="benefit-item">
+        <i class="fa-solid fa-rotate-left"></i>
+        <p>30 Day Returns</p>
+      </div>
+
+      <div class="benefit-item">
+        <i class="fa-solid fa-shield-heart"></i>
+        <p>Lifetime Warranty</p>
+      </div>
     </section>
-    <section class="categories">
-      <div class="category">
-        <div class="category-img-wrap">
-          <img src="bracelets/2 Stacks Crystal Opal Bracelet.jpg">
-          <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2>2 Stacks Crystal<br>Opal Bracelet</h2>
-        <p>AU$586.25</p>
-      </div>
-      <div class="category">
-        <div class="category-img-wrap">
-          <img src="bracelets/White Opal Large  Stone Bracelet.jpg">
-          <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2>White Opal Large<br>Stone Bracelet</h2>
-        <p>AU$1,169.15</p> 
-      </div>
-      <div class="category">
-        <div class="category-img-wrap">
-          <img src="bracelets/Teal & Green Light Opal 5 Stone Bracelet.jpg">
-          <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2>Teal Crystal Opal<br>5 Stone Bracelet</h2>
-        <p>AU$499.15</p>
-      </div>
-      <div class="category">
-        <div class="category-img-wrap">
-          <img src="bracelets/Solid Queensland Boulder Opal Bracelet.jpg">
-          <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2>Solid Queensland<br>Boulder Opal Bracelet</h2>
-        <p>AU$1,504.15</p>
-      </div>
-    </section>   
-    <!--NECKLACES-->
-    <section class="banner">
-      <h1 style="font-size: 40px;" class="explosive-text">ADORNED IN LIGHT</h1>
-      <h3 style="margin-top: 0.5rem">A quiet statement, resting at the heart</h3>
-      <h3 style="margin-top: 0.5rem; font-size: 18px;"><a href="necklaces.html">DISCOVER THE CRAFTMANSHIP</a></h3>
-    </section>
-    <section class="big-img">
-      <img src="categories/necklaces1.jpg">
-    </section>
-    <section class="categories">
-      <div class="category">
-        <div class="category-img-wrap">
-          <img src="necklaces/Brilliant Opal Necklace.jpg" style="object-position: 70% 0%">
-          <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2>Brilliant Opal<br>Necklace</h2>
-        <p>AU$1,169.15</p>
-      </div>
-      <div class="category">
-        <div class="category-img-wrap">
-          <img src="necklaces/Lightning McBoulder Boulder Opal Necklace.jpg">
-          <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2>Lightning McBoulder<br>Boulder Opal Necklace</h2>
-        <p>AU$2,006.65</p> 
-      </div>
-      <div class="category">
-        <div class="category-img-wrap">
-          <img src="necklaces/River Fire Boulder Opal Necklace.jpg">
-          <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2>River Fire<br>Boulder Opal Necklace</h2>
-        <p>AU$2,006.65</p>
-      </div>
-      <div class="category">
-        <div class="category-img-wrap">
-          <img src="necklaces/Soul of the Sea Solid Black Opal Necklace.jpg">
-          <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2>Soul of the Sea<br>Solid Black Opal Necklace</h2>
-        <p>AU$16,713.15</p>
-      </div>
-    </section>   
-    <div id="popup" class="popup">
-      <div class="popup-content">
-        <span id="close-popup">&times;</span>
-        <img src="hero/promo.png" alt="Promo">
-        <h2>New Collection Available</h2>
-        <p>Enjoy 10% off your first order.</p>
-        <a href="rings.html">
-          <button class="btn btn-pulse">Shop Now</button>
-        </a>
-      </div>
-    </div>
+
     <footer>
         <div class="footer-top">
-            <img class="logo" src="logo/logo.png" width="120px" height="auto">
+            <img class="logo footer-logo" src="logo/logo.png" width="120px" height="auto">
             <h2 style="font-weight: 300; font-size: 25px; font-style: italic;">Leading experts in Opal jewellery, we were so obsessed with giving our customers<br>the best possible experience we created our very own world-class Opal Museum</p>
         </div>
         <div class="footer-bottom">
