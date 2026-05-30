@@ -15,7 +15,7 @@ body {
 }
 h1 {
     font-family: 'Georgia, "Times New Roman', serif;  
-    font-size: 55px;
+    font-size: 40px;
     font-weight: 500;
     font-style: normal;
     margin: 0;
@@ -381,31 +381,28 @@ nav a:hover{
 }
 
 .page-hero {
-  padding: 2rem 2rem 1rem;
-  border-bottom: 2px solid var(--support);
+  padding: 40px 150px 20px;
 }
 
 .breadcrumb {
   font-family: 'Roboto Condensed', sans-serif;
-  font-size: 20px;
-  color: var(--accent-brown);
-  margin-bottom: 0.5rem;
-  margin-top: 0;
+  font-size: 15px;
+  color: var(--text-brown);
+  margin-bottom: 5px;
+  margin-top: 5px;
 }
 
-.product-grid {
+.product-list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-  padding: 0.5rem 2rem 2rem;
+  gap: 24px;
+  padding: 32px 150px 48px;
 }
 
-.product {
-  flex: 0 0 calc(25% - 1.5rem);
-  text-align: left;
-  img {
-  border-radius: 6px;
-  }
+.product-list .category {
+  opacity: 1;
+  transform: none;
+  transition: none;
 }
 
 .product img:hover,
@@ -633,7 +630,8 @@ footer {
 
 .product-grid .category-img-wrap img {
   width: 100%;
-  height: 300px;
+  height: auto;
+  aspect-ratio: 1/1;
   object-fit: cover;
   display: block;
 }
@@ -752,8 +750,9 @@ footer {
 }
 
 .filters {
+  margin-left: 120px;
   display: flex;
-  gap: 1rem;
+  gap: 10px;
   padding: 1rem 2rem 0rem;
   flex-wrap: wrap;
 }
@@ -763,7 +762,7 @@ footer {
   border: 1px solid var(--dark-brown);
   padding: 0.5rem 1.5rem;
   font-family: 'Roboto Condensed', sans-serif;
-  font-size: 0.8rem;
+  font-size: 13px;
   letter-spacing: 0.1em;
   cursor: pointer;
   color: var(--dark-brown);
@@ -1037,3 +1036,59 @@ footer {
   text-transform: uppercase;
   color: var(--dark-brown);
 }
+
+.sort-bar {
+  padding: 16px 32px;
+  position: relative;
+  display: inline-block;
+  justify-content: flex-end;
+}
+
+.sort-select {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 13px;
+  color: var(--dark-brown);
+  font-weight: 400;
+}
+
+.sort-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 32px;
+  background: var(--white);
+  border: 1px solid var(--support);
+  min-width: 110px;
+  z-index: 100;
+  padding: 5px 5px 5px ;
+}
+
+.sort-dropdown p {
+  padding: 12px 16px;
+  cursor: pointer;
+  margin: 0;
+  font-size: 14px;
+}
+
+.sort-dropdown p:hover {
+  background: var(--support2);
+}
+
+.filter-sort-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  margin-right: 88px;
+}
+
+.filters {
+  display: flex;
+  gap: 8px;
+  padding: 16px 0;
+}
+

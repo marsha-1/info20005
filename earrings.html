@@ -19,226 +19,396 @@
       </div>
       <div id="search-results"></div>
     </div>
-
     <div class="ticker">
-      <span>FREE SHIPPING ON ALL ORDERS &nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp; NEW COLLECTION NOW AVAILABLE &nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp; HANDCRAFTED FINE OPAL JEWELRY &nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp; ENJOY 10% OFF YOUR FIRST ORDER &nbsp;&nbsp;&nbsp;</span>
+      <span>FREE SHIPPING ON ALL ORDERS &nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp; NEW COLLECTION NOW AVAILABLE &nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp; HANDCRAFTED FINE OPAL JEWELLERY &nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp; ENJOY 10% OFF YOUR FIRST ORDER &nbsp;&nbsp;&nbsp;</span>
     </div> 
-
     <header>
       <div class="header-inner">
-        <button class="icon" onclick="document.getElementById('search-overlay').style.display='flex'">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </button>        
         <div class="logo-wrap">
-          <img class="logo" src="logo/logo.png" width="120px" height="auto">
+          <img class="logo" src="logo/logo.png" width="90px" height="auto">
           <div class="logo-dot"></div>
         </div>
+        <nav>
+          <a href="#">ENGAGEMENT</a>
+          <a href="#">MEN'S</a> 
+          <a href="#">GIFTS</a>
+          <a href="#">STATEMENT</a>
+          <a href="#" style="color: #A64B4B;">CLEARANCE</a>       
+        </nav>
+        <div class="header-icons">
+        <button class="icon" onclick="document.getElementById('search-overlay').style.display='flex'">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <button class="icon">
+          <i class="fa-regular fa-heart"></i>
+        </button>        
+        <button class="icon">
+          <i class="fa-regular fa-user"></i>
+        </button>
         <a href="cart.html">
           <button class="icon">
             <i class="fa-solid fa-bag-shopping"></i>
           </button> 
         </a>
+        </div>
       </div>
-      <nav>
-        <a href="rings.html">RINGS</a>
-        <a href="earrings.html">EARRINGS</a>
-        <a href="bracelets.html">BRACELETS</a>
-        <a href="necklaces.html">NECKLACES</a>       
-      </nav>
     </header>
-
-    <section class="category-hero">
-        <img src="hero/earringhero.png">
-    </section>
 
     <section class="page-hero">
         <h2 class="breadcrumb"><a href="index.html">HOME</a>/EARRINGS</h2>
-        <h2 style="font-size: 50px; font-weight: 500; letter-spacing: 10%;">EARRINGS</h2>
-        <h2>Discover a new pair of earrings in sterling<br>silver, 14k gold, and rose gold finishes. </h2>
+        <h1>Earrings</h1>
+        <h2 style="font-size: 15px; font-weight: 400;">Discover a new pair of earrings in sterling silver and gold finishes.</h2>
     </section>
 
-    <div class="filters">
+    <div class="filter-sort-bar">
+      <div class="filters">
         <button class="filter-btn active" data-filter="all">ALL</button>
         <button class="filter-btn" data-filter="gold">GOLD</button>
         <button class="filter-btn" data-filter="silver">SILVER</button>
         <button class="filter-btn" data-filter="under500">UNDER AU$500</button>
         <button class="filter-btn" data-filter="under1000">UNDER AU$1000</button>
+        <button class="filter-btn" data-filter="sale">SALE</button>
+      </div>
+
+      <div class="sort-bar">
+        <div class="sort-select" onclick="toggleSort()">
+          <span id="sort-label">SORT</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <div class="sort-dropdown" id="sort-dropdown">
+          <h2 style="font-size: 13px;" class="sort-option" onclick="sortProducts('low', event)">
+            <span class="sort-check">PRICE: LOW TO HIGH</span>
+          </h2>
+          <h2 style="font-size: 13px;" class="sort-option" onclick="sortProducts('high', event)">
+            <span class="sort-check">PRICE: HIGH TO LOW</span> 
+          </h2>
+        </div>
+      </div>
     </div>
 
-    <section class="product-grid">
-    <a href="products.html?id=natural-crystal-opal-stud-earrings" data-metal="silver" data-price="499">
-        <div class="category-img-wrap">
-        <img src="earrings/Natural Crystal  Opal Stud Earrings.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Natural Crystal<br>Opal Stud Earrings</h2>
-        <p>AU$499.15</p>
-    </a>
-    <a href="products.html?id=solid-white-opal-stud-earrings" data-metal="silver" data-price="586">
-        <div class="category-img-wrap">
-        <img src="earrings/Solid White Opal Stud Earrings.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Solid White<br>Opal Stud Earrings</h2>
-        <p>AU$586.25</p>
-    </a>
-    <a href="products.html?id=statement-crystal-opal-stud-earrings" data-metal="silver" data-price="398">
-        <div class="category-img-wrap">
-        <img src="earrings/Statement Crystal Opal Stud Earrings.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Statement Crystal<br>Opal Stud Earrings</h2>
-        <p>AU$398.65</p>
-    </a>
-    <a href="products.html?id=lagoon-view-boulder-opal-earrings" data-metal="gold" data-price="2174">
-        <div class="category-img-wrap">
-        <img src="earrings/Lagoon View  Boulder Opal Earrings.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Lagoon View<br>Boulder Opal Earrings</h2>
-        <p>AU$2,174.15</p>
-    </a>
-    <a href="products.html?id=colour-bars-boulder-opal-drop-earrings" data-metal="gold" data-price="1336">
-        <div class="category-img-wrap">
-        <img src="earrings/Colour Bars Boulder Opal Drop Earrings.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Colour Bars Boulder<br>Opal Drop Earrings</h2>
-        <p>AU$1,336.65</p>
-    </a>
-    <a href="products.html?id=purple-crystal-teardrop-opal-earrings" data-metal="silver" data-price="666">
-        <div class="category-img-wrap">
-        <img src="earrings/Purple Crystal Teardrop Opal Earrings.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Purple Crystal Teardrop<br>Opal Earrings</h2>
-        <p>AU$666.65</p>
-    </a>
-    <a href="products.html?id=white-opal-drop-earrings" data-metal="silver" data-price="499">
-        <div class="category-img-wrap">
-        <img src="earrings/White Opal  Drop Opal Earrings.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">White Opal<br>Drop Opal Earrings</h2>
-        <p>AU$499.15</p>
-    </a>
-    <a href="products.html?id=coastal-eclipse-boulder-opal-earrings" data-metal="gold" data-price="1671">
-        <div class="category-img-wrap">
-        <img src="earrings/Coastal Eclipse Boulder Opal Earrings.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Coastal Eclipse<br>Boulder Opal Earrings</h2>
-        <p>AU$1,671.65</p>
-    </a>
-    <a href="products.html?id=ganymede-and-callisto-solid-opal-earrings" data-metal="silver" data-price="2174">
-        <div class="category-img-wrap">
-        <img src="earrings/Ganymede and Callisto  Solid Opal Earrings.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Ganymede and Callisto<br>Solid Opal Earrings</h2>
-        <p>AU$2,174.15</p>
-    </a>
-    <a href="products.html?id=green-stars-large-crystal-opal-earrings" data-metal="gold" data-price="3011">
-        <div class="category-img-wrap">
-        <img src="earrings/Green Stars Large  Crystal Opal Earrings.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Green Stars Large<br>Crystal Opal Earrings</h2>
-        <p>AU$3,011.65</p>
-    </a>
-    <a href="products.html?id=blue-and-gold-boulder-opal-drop-earrings" data-metal="gold" data-price="2006">
-        <div class="category-img-wrap">
-        <img src="earrings/Blue and Gold Boulder  Opal Drop Earrings.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Blue and Gold Boulder<br>Opal Drop Earrings</h2>
-        <p>AU$2,006.65</p>
-    </a>
-    <a href="products.html?id=white-statement-opal-drop-earrings" data-metal="silver" data-price="264">
-        <div class="category-img-wrap">
-        <img src="earrings/White Statement  Opal Drop Earrings.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">White Statement<br>Opal Drop Earrings</h2>
-        <p>AU$264.65</p>
-    </a>
-    <a href="products.html?id=majestic-crystal-opal-drop-earrings" data-metal="silver" data-price="264">
-        <div class="category-img-wrap">
-        <img src="earrings/Majestic Crystal Opal Drop Earrings.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Majestic Crystal<br>Opal Drop Earrings</h2>
-        <p>AU$264.65</p>
-    </a>
-    <a href="products.html?id=peacock-pair-crystal-opal-drop-earrings" data-metal="silver" data-price="499">
-        <div class="category-img-wrap">
-        <img src="earrings/Peacock Pair Crystal  Opal Drop Earrings.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Peacock Pair Crystal<br>Opal Drop Earrings</h2>
-        <p>AU$499.15</p>
-    </a>
-    <a href="products.html?id=love-silver-cobber-pedy-white-opal-earrings" data-metal="silver" data-price="201">
-        <div class="category-img-wrap">
-        <img src="earrings/Love Silver and Cobber Pedy White Opal Earrings.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Love Silver and Cobber<br>Pedy White Opal Earrings</h2>
-        <p>AU$201.00</p>
-    </a>
-    <a href="products.html?id=light-pools-boulder-opal-earrings" data-metal="gold" data-price="6529">
-        <div class="category-img-wrap">
-        <img src="earrings/Light Pools  Boulder Opal Earrings.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Light Pools<br>Boulder Opal Earrings</h2>
-        <p>AU$6,529.15</p>
-    </a>
-    <a href="products.html?id=golden-shores-boulder-opal-earrings" data-metal="gold" data-price="1839">
-        <div class="category-img-wrap">
-        <img src="earrings/Golden Shores Boulder Opal Earrings.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Golden Shores<br>Boulder Opal Earrings</h2>
-        <p>AU$1,839.15</p>
-    </a>
-    <a href="products.html?id=stormy-skies-solid-opal-earrings" data-metal="silver" data-price="1671">
-        <div class="category-img-wrap">
-        <img src="earrings/Stormy Skies Solid Opal Earrings.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Stormy Skies<br>Solid Opal Earrings</h2>
-        <p>AU$1,671.65</p>
-    </a>
-    <a href="products.html?id=crystal-pools-crystal-opal-earrings" data-metal="silver" data-price="1001">
-        <div class="category-img-wrap">
-        <img src="earrings/Crystal Pools Crystal Opal Earrings.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Crystal Pools<br>Crystal Opal Earrings</h2>
-        <p>AU$1,001.65</p>
-    </a>
-    <a href="products.html?id=flash-and-awe-opal-drop-earrings" data-metal="silver" data-price="1001">
-        <div class="category-img-wrap">
-        <img src="earrings/Flash and Awe Opal Drop Earrings.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Flash and Awe<br>Opal Drop Earrings</h2>
-        <p>AU$1,001.65</p>
-    </a>
-    <a href="products.html?id=manta-rays-opal-drop-earrings" data-metal="silver" data-price="331">
-        <div class="category-img-wrap">
-        <img src="earrings/Manta Rays  Opal Drop Earrings.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Manta Rays<br>Opal Drop Earrings</h2>
-        <p>AU$331.65</p>
-    </a>
+    <section class="categories product-list">
+      <div class="category">
+        <a href="products.html?id=crystal-whisper" data-metal="silver" data-price="499" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="earrings/Crystal Whisper.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'crystal-whisper')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$499</span>
+            <span class="original-price">AU$799</span>
+          </div>
+          <h2>9.65CT NATURAL CRYSTAL OPAL STUDS <br>| STERLING SILVER | 'CRYSTAL WHISPER'</h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=white-mist" data-metal="silver" data-price="599">
+          <div class="category-img-wrap">
+            <img src="earrings/White Mist.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'white-mist')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <p style="margin-top: 8px;">AU$599</p>
+          <h2>9.65CT SOLID WHITE OPAL STUDS <br>| STERLING SILVER | 'WHITE MIST'</h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=polar-light" data-metal="silver" data-price="499" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="earrings/Polar Light.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'polar-light')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$499</span>
+            <span class="original-price">AU$799</span>
+          </div>
+          <h2>23.40CT CRYSTAL OPAL STUDS <br>| STERLING SILVER | 'POLAR LIGHT'</h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=lagoon-light" data-metal="gold" data-price="2999">
+          <div class="category-img-wrap">
+            <img src="earrings/Lagoon Light.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'lagoon-light')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <p style="margin-top: 8px;">AU$2,999</p>
+          <h2>43.25CT BOULDER OPAL DROP EARRINGS <br>| 10K YELLOW GOLD | 'LAGOON LIGHT'</h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=colour-bars" data-metal="gold" data-price="1299">
+          <div class="category-img-wrap">
+            <img src="earrings/Colour Bars.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'colour-bars')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <p style="margin-top: 8px;">AU$1,299</p>
+          <h2>25CT CRYSTAL OPAL DROP EARRINGS <br>| 10K YELLOW GOLD | 'COLOUR BARS'</h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=violet-dream" data-metal="silver" data-price="699" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="earrings/Violet Dream.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'violet-dream')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$699</span>
+            <span class="original-price">AU$999</span>
+          </div>
+          <h2>24.10CT CRYSTAL TEARDROP OPAL EARRINGS <br>| STERLING SILVER | 'VIOLET DREAM'</h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=ivory-drop" data-metal="silver" data-price="499" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="earrings/Ivory Drop.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'ivory-drop')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$499</span>
+            <span class="original-price">AU$799</span>
+          </div>
+          <h2>4.75CT WHITE OPAL DROP EARRINGS <br>| STERLING SILVER | 'IVORY DROP'</h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=coastal-eclipse" data-metal="gold" data-price="1699">
+          <div class="category-img-wrap">
+            <img src="earrings/Coastal Eclipse.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'coastal-eclipse')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <p style="margin-top: 8px;">AU$1,699</p>
+          <h2>45.20CT BOULDER OPAL STUDS <br>| 10K YELLOW GOLD | 'COASTAL ECLIPSE'</h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=twin-moons" data-metal="silver" data-price="2999">
+          <div class="category-img-wrap">
+            <img src="earrings/Twin Moons.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'twin-moons')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <p style="margin-top: 8px;">AU$2,999</p>
+          <h2>23.40CT BOULDER OPAL DROP EARRINGS <br>| STERLING SILVER | 'TWIN MOONS'</h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=emerald-star" data-metal="gold" data-price="3199">
+          <div class="category-img-wrap">
+            <img src="earrings/Emerald Star.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'emerald-star')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <p style="margin-top: 8px;">AU$3,199</p>
+          <h2>45.20CT CRYSTAL OPAL EARRINGS <br>| 10K YELLOW GOLD | 'EMERALD STAR'</h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=golden-tide" data-metal="gold" data-price="2499" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="earrings/Golden Tide.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'golden-tide')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$2,499</span>
+            <span class="original-price">AU$2,999</span>
+          </div>
+          <h2>32.15CT BOULDER OPAL DROP EARRINGS <br>| 10K YELLOW GOLD | 'GOLDEN TIDE'</h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=snow-drop" data-metal="silver" data-price="249" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="earrings/Snow Drop.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'snow-drop')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$249</span>
+            <span class="original-price">AU$399</span>
+          </div>
+          <h2>6.15CT WHITE OPAL DROP EARRINGS <br>| STERLING SILVER | 'SNOW DROP'</h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=crystal-falls" data-metal="silver" data-price="249" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="earrings/Crystal Falls.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'crystal-falls')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$249</span>
+            <span class="original-price">AU$399</span>
+          </div>
+          <h2>2.35CT CRYSTAL OPAL DROP EARRINGS <br>| STERLING SILVER | 'CRYSTAL FALLS'</h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=peacock-pair" data-metal="silver" data-price="499" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="earrings/Peacock Pair.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'peacock-pair')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$499</span>
+            <span class="original-price">AU$799</span>
+          </div>
+          <h2>5.85CT CRYSTAL OPAL DROP EARRINGS <br>| STERLING SILVER | 'PEACOCK PAIR'</h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=silver-love" data-metal="silver" data-price="199" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="earrings/Silver Love.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'silver-love')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$199</span>
+            <span class="original-price">AU$299</span>
+          </div>
+          <h2>2.15CT WHITE OPAL EARRINGS <br>| STERLING SILVER | 'SILVER LOVE'</h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=light-pools" data-metal="gold" data-price="6499">
+          <div class="category-img-wrap">
+            <img src="earrings/Light Pools.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'light-pools')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <p style="margin-top: 8px;">AU$6,499</p>
+          <h2>43.20CT BOULDER OPAL DROP EARRINGS <br>| 10K YELLOW GOLD | 'LIGHT POOLS'</h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=golden-shores" data-metal="gold" data-price="1999">
+          <div class="category-img-wrap">
+            <img src="earrings/Golden Shores.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'golden-shores')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <p style="margin-top: 8px;">AU$1,999</p>
+          <h2>15.23CT BOULDER OPAL DROP EARRINGS <br>| 10K YELLOW GOLD | 'GOLDEN SHORES'</h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=stormy-skies" data-metal="silver" data-price="1499">
+          <div class="category-img-wrap">
+            <img src="earrings/Stormy Skies.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'stormy-skies')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <p style="margin-top: 8px;">AU$1,499</p>
+          <h2>35CT BOULDER OPAL DROP EARRINGS <br>| STERLING SILVER | 'STORMY SKIES'</h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=crystal-pools" data-metal="silver" data-price="999">
+          <div class="category-img-wrap">
+            <img src="earrings/Crystal Pools.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'crystal-pools')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <p style="margin-top: 8px;">AU$999</p>
+          <h2>20.25CT CRYSTAL OPAL DROP EARRINGS <br>| STERLING SILVER | 'CRYSTAL POOLS'</h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=flash-and-awe" data-metal="silver" data-price="999" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="earrings/Flash and Awe.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'flash-and-awe')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$999</span>
+            <span class="original-price">AU$1,499</span>
+          </div>
+          <h2>12.45CT CRYSTAL OPAL DROP EARRINGS <br>| STERLING SILVER | 'FLASH AND AWE'</h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=manta-ray" data-metal="silver" data-price="299" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="earrings/Manta Rays.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'manta-ray')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$299</span>
+            <span class="original-price">AU$499</span>
+          </div>
+          <h2>1.25CT CRYSTAL OPAL DROP EARRINGS <br>| STERLING SILVER | 'MANTA RAY'</h2>
+        </a>
+      </div>
     </section>
 
     <footer>
         <div class="footer-top">
-            <img class="logo" src="logo/logo.png" width="120px" height="auto">
+            <img class="logo footer-logo" src="logo/logo.png" width="120px" height="auto">
             <h2 style="font-weight: 300; font-size: 25px; font-style: italic;">Leading experts in Opal jewellery, we were so obsessed with giving our customers<br>the best possible experience we created our very own world-class Opal Museum</p>
         </div>
         <div class="footer-bottom">
@@ -266,7 +436,7 @@
       </div>
       <p class="copyright">Copyright © 2026 Marsha. All Rights Reserved.</h2>    
     </footer>
-    <script src="script.js"></script>
     <script src="products.js"></script>
+    <script src="script.js"></script>  
   </body>
 </html>

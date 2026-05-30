@@ -127,7 +127,7 @@ document.querySelectorAll('.category').forEach(cat => {
 });
 
 const filterBtns = document.querySelectorAll('.filter-btn');
-const productLinks = document.querySelectorAll('.product-grid a');
+const productLinks = document.querySelectorAll('.product-list .category a');
 
 filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
@@ -135,28 +135,32 @@ filterBtns.forEach(btn => {
     btn.classList.add('active');
 
     const filter = btn.dataset.filter;
+    const categories = document.querySelectorAll('.product-list .category');
 
-    productLinks.forEach(product => {
-      const metal = product.dataset.metal;
-      const price = parseInt(product.dataset.price);
+    categories.forEach(cat => {
+      const a = cat.querySelector('a');
+      const metal = a.dataset.metal;
+      const price = parseInt(a.dataset.price);
+      const sale = a.dataset.sale;
 
       if (filter === 'all') {
-        product.style.display = 'block';
+        cat.style.display = 'block';
       } else if (filter === 'gold' && metal === 'gold') {
-        product.style.display = 'block';
+        cat.style.display = 'block';
       } else if (filter === 'silver' && metal === 'silver') {
-        product.style.display = 'block';
+        cat.style.display = 'block';
       } else if (filter === 'under500' && price < 500) {
-        product.style.display = 'block';
+        cat.style.display = 'block';
       } else if (filter === 'under1000' && price < 1000) {
-        product.style.display = 'block';
+        cat.style.display = 'block';
+      } else if (filter === 'sale' && sale === 'true') {
+        cat.style.display = 'block';
       } else {
-        product.style.display = 'none';
+        cat.style.display = 'none';
       }
     });
   });
 });
-
 
 const searchInput = document.getElementById('search-input');
 
@@ -247,5 +251,41 @@ document.querySelectorAll('.heart-btn').forEach(btn => {
   if (favs.includes(id)) {
     btn.classList.add('active');
     btn.innerHTML = '<i class="fa-solid fa-heart" style="color:#c0392b"></i>';
+  }
+});
+
+
+function toggleSort() {
+  const dropdown = document.getElementById('sort-dropdown');
+  dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+}
+
+function sortProducts(type, e) {
+  const grid = document.querySelector('.product-list');
+  const items = Array.from(grid.querySelectorAll('.category'));
+
+  items.sort((a, b) => {
+    const priceA = parseInt(a.querySelector('a').dataset.price);
+    const priceB = parseInt(b.querySelector('a').dataset.price);
+    if (type === 'low') return priceA - priceB;
+    if (type === 'high') return priceB - priceA;
+    return 0;
+  });
+
+  items.forEach(p => grid.appendChild(p));
+
+  const labels = {
+    low: 'PRICE: LOW TO HIGH',
+    high: 'PRICE: HIGH TO LOW',
+  };
+
+  document.getElementById('sort-label').textContent = labels[type];
+  document.getElementById('sort-dropdown').style.display = 'none';
+}
+// close dropdown when clicking outside
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.sort-bar')) {
+    const dropdown = document.getElementById('sort-dropdown');
+    if (dropdown) dropdown.style.display = 'none';
   }
 });

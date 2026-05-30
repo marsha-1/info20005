@@ -51,7 +51,7 @@
             <i class="fa-solid fa-bag-shopping"></i>
           </button> 
         </a>
-        </div>
+      </div>
       </div>
     </header>
 
@@ -69,43 +69,43 @@
       <h1 style="font-size: 30px;">SHOP BY CATEGORIES</h1>
       <p style="font-size: 18px; margin-bottom: 0;"><a href="#">SHOP ALL</a></p>
     </section>
-    <section class="categories" style="gap: 10px;">
-      <div class="category">  
-        <div class="category-img-wrap">
-          <img src="categories/rings.jpg">
-          <p class="explore"><a href=rings.html>EXPLPORE MORE</a></p>
+      <section class="categories" style="gap: 10px;">
+        <div class="category">  
+          <div class="category-img-wrap">
+            <img src="categories/rings.jpg">
+            <p class="explore"><a href=rings.html>EXPLORE MORE</a></p>
+          </div>
+          <h2 style="font-size: 20px;">RINGS</h2>
         </div>
-        <h2 style="font-size: 20px;">RINGS</h2>
-      </div>
-      <div class="category">
-        <div class="category-img-wrap">
-          <img src="categories/earrings.jpg">
-          <p class="explore"><a href=earrings.html>EXPLPORE MORE</a></p>
+        <div class="category">
+          <div class="category-img-wrap">
+            <img src="categories/earrings.jpg">
+            <p class="explore"><a href=earrings.html>EXPLORE MORE</a></p>
+          </div>
+          <h2 style="font-size: 20px;">EARRINGS</h2>
         </div>
-        <h2 style="font-size: 20px;">EARRINGS</h2>
-      </div>
-      <div class="category">
-        <div class="category-img-wrap">
-          <img src="categories/bracelets.jpg">
-          <p class="explore"><a href=bracelets.html>EXPLORE MORE</a></p>
+        <div class="category">
+          <div class="category-img-wrap">
+            <img src="categories/bracelets.jpg">
+            <p class="explore"><a href=bracelets.html>EXPLORE MORE</a></p>
+          </div>
+          <h2 style="font-size: 20px;">BRACELETS</h2>
         </div>
-        <h2 style="font-size: 20px;">BRACELETS</h2>
-      </div>
-      <div class="category">
-        <div class="category-img-wrap">
-          <img src="categories/necklaces.jpg">
-          <p class="explore"><a href="necklaces.html">EXPLORE MORE</a></p>
+        <div class="category">
+          <div class="category-img-wrap">
+            <img src="categories/necklaces.jpg">
+            <p class="explore"><a href="necklaces.html">EXPLORE MORE</a></p>
+          </div>
+          <h2 style="font-size: 20px;">NECKLACES</h2>
         </div>
-        <h2 style="font-size: 20px;">NECKLACES</h2>
-      </div>
-      <div class="category">
-        <div class="category-img-wrap">
-          <img src="unset/rainbow opal.jpg">
-          <p class="explore"><a href="#">EXPLORE MORE</a></p>
+        <div class="category">
+          <div class="category-img-wrap">
+            <img src="unset/rainbow opal.jpg">
+            <p class="explore"><a href="#">EXPLORE MORE</a></p>
+          </div>
+          <h2 style="font-size: 20px;">UNSET OPALS</h2>
         </div>
-        <h2 style="font-size: 20px;">UNSET OPALS</h2>
-      </div>
-    </section>
+      </section>
 
     <section class="banner">
       <h1 style="font-size: 30px; padding-top: 30px;">EXCLUSIVE COLLECTION</h1>
@@ -116,7 +116,7 @@
       <a href="products.html?id=#" data-metal="silver" data-price="349">
         <div class="category-img-wrap">
           <img src="necklaces/Moonbeam Drop Necklace.jpg">
-          <p class="explore">EXPLPORE MORE</p>
+          <p class="explore">QUICK VIEW</p>
           <span class="product-tag">SALE</span>
           <button class="heart-btn">
             <i class="fa-regular fa-heart"></i>
@@ -132,7 +132,7 @@
       <a href="products.html?id=#" data-metal="gold" data-price="8999">
         <div class="category-img-wrap">
           <img src="necklaces/Spectral Fire Boulder Necklace.jpg">
-          <p class="explore"><a href=rings.html>EXPLPORE MORE</a></p>
+          <p class="explore"><a href=rings.html>QUICK VIEW</a></p>
           <span class="product-tag">SALE</span>
           <button class="heart-btn">
             <i class="fa-regular fa-heart"></i>
@@ -145,26 +145,27 @@
         <h2>30CT QUEENSLAND BOULDER NECKLACE <br>| 10K YELLOW GOLD | 'SPECTRAL FIRE'</h2>
       </div>
       <div class="category"> 
-      <a href="products.html?id=#" data-metal="silver" data-price="649">
-        <div class="category-img-wrap">
-          <img src="rings/Ocean Trilogy.jpg">
-          <p class="explore"><a href=rings.html>EXPLPORE MORE</a></p>
-          <span class="product-tag">SALE</span>
-          <button class="heart-btn">
-            <i class="fa-regular fa-heart"></i>
-          </button>
-        </div>
-        <div style="margin-top: 5px;">
-          <span class="sale-price">AU$649</span>
-          <span class="original-price">AU$999</span>
-        </div>
-        <h2>17.85CT LIGHTNING RIDGE BLACK OPAL RINGS | STRELING SILVER | 'OCEAN TRILOGY'</h2>
+        <a href="products.html?id=ocean-trilogy" data-metal="silver" data-price="649" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="rings/Ocean Trilogy.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'ocean-trilogy')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$649</span>
+            <span class="original-price">AU$999</span>
+          </div>
+          <h2>17.85CT LIGHTNING RIDGE BLACK OPAL RING <br>| STRELING SILVER | 'OCEAN TRILOGY'</h2>
+        </a>
       </div>
       <div class="category">  
       <a href="products.html?id=#" data-metal="silver" data-price="999">
         <div class="category-img-wrap">
           <img src="bracelets/Coastal Wave.jpg">
-          <p class="explore"><a href=rings.html>EXPLPORE MORE</a></p>
+          <p class="explore"><a href=rings.html>QUICK VIEW</a></p>
           <span class="product-tag">SALE</span>
           <button class="heart-btn">
             <i class="fa-regular fa-heart"></i>
@@ -228,7 +229,7 @@
         <a href="products.html?id=#" data-price="1,499">
         <div class="category-img-wrap">
           <img src="unset/blue rockpool.jpg">
-          <p class="explore">EXPLPORE MORE</p>
+          <p class="explore">QUICK VIEW</p>
           <button class="heart-btn">
             <i class="fa-regular fa-heart"></i>
           </button>
@@ -240,7 +241,7 @@
         <a href="products.html?id=#" data-price="1,999">
         <div class="category-img-wrap">
           <img src="unset/ocean pair.jpg">
-          <p class="explore">EXPLPORE MORE</p>
+          <p class="explore">QUICK VIEW</p>
           <button class="heart-btn">
             <i class="fa-regular fa-heart"></i>
           </button>
@@ -252,7 +253,7 @@
         <a href="products.html?id=#" data-price="1,499">
         <div class="category-img-wrap">
           <img src="unset/celestial.jpg">
-          <p class="explore">EXPLPORE MORE</p>
+          <p class="explore">QUICK VIEW</p>
           <span class="product-tag">SALE</span>
           <button class="heart-btn">
             <i class="fa-regular fa-heart"></i>
@@ -268,7 +269,7 @@
         <a href="products.html?id=#" data-price="2,499">
         <div class="category-img-wrap">
           <img src="unset/misty morning.jpg">
-          <p class="explore">EXPLPORE MORE</p>
+          <p class="explore">QUICK VIEW</p>
           <button class="heart-btn">
             <i class="fa-regular fa-heart"></i>
           </button>

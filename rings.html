@@ -19,245 +19,541 @@
       </div>
       <div id="search-results"></div>
     </div>
-
     <div class="ticker">
       <span>FREE SHIPPING ON ALL ORDERS &nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp; NEW COLLECTION NOW AVAILABLE &nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp; HANDCRAFTED FINE OPAL JEWELLERY &nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp; ENJOY 10% OFF YOUR FIRST ORDER &nbsp;&nbsp;&nbsp;</span>
     </div> 
-
     <header>
       <div class="header-inner">
-        <button class="icon" onclick="document.getElementById('search-overlay').style.display='flex'">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </button>        
         <div class="logo-wrap">
-          <img class="logo" src="logo/logo.png" width="120px" height="auto">
+          <img class="logo" src="logo/logo.png" width="90px" height="auto">
           <div class="logo-dot"></div>
         </div>
+        <nav>
+          <a href="#">ENGAGEMENT</a>
+          <a href="#">MEN'S</a> 
+          <a href="#">GIFTS</a>
+          <a href="#">STATEMENT</a>
+          <a href="#" style="color: #A64B4B;">CLEARANCE</a>       
+        </nav>
+        <div class="header-icons">
+        <button class="icon" onclick="document.getElementById('search-overlay').style.display='flex'">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <button class="icon">
+          <i class="fa-regular fa-heart"></i>
+        </button>        
+        <button class="icon">
+          <i class="fa-regular fa-user"></i>
+        </button>
         <a href="cart.html">
           <button class="icon">
             <i class="fa-solid fa-bag-shopping"></i>
           </button> 
         </a>
+        </div>
       </div>
-      <nav>
-        <a href="rings.html">RINGS</a>
-        <a href="earrings.html">EARRINGS</a>
-        <a href="bracelets.html">BRACELETS</a>
-        <a href="necklaces.html">NECKLACES</a>       
-      </nav>  
     </header>
-
-    <section class="category-hero">
-        <img src="hero/ringhero.png">
-    </section>
 
     <section class="page-hero">
         <h2 class="breadcrumb"><a href="index.html">HOME</a>/RINGS</h2>
-        <h2 style="font-size: 50px; font-weight: 500; letter-spacing: 10%;">RINGS</h2>
-        <h2>Discover our rings collection to find<br>the latest addition to your jewellery box.</h2>
+        <h1>Rings</h1>
+        <h2 style="font-size: 15px; font-weight: 400;">Discover our rings collection to find the latest addition to your jewellery box.</h2>
     </section>
 
-    <div class="filters">
+    <div class="filter-sort-bar">
+      <div class="filters">
         <button class="filter-btn active" data-filter="all">ALL</button>
         <button class="filter-btn" data-filter="gold">GOLD</button>
         <button class="filter-btn" data-filter="silver">SILVER</button>
         <button class="filter-btn" data-filter="under500">UNDER AU$500</button>
         <button class="filter-btn" data-filter="under1000">UNDER AU$1000</button>
+        <button class="filter-btn" data-filter="sale">SALE</button>
+      </div>
+
+      <div class="sort-bar">
+        <div class="sort-select" onclick="toggleSort()">
+          <span id="sort-label">SORT</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <div class="sort-dropdown" id="sort-dropdown">
+          <h2 style="font-size: 13px;" class="sort-option" onclick="sortProducts('low', event)">
+            <span class="sort-check">PRICE: LOW TO HIGH</span>
+          </h2>
+          <h2 style="font-size: 13px;" class="sort-option" onclick="sortProducts('high', event)">
+            <span class="sort-check">PRICE: HIGH TO LOW</span> 
+          </h2>
+        </div>
+      </div>
     </div>
 
-    <section class="product-grid">
-    <a href="products.html?id=natural-queensland-boulder-opal-ring" data-metal="silver" data-price="499">
-        <div class="category-img-wrap">
-        <img src="rings/Natural Queensland Boulder Opal Ring.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Natural Queensland<br>Boulder Opal Ring</h2>
-        <p>AU$499.15</p>
-    </a>
-    <a href="products.html?id=fine-queensland-boulder-opal-ring" data-metal="silver" data-price="499">
-        <div class="category-img-wrap">
-        <img src="rings/Fine Queensland Boulder Opal Ring.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Fine Queensland<br>Boulder Opal Ring</h2>
-        <p>AU$499.15</p>
-    </a>
-    <a href="products.html?id=earthen-blaze-queensland-boulder-opal-ring" data-metal="gold" data-price="2006">
-        <div class="category-img-wrap">
-        <img src="rings/Earthen Blaze Queensland Boulder Opal Ring.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Earthen Blaze Queensland<br>Boulder Opal Ring</h2>
-        <p>AU$2,006.65</p>
-    </a>
-    <a href="products.html?id=blue-natural-boulder-opal-ring" data-metal="gold" data-price="2509">
-        <div class="category-img-wrap">
-        <img src="rings/Blue Natural Boulder Opal Ring.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Blue Natural<br>Boulder Opal Ring</h2>
-        <p>AU$2,509.15</p>
-    </a>
-    <a href="products.html?id=tezcatlipoca-natural-boulder-opal-ring" data-metal="gold" data-price="4351">
-        <div class="category-img-wrap">
-        <img src="rings/Tezcatlipoca Natural Boulder Opal Ring.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Tezcatlipoca Natural<br>Boulder Opal Ring</h2>
-        <p>AU$4,351.65</p>
-    </a>
-    <a href="products.html?id=bright-green-black-natural-crystal-opal-ring" data-metal="gold" data-price="2066">
-        <div class="category-img-wrap">
-        <img src="rings/Bright Green Black  Natural Crystal Opal Ring.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Bright Green Black<br>Natural Crystal Opal Ring</h2>
-        <p>AU$2,066.65</p>
-    </a>
-    <a href="products.html?id=blue-queensland-boulder-opal-ring" data-metal="gold" data-price="1671">
-        <div class="category-img-wrap">
-        <img src="rings/Blue Queensland Boulder Opal Ring.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Blue Queensland<br>Boulder Opal Ring</h2>
-        <p>AU$1,671.65</p>
-    </a>
-    <a href="products.html?id=signature-queensland-boulder-opal-ring" data-metal="silver" data-price="666">
-        <div class="category-img-wrap">
-        <img src="rings/Signature Queensland Boulder Opal Ring.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Signature Queensland<br>Boulder Opal Ring</h2>
-        <p>AU$666.65</p>
-    </a>
-    <a href="products.html?id=ocean-breeze-queensland-boulder-opal-ring" data-metal="silver" data-price="499">
-        <div class="category-img-wrap">
-        <img src="rings/Ocean Breeze Queensland Boulder Opal Ring.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Ocean Breeze Queensland<br>Boulder Opal Ring</h2>
-        <p>AU$499.15</p>
-    </a>
-    <a href="products.html?id=midnight-tide-boulder-opal-ring" data-metal="silver" data-price="666">
-        <div class="category-img-wrap">
-        <img src="rings/Midnight Tide Boulder Opal Ring.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Midnight Tide<br>Boulder Opal Ring</h2>
-        <p>AU$666.65</p>
-    </a>
-    <a href="products.html?id=aurora-earth-natural-boulder-opal-ring" data-metal="silver" data-price="398">
-        <div class="category-img-wrap">
-        <img src="rings/Aurora Earth Natural Boulder Opal Ring.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Aurora Earth Natural<br>Boulder Opal Ring</h2>
-        <p>AU$398.65</p>
-    </a>
-    <a href="products.html?id=stone-sea-natural-opal-ring" data-metal="silver" data-price="499">
-        <div class="category-img-wrap">
-        <img src="rings/Stone & Sea  Natural Opal Ring.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Stone & Sea<br>Natural Opal Ring</h2>
-        <p>AU$499.15</p>
-    </a>
-    <a href="products.html?id=window-to-the-outback-boulder-opal-ring" data-metal="gold" data-price="1671">
-        <div class="category-img-wrap">
-        <img src="rings/Window to the Outback Boulder Opal Ring.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Window to the Outback<br>Boulder Opal Ring</h2>
-        <p>AU$1,671.65</p>
-    </a>
-    <a href="products.html?id=blue-brilliance-black-opal-ring" data-metal="gold" data-price="2006">
-        <div class="category-img-wrap">
-        <img src="rings/Blue Brilliance Black Opal Ring.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Blue Brilliance<br>Black Opal Ring</h2>
-        <p>AU$2,006.65</p>
-    </a>
-    <a href="products.html?id=prismatic-flash-boulder-opal-ring" data-metal="gold" data-price="2341">
-        <div class="category-img-wrap">
-        <img src="rings/Prismatic Flash  Boulder Opal Ring.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Prismatic Flash<br>Boulder Opal Ring</h2>
-        <p>AU$2,341.65</p>
-    </a>
-    <a href="products.html?id=clover-circle-black-opal-ring" data-metal="gold" data-price="2509">
-        <div class="category-img-wrap">
-        <img src="rings/Clover Circle Black Opal Ring.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Clover Circle<br>Black Opal Ring</h2>
-        <p>AU$2,509.15</p>
-    </a>
-    <a href="products.html?id=fire-on-the-plains-crystal-opal-ring" data-metal="silver" data-price="2006">
-        <div class="category-img-wrap">
-        <img src="rings/Fire on the Plains Crystal Opal Ring.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Fire on the Plains<br>Crystal Opal Ring</h2>
-        <p>AU$2,006.65</p>
-    </a>
-    <a href="products.html?id=white-and-blue-crystal-opal-ring" data-metal="silver" data-price="666">
-        <div class="category-img-wrap">
-        <img src="rings/White and Blue Crystal Opal Ring.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">White and Blue<br>Crystal Opal Ring</h2>
-        <p>AU$666.65</p>
-    </a>
-    <a href="products.html?id=fire-on-the-sky-crystal-opal-ring" data-metal="gold" data-price="1671">
-        <div class="category-img-wrap">
-        <img src="rings/Fire on the Sky Crystal Opal Ring.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Fire on the Sky<br>Crystal Opal Ring</h2>
-        <p>AU$1,671.65</p>
-    </a>
-    <a href="products.html?id=multi-stone-crystal-opal-ring" data-metal="gold" data-price="1671">
-        <div class="category-img-wrap">
-        <img src="rings/Multi Stone Crystal  Opal Ring.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Multi Stone Crystal<br>Opal Ring</h2>
-        <p>AU$1,671.65</p>
-    </a>
-    </section>
-    <footer>
-      <div class="footer-top">
-          <img class="logo" src="logo/logo.png" width="120px" height="auto">
-          <h2 style="font-weight: 300; font-size: 25px; font-style: italic;">Leading experts in Opal jewellery, we were so obsessed with giving our customers<br>the best possible experience we created our very own world-class Opal Museum</p>
-      </div>
-      <div class="footer-bottom">
-        <div class="footer-col">
-          <p>CUSTOMER SERVICE</p>
-          <p>Australia phone number +61738577740</p>
-          <p>Monday to Friday 10:00am - 5:00pm AEST</p>
-          <p>Saturday 10:00am - 4:00pm AEST</p>
-          <p>Sunday 10:00am - 3:00pm AEST</p>
-          <p>201 Lutwyche rd, Windsor, 4030, Brisbane, Australia</p>
-        </div>
-        <div class="footer-col">
-          <p>NEWSLETTER</p>
-          <p>Receive our newsletter and discover our stories, collections, and surprises.</p>
-          <input type="email" placeholder="SUBSCRIBE">
-        </div>          
-        <div class="footer-col" style="margin-left: auto; text-align: right;">
-          <p>FOLLOW US</p>
-          <div class="social" style="justify-content: flex-end;">
-            <i class="fa-brands fa-facebook"></i>
-            <i class="fa-brands fa-instagram"></i>
-            <i class="fa-brands fa-youtube"></i>
+    <section class="categories product-list">
+      <div class="category">
+        <a href="products.html?id=aurora-mist" data-metal="silver" data-price="499" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="rings/Aurora Mist.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'aurora-mist')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
           </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$499</span>
+            <span class="original-price">AU$799</span>
+          </div>
+          <h2>25CT QUEENSLAND BOULDER RING <br>| STERLING SILVER | 'AURORA MIST' </h2>
+        </a>
       </div>
+      <div class="category">
+        <a href="products.html?id=silver-whisper" data-metal="silver" data-price="499" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="rings/Silver Whisper.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'silver-whisper')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$499</span>
+            <span class="original-price">AU$799</span>
+          </div>
+          <h2>17.45CT QUEENSLAND BOULDER RING <br>| STERLING SILVER | 'SILVER WHISPER' </h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=earthen-blaze" data-metal="gold" data-price="1999">
+          <div class="category-img-wrap">
+            <img src="rings/Earthen Blaze.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'earthen-blaze')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <p style="margin-top: 8px;">AU$1,999</p>
+          <h2>16CT QUEENSLAND BOULDER RING <br>| 10K YELLOW GOLD | 'EARTHEN BLAZE' </h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=iron-ridge" data-metal="silver" data-price="699">
+          <div class="category-img-wrap">
+            <img src="rings/Iron Ridge.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'iron-ridge')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <p style="margin-top: 8px;">AU$699</p>
+          <h2>48.10CT NATURAL CRYSTAL OPAL RING <br>| STERLING SILVER | 'IRON RIDGE' </h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=ocean-soul" data-metal="gold" data-price="2499" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="rings/Ocean Soul.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'ocean-soul')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$2,499</span>
+            <span class="original-price">AU$3,999</span>
+          </div>
+          <h2>14.60CT NATURAL BOULDER RING <br>| 10K YELLOW GOLD | 'OCEAN SOUL' </h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=tezcatlipoca" data-metal="gold" data-price="4499">
+          <div class="category-img-wrap">
+            <img src="rings/Tezcatlipoca.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'tezcatlipoca')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <p style="margin-top: 8px;">AU$4,499</p>
+          <h2>27.55CT QUEENSLAND BOULDER RING <br>| 10K YELLOW GOLD | 'TEZCATLIPOCA' </h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=forest-flame" data-metal="gold" data-price="1999">
+          <div class="category-img-wrap">
+            <img src="rings/Forest Flame.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'forest-flame')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <p style="margin-top: 8px;">AU$1,999</p>
+          <h2>14.65CT NATURAL CRYSTAL OPAL RING <br>| 10K YELLOW GOLD | 'FOREST FLAME' </h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=tidal-dream" data-metal="gold" data-price="1599" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="rings/Tidal Dream.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'tidal-dream')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$1,599</span>
+            <span class="original-price">AU$2,599</span>
+          </div>
+          <h2>12.20CT QUEENSLAND BOULDER RING <br>| 9K YELLOW GOLD | 'TIDAL DREAM' </h2>
+        </a>
+      </div>
+      <div class="category"> 
+        <a href="products.html?id=ocean-trilogy" data-metal="silver" data-price="649" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="rings/Ocean Trilogy.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'ocean-trilogy')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$649</span>
+            <span class="original-price">AU$999</span>
+          </div>
+          <h2>17.85CT LIGHTNING RIDGE BLACK OPAL RING <br>| STRELING SILVER | 'OCEAN TRILOGY'</h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=ocean-drift" data-metal="silver" data-price="699">
+          <div class="category-img-wrap">
+            <img src="rings/Ocean Drift.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'ocean-drift')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <p style="margin-top: 8px;">AU$699</p>
+          <h2>24.20CT QUEENSLAND BOULDER RING <br>| STERLING SILVER | 'OCEAN DRIFT' </h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=ocean-breeze" data-metal="silver" data-price="499" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="rings/Ocean Breeze.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'ocean-breeze')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$499</span>
+            <span class="original-price">AU$799</span>
+          </div>
+          <h2>22.45CT QUEENSLAND BOULDER RING <br>| STERLING SILVER | 'OCEAN BREEZE' </h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=pearl-of-fire" data-metal="gold" data-price="2499" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="rings/Pearl of Fire.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'pearl-of-fire')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$2,499</span>
+            <span class="original-price">AU$3,499</span>
+          </div>
+          <h2>29.40CT QUEENSLAND BOULDER RING <br>| 10K YELLOW GOLD | 'PEARL OF FIRE' </h2>
+        </a>
+      </div>
+
+      <div class="category">
+        <a href="products.html?id=storm-breaker" data-metal="silver" data-price="499" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="rings/Storm Breaker.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'storm-breaker')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$499</span>
+            <span class="original-price">AU$799</span>
+          </div>
+          <h2>60.25CT NATURAL CRYSTAL OPAL RING <br>| STERLING SILVER | 'STORM BREAKER' </h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=midnight-tide" data-metal="silver" data-price="699">
+          <div class="category-img-wrap">
+            <img src="rings/Midnight Tide.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'midnight-tide')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <p style="margin-top: 8px;">AU$699</p>
+          <h2>17.20CT QUEENSLAND BOULDER RING <br>| STERLING SILVER | 'MIDNIGHT TIDE' </h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=aurora-earth" data-metal="silver" data-price="499" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="rings/Aurora Earth.jpeg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'aurora-earth')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$499</span>
+            <span class="original-price">AU$799</span>
+          </div>
+          <h2>2.21CT QUEENSLAND BOULDER RING <br>| STERLING SILVER | 'AURORA EARTH' </h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=stone-sea" data-metal="silver" data-price="499" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="rings/Stone & Sea.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'stone-sea')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$499</span>
+            <span class="original-price">AU$799</span>
+          </div>
+          <h2>20.90CT QUEENSLAND BOULDER RING <br>| STERLING SILVER | 'STONE AND SEA' </h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=window-to-the-outback" data-metal="gold" data-price="1499">
+          <div class="category-img-wrap">
+            <img src="rings/Window to the Outback.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'window-to-the-outback')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <p style="margin-top: 8px;">AU$1,499</p>
+          <h2>11,70CT QUEENSLAND BOULDER RING <br>| 9K YELLOW GOLD | 'WINDOW TO THE OUTBACK' </h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=flame-of-passion" data-metal="gold" data-price="4999">
+          <div class="category-img-wrap">
+            <img src="rings/Flame of Passion.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'flame-of-passion')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <p style="margin-top: 8px;">AU$4,999</p>
+          <h2>64.55CT QUEENSLAND BOULDER RING <br>| 9K YELLOW GOLD | 'FLAME OF PASSION' </h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=blue-brilliance" data-metal="gold" data-price="1999">
+          <div class="category-img-wrap">
+            <img src="rings/Blue Brilliance.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'blue-brilliance')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <p style="margin-top: 8px;">AU$1,999</p>
+          <h2>25.40CT LIGHTNING RIDGE BLACK OPAL RING <br>| 9K YELLOW GOLD | 'BLUE BRILLIANCE' </h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=prismatic-flash" data-metal="gold" data-price="2499" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="rings/Prismatic Flash.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'prismatic-flash')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$2,499</span>
+            <span class="original-price">AU$3,499</span>
+          </div>
+          <h2>11.65CT QUEENSLAND BOULDER RING <br>| 10K YELLOW GOLD | 'PRISMATIC FLASH' </h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=clover-circle" data-metal="gold" data-price="1499" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="rings/Clover Circle.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'clover-circle')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$1,499</span>
+            <span class="original-price">AU$1,999</span>
+          </div>
+          <h2>12.05CT LIGHTNING RIDGE BLACK OPAL RING <br>| 9K YELLOW GOLD | 'CLOVER CIRCLE' </h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=fire-on-the-plains" data-metal="silver" data-price="1999">
+          <div class="category-img-wrap">
+            <img src="rings/Fire on the Plains.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'fire-on-the-plains')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <p style="margin-top: 8px;">AU$1,999</p>
+          <h2>13.20CT NATURAL CRYSTAL OPAL RING <br>| STERLING SILVER | 'FIRE ON THE PLAINS' </h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=artic-bloom" data-metal="silver" data-price="699">
+          <div class="category-img-wrap">
+            <img src="rings/Artic Bloom.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'artic-bloom')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <p style="margin-top: 8px;">AU$699</p>
+          <h2>2.12CT NATURAL CRYSTAL OPAL RING <br>| STERLING SILVER | 'ARTIC BLOOM' </h2>
+        </a>
+      </div>
+      <div class="category"> 
+        <a href="products.html?id=midnight-blaze" data-metal="silver" data-price="649" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="rings/Midnight Blaze.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'midnight-blaze')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$649</span>
+            <span class="original-price">AU$999</span>
+          </div>
+          <h2>53.55CT LIGHTNING RIDGE BLACK OPAL RING <br>| STRELING SILVER | 'MIDNIGHT BLAZE'</h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=desert-colour" data-metal="gold" data-price="1499">
+          <div class="category-img-wrap">
+            <img src="rings/Desert Colour.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'desert-colour')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <p style="margin-top: 8px;">AU$1,499</p>
+          <h2>14.20CT NATURAL CRYSTAL OPAL RING <br>| 9K YELLOW GOLD | 'DESERT COLOUR' </h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=constellation" data-metal="gold" data-price="1499">
+          <div class="category-img-wrap">
+            <img src="rings/Constellation.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'constellation')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <p style="margin-top: 8px;">AU$1,499</p>
+          <h2>MULTI STONE CRYSTAL OPAL RING <br>| 9K YELLOW GOLD | 'CONSTELLATION' </h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=serpent-fire" data-metal="gold" data-price="499" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="rings/Serpent Fire.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'serpent-fire')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$499</span>
+            <span class="original-price">AU$799</span>
+          </div>
+          <h2>4.73CT QUEENSLAND BOULDER RING <br>| 10K YELLOW GOLD | 'SERPENT FIRE' </h2>
+        </a>
+      </div>
+
+    </section>
+
+    <div class="benefit-header"> 
+      <h1 style="font-size: 23px;">WHY SHOP WITH US?</h1>
     </div>
-    <p class="copyright">Copyright © 2026 Marsha. All Rights Reserved.</h2>    
+    <section class="benefits">
+      <div class="benefit-item">
+        <i class="fa-solid fa-gem"></i>
+        <p>Authentic Australian Opals</p>
+      </div>
+
+      <div class="benefit-item">
+        <i class="fa-solid fa-truck"></i>
+        <p>Free Shipping</p>
+      </div>
+
+      <div class="benefit-item">
+        <i class="fa-solid fa-rotate-left"></i>
+        <p>30 Day Returns</p>
+      </div>
+
+      <div class="benefit-item">
+        <i class="fa-solid fa-shield-heart"></i>
+        <p>Lifetime Warranty</p>
+      </div>
+    </section>
+
+    <footer>
+        <div class="footer-top">
+            <img class="logo footer-logo" src="logo/logo.png" width="120px" height="auto">
+            <h2 style="font-weight: 300; font-size: 25px; font-style: italic;">Leading experts in Opal jewellery, we were so obsessed with giving our customers<br>the best possible experience we created our very own world-class Opal Museum</p>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-col">
+            <p>CUSTOMER SERVICE</p>
+            <p>Australia phone number +61738577740</p>
+            <p>Monday to Friday 10:00am - 5:00pm AEST</p>
+            <p>Saturday 10:00am - 4:00pm AEST</p>
+            <p>Sunday 10:00am - 3:00pm AEST</p>
+            <p>201 Lutwyche rd, Windsor, 4030, Brisbane, Australia</p>
+          </div>
+          <div class="footer-col">
+            <p>NEWSLETTER</p>
+            <p>Receive our newsletter and discover our stories, collections, and surprises.</p>
+            <input type="email" placeholder="SUBSCRIBE">
+          </div>          
+          <div class="footer-col" style="margin-left: auto; text-align: right;">
+            <p>FOLLOW US</p>
+            <div class="social" style="justify-content: flex-end;">
+              <i class="fa-brands fa-facebook"></i>
+              <i class="fa-brands fa-instagram"></i>
+              <i class="fa-brands fa-youtube"></i>
+            </div>
+        </div>
+      </div>
+      <p class="copyright">Copyright © 2026 Marsha. All Rights Reserved.</h2>    
     </footer>
-    <script src="script.js"></script>
     <script src="products.js"></script>
+    <script src="script.js"></script>  
   </body>
 </html>

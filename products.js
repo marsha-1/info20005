@@ -1,9 +1,9 @@
 const products = {
 //rings
-  'blue-natural-boulder-opal-ring': {
-    name: 'BLUE NATURAL OPAL BOULDER RING',
+  'aurora-mist': {
+    name: 'Aurora Mist',
     price: 'AU$2,509.15',
-    image: 'rings/Blue Natural Boulder Opal Ring.jpg',
+    image: 'rings/Aurora Mist.jpg',
     images : [
       'rings/Blue Natural Boulder Opal Ring.jpg',
       'rings/Blue Natural Boulder Opal Ring 2.jpg',
