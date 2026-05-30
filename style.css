@@ -655,17 +655,17 @@ footer {
 .banner-split {
   display: flex;
   align-items: center;
-  height: 600px;
-  padding: 0 3rem;
-  gap: 2rem;
+  height: 500px;
+  padding-right: 120px;
+  gap: 36px;
 }
 
 .banner-text {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
   animation: fadeUp 1s ease forwards;
+  padding-left: 120px;
 }
 
 .banner p{
@@ -735,7 +735,6 @@ footer {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 6px;
 }
 
 .category-hero {

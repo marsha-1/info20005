@@ -26,11 +26,11 @@
     <header>
       <div class="header-inner">
         <div class="logo-wrap">
-          <img class="logo" src="logo/logo.png" width="90px" height="auto">
+          <a href="index.html"><img class="logo" src="logo/logo.png" width="90px" height="auto"></a>
           <div class="logo-dot"></div>
         </div>
         <nav>
-          <a href="#">ENGAGEMENT</a>
+          <a href="engagement.html">ENGAGEMENT</a>
           <a href="#">MEN'S</a> 
           <a href="#">GIFTS</a>
           <a href="#">STATEMENT</a>
@@ -101,7 +101,7 @@
         <div class="category">
           <div class="category-img-wrap">
             <img src="unset/rainbow opal.jpg">
-            <p class="explore"><a href="#">EXPLORE MORE</a></p>
+            <p class="explore"><a href="unsetopals.html">EXPLORE MORE</a></p>
           </div>
           <h2 style="font-size: 20px;">UNSET OPALS</h2>
         </div>
@@ -112,37 +112,39 @@
       <p style="font-size: 18px;">A curated collection of opal jewellery, crafted to stand apart.</p>
     </section>
     <section class="categories">
-      <div class="category">  
-      <a href="products.html?id=#" data-metal="silver" data-price="349">
-        <div class="category-img-wrap">
-          <img src="necklaces/Moonbeam Drop Necklace.jpg">
-          <p class="explore">QUICK VIEW</p>
-          <span class="product-tag">SALE</span>
-          <button class="heart-btn">
-            <i class="fa-regular fa-heart"></i>
-          </button>
-        </div>
-        <div style="margin-top: 5px;">
-          <span class="sale-price">AU$349</span>
-          <span class="original-price">AU$499</span>
-        </div>
-        <h2>10.15CT QUEENSLAND BOULDER NECKLACE <br>| STRELING SILVER | 'MOONBEAM DROP'</h2>
+      <div class="category">
+        <a href="products.html?id=moonbeam-drop" data-metal="silver" data-price="349" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="necklaces/Moonbeam Drop.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'moonbeam-drop')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$349</span>
+            <span class="original-price">AU$599</span>
+          </div>
+          <h2>10.15CT QUEENSLAND BOULDER NECKLACE <br>| STERLING SILVER | 'MOONBEAM DROP'</h2>
+        </a>
       </div>
-      <div class="category">  
-      <a href="products.html?id=#" data-metal="gold" data-price="8999">
-        <div class="category-img-wrap">
-          <img src="necklaces/Spectral Fire Boulder Necklace.jpg">
-          <p class="explore"><a href=rings.html>QUICK VIEW</a></p>
-          <span class="product-tag">SALE</span>
-          <button class="heart-btn">
-            <i class="fa-regular fa-heart"></i>
-          </button>
-        </div>
-        <div style="margin-top: 5px;">
-          <span class="sale-price">AU$5,999</span>
-          <span class="original-price">AU$8,999</span>
-        </div>
-        <h2>30CT QUEENSLAND BOULDER NECKLACE <br>| 10K YELLOW GOLD | 'SPECTRAL FIRE'</h2>
+      <div class="category">
+        <a href="products.html?id=spectral-fire" data-metal="gold" data-price="5999" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="necklaces/Spectral Fire.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'spectral-fire')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$5,999</span>
+            <span class="original-price">AU$8,999</span>
+          </div>
+          <h2>30CT QUEENSLAND BOULDER NECKLACE <br>| 10K YELLOW GOLD | 'SPECTRAL FIRE'</h2>
+        </a>
       </div>
       <div class="category"> 
         <a href="products.html?id=ocean-trilogy" data-metal="silver" data-price="649" data-sale="true">
@@ -161,21 +163,22 @@
           <h2>17.85CT LIGHTNING RIDGE BLACK OPAL RING <br>| STRELING SILVER | 'OCEAN TRILOGY'</h2>
         </a>
       </div>
-      <div class="category">  
-      <a href="products.html?id=#" data-metal="silver" data-price="999">
-        <div class="category-img-wrap">
-          <img src="bracelets/Coastal Wave.jpg">
-          <p class="explore"><a href=rings.html>QUICK VIEW</a></p>
-          <span class="product-tag">SALE</span>
-          <button class="heart-btn">
-            <i class="fa-regular fa-heart"></i>
-          </button>
-        </div>
-        <div style="margin-top: 5px;">
-          <span class="sale-price">AU$999</span>
-          <span class="original-price">AU$1,499</span>
-        </div>
-        <h2>20.80CT SOLID SEMI-BLACK OPAL BRACELET <br>| STRELING SILVER | 'COASTAL WAVE'</h2>
+      <div class="category">
+        <a href="products.html?id=coastal-wave" data-metal="silver" data-price="999" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="bracelets/Coastal Wave.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'coastal-wave')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$999</span>
+            <span class="original-price">AU$1,499</span>
+          </div>
+          <h2>20.80CT SOLID SEMI-BLACK OPAL BRACELET <br>| STRELING SILVER | 'COASTAL WAVE'</h2>
+        </a>
       </div>
     </section>
 
@@ -237,17 +240,18 @@
         <p>AU$1,499</p>
         <h2>1.70CT QUEENSLAND BOULDER UNSET OPAL <br>| 'BLUE ROCKPOOL' |</h2>
       </div>
-      <div class="category">  
-        <a href="products.html?id=#" data-price="1,999">
-        <div class="category-img-wrap">
-          <img src="unset/ocean pair.jpg">
-          <p class="explore">QUICK VIEW</p>
-          <button class="heart-btn">
-            <i class="fa-regular fa-heart"></i>
-          </button>
-        </div>
-        <p>AU$1,999</p>
-        <h2>11.90CT QUEENSLAND BOULDER UNSET OPAL | 'OCEAN PAIR' |</h2>
+      <div class="category">
+        <a href="products.html?id=ocean-pair" data-metal="silver" data-price="1499">
+          <div class="category-img-wrap">
+            <img src="unset/ocean pair.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'ocean-pair')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <p style="margin-top: 8px;">AU$1,499</p>
+          <h2>11.90CT QUEENSLAND BOULDER UNSET OPAL | 'OCEAN PAIR' |</h2>
+        </a>
       </div>
       <div class="category">  
         <a href="products.html?id=#" data-price="1,499">
@@ -281,6 +285,7 @@
 
     <div class="benefit-header"> 
       <h1 style="font-size: 23px;">WHY SHOP WITH US?</h1>
+    </div>
     <section class="benefits">
       <div class="benefit-item">
         <i class="fa-solid fa-gem"></i>

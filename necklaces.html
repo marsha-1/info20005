@@ -19,160 +19,328 @@
       </div>
       <div id="search-results"></div>
     </div>
-
     <div class="ticker">
       <span>FREE SHIPPING ON ALL ORDERS &nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp; NEW COLLECTION NOW AVAILABLE &nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp; HANDCRAFTED FINE OPAL JEWELLERY &nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp; ENJOY 10% OFF YOUR FIRST ORDER &nbsp;&nbsp;&nbsp;</span>
     </div> 
-
     <header>
       <div class="header-inner">
-        <button class="icon" onclick="document.getElementById('search-overlay').style.display='flex'">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </button>        
         <div class="logo-wrap">
-          <img class="logo" src="logo/logo.png" width="120px" height="auto">
+          <a href="index.html"><img class="logo" src="logo/logo.png" width="90px" height="auto"></a>
           <div class="logo-dot"></div>
         </div>
+        <nav>
+          <a href="#">ENGAGEMENT</a>
+          <a href="#">MEN'S</a> 
+          <a href="#">GIFTS</a>
+          <a href="#">STATEMENT</a>
+          <a href="#" style="color: #A64B4B;">CLEARANCE</a>       
+        </nav>
+        <div class="header-icons">
+        <button class="icon" onclick="document.getElementById('search-overlay').style.display='flex'">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <button class="icon">
+          <i class="fa-regular fa-heart"></i>
+        </button>        
+        <button class="icon">
+          <i class="fa-regular fa-user"></i>
+        </button>
         <a href="cart.html">
           <button class="icon">
             <i class="fa-solid fa-bag-shopping"></i>
           </button> 
         </a>
+        </div>
       </div>
-      <nav>
-        <a href="rings.html">RINGS</a>
-        <a href="earrings.html">EARRINGS</a>
-        <a href="bracelets.html">BRACELETS</a>
-        <a href="necklaces.html">NECKLACES</a>       
-      </nav>
     </header>
-
-    <section class="category-hero">
-        <img src="hero/necklacehero.png" style="object-position: 50% 80%;">
-    </section>
 
     <section class="page-hero">
         <h2 class="breadcrumb"><a href="index.html">HOME</a>/NECKLACES</h2>
-        <h2 style="font-size: 50px; font-weight: 500; letter-spacing: 10%;">NECKLACES</h2>
-        <h2>Discover necklaces that linger<br>close to the heart</h2>
+        <h1>Necklaces</h1>
+        <h2 style="font-size: 15px; font-weight: 400;">Discover necklaces that linger close to heart.</h2>
     </section>
+
+    <div class="filter-sort-bar">
       <div class="filters">
-          <button class="filter-btn active" data-filter="all">ALL</button>
-          <button class="filter-btn" data-filter="gold">GOLD</button>
-          <button class="filter-btn" data-filter="silver">SILVER</button>
-          <button class="filter-btn" data-filter="under500">UNDER AU$500</button>
-          <button class="filter-btn" data-filter="under1000">UNDER AU$1000</button>
+        <button class="filter-btn active" data-filter="all">ALL</button>
+        <button class="filter-btn" data-filter="gold">GOLD</button>
+        <button class="filter-btn" data-filter="silver">SILVER</button>
+        <button class="filter-btn" data-filter="under500">UNDER AU$500</button>
+        <button class="filter-btn" data-filter="under1000">UNDER AU$1000</button>
+        <button class="filter-btn" data-filter="sale">SALE</button>
       </div>
-    <section class="product-grid">
-    <a href="products.html?id=classic-opal-necklace" data-metal="gold" data-price="398">
-        <div class="category-img-wrap">
-        <img src="necklaces/Classic Opal Necklace.jpg">
-        <p class="explore">QUICK VIEW</p>
+
+      <div class="sort-bar">
+        <div class="sort-select" onclick="toggleSort()">
+          <span id="sort-label">SORT</span>
+          <i class="fa-solid fa-chevron-down"></i>
         </div>
-        <h2 style="margin-top: 5px;">Classic Opal Necklace</h2>
-        <p>AU$398.65</p>
-    </a>
-    <a href="products.html?id=brilliant-opal-necklace" data-metal="gold" data-price="1169">
-        <div class="category-img-wrap">
-        <img src="necklaces/Brilliant Opal Necklace.jpg">
-        <p class="explore">QUICK VIEW</p>
+        <div class="sort-dropdown" id="sort-dropdown">
+          <h2 style="font-size: 13px;" class="sort-option" onclick="sortProducts('low', event)">
+            <span class="sort-check">PRICE: LOW TO HIGH</span>
+          </h2>
+          <h2 style="font-size: 13px;" class="sort-option" onclick="sortProducts('high', event)">
+            <span class="sort-check">PRICE: HIGH TO LOW</span> 
+          </h2>
         </div>
-        <h2 style="margin-top: 5px;">Brilliant Opal Necklace</h2>
-        <p>AU$1,169.15</p>
-    </a>
-    <a href="products.html?id=statement-opal-necklace" data-metal="silver" data-price="398">
-        <div class="category-img-wrap">
-        <img src="necklaces/Statement Opal Necklace.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Statement Opal Necklace</h2>
-        <p>AU$398.65</p>
-    </a>
-    <a href="products.html?id=crystal-opal-2-hearts-necklace" data-metal="gold" data-price="398">
-        <div class="category-img-wrap">
-        <img src="necklaces/Crystal Opal 2 Hearts Necklace.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Crystal Opal 2<br>Hearts Necklace</h2>
-        <p>AU$398.65</p>
-    </a>
-    <a href="products.html?id=crystal-opal-flower-necklace" data-metal="silver" data-price="398">
-        <div class="category-img-wrap">
-        <img src="necklaces/Crystal Opal  Flower Necklace.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Crystal Opal<br>Flower Necklace</h2>
-        <p>AU$398.65</p>
-    </a>
-    <a href="products.html?id=crystal-opal-heart-necklace" data-metal="gold" data-price="398">
-        <div class="category-img-wrap">
-        <img src="necklaces/Crystal Opal Heart Necklace.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Crystal Opal<br>Heart Necklace</h2>
-        <p>AU$398.65</p>
-    </a>
-    <a href="products.html?id=crystal-opal-necklace" data-metal="gold" data-price="1169">
-        <div class="category-img-wrap">
-        <img src="necklaces/Classic Opal Necklace.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Crystal Opal Necklace</h2>
-        <p>AU$1,169.15</p>
-    </a>
-    <a href="products.html?id=crystal-opal-squiggle-necklace" data-metal="gold" data-price="398">
-        <div class="category-img-wrap">
-        <img src="necklaces/Crystal Opal  Squiggle Necklace.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Crystal Opal<br>Squiggle Necklace</h2>
-        <p>AU$398.65</p>
-    </a>
-    <a href="products.html?id=crystal-opal-wing-necklace" data-metal="gold" data-price="398">
-        <div class="category-img-wrap">
-        <img src="necklaces/Crystal Opal Wing Necklace.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Crystal Opal<br>Wing Necklace</h2>
-        <p>AU$398.65</p>
-    </a>
-    <a href="products.html?id=crystal-opal-hook-necklace" data-metal="gold" data-price="499">
-        <div class="category-img-wrap">
-        <img src="necklaces/Crystal Opal  Hook Necklace.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Crystal Opal<br>Hook Necklace</h2>
-        <p>AU$499.15</p>
-    </a>
-    <a href="products.html?id=lightning-mcboulder-boulder-opal-necklace" data-metal="gold" data-price="2006">
-        <div class="category-img-wrap">
-        <img src="necklaces/Lightning McBoulder Boulder Opal Necklace.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Lightning McBoulder<br>Boulder Opal Necklace</h2>
-        <p>AU$2,006.65</p>
-    </a>
-    <a href="products.html?id=river-fire-boulder-opal-necklace" data-metal="gold" data-price="2006">
-        <div class="category-img-wrap">
-        <img src="necklaces/River Fire Boulder Opal Necklace.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">River Fire Boulder<br>Opal Necklace</h2>
-        <p>AU$2,006.65</p>
-    </a>
-    <a href="products.html?id=soul-of-the-sea-solid-black-opal-necklace" data-metal="silver" data-price="16713">
-        <div class="category-img-wrap">
-        <img src="necklaces/Soul of the Sea Solid Black Opal Necklace.jpg">
-        <p class="explore">QUICK VIEW</p>
-        </div>
-        <h2 style="margin-top: 5px;">Soul of the Sea<br>Solid Black Opal Necklace</h2>
-        <p>AU$16,713.15</p>
-    </a>
+      </div>
+    </div>
+
+
+    <section class="categories product-list">
+      <div class="category">
+        <a href="products.html?id=golden-classic" data-metal="gold" data-price="349" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="necklaces/Golden Classic.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'golden-classic')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$349</span>
+            <span class="original-price">AU$599</span>
+          </div>
+          <h2>3.40CT CRYSTAL OPAL NECKLACE <br>| 10K YELLOW GOLD | 'GOLDEN CLASSIC'</h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=brilliant-drop" data-metal="gold" data-price="1199">
+          <div class="category-img-wrap">
+            <img src="necklaces/Brilliant Drop.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'brilliant-drop')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <p style="margin-top: 8px;">AU$1,199</p>
+          <h2>10.55CT BOULDER OPAL NECKLACE <br>| 10K YELLOW GOLD | 'BRILLIANT DROP'</h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=silver-statement" data-metal="silver" data-price="349" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="necklaces/Statement Opal Necklace.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'silver-statement')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$349</span>
+            <span class="original-price">AU$599</span>
+          </div>
+          <h2>4.75CT NATURAL CRYSTAL OPAL NECKLACE <br>| STERLING SILVER | 'SILVER STATEMENT'</h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=twin-hearts" data-metal="gold" data-price="349" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="necklaces/Twin Hearts.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'twin-hearts')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$349</span>
+            <span class="original-price">AU$599</span>
+          </div>
+          <h2>2.15CT CRYSTAL OPAL NECKLACE <br>| 10K YELLOW GOLD | 'TWIN HEARTS'</h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=petal-bloom" data-metal="silver" data-price="349" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="necklaces/Petal Bloom.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'petal-bloom')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$349</span>
+            <span class="original-price">AU$599</span>
+          </div>
+          <h2>1.20CT CRYSTAL OPAL NECKLACE <br>| STERLING SILVER | 'PETAL BLOOM'</h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=heart-glow" data-metal="gold" data-price="349" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="necklaces/Heart Glow.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'heart-glow')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$349</span>
+            <span class="original-price">AU$599</span>
+          </div>
+          <h2>1.80CT CRYSTAL OPAL NECKLACE <br>| 10K YELLOW GOLD | 'HEART GLOW'</h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=wave-rider" data-metal="gold" data-price="349" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="necklaces/Wave Rider.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'wave-rider')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$349</span>
+            <span class="original-price">AU$599</span>
+          </div>
+          <h2>2.80CT CRYSTAL OPAL NECKLACE <br>| 10K YELLOW GOLD | 'WAVE RIDER'</h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=moonbeam-drop" data-metal="silver" data-price="349" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="necklaces/Moonbeam Drop.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'moonbeam-drop')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$349</span>
+            <span class="original-price">AU$599</span>
+          </div>
+          <h2>10.15CT QUEENSLAND BOULDER NECKLACE <br>| STERLING SILVER | 'MOONBEAM DROP'</h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=winged-light" data-metal="gold" data-price="349" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="necklaces/Winged Light.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'winged-light')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$349</span>
+            <span class="original-price">AU$599</span>
+          </div>
+          <h2>3.10CT CRYSTAL OPAL NECKLACE <br>| 10K YELLOW GOLD | 'WINGED LIGHT'</h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=hook-line" data-metal="gold" data-price="599">
+          <div class="category-img-wrap">
+            <img src="necklaces/Hook Line.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'hook-line')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <p style="margin-top: 8px;">AU$599</p>
+          <h2>5.30CT CRYSTAL OPAL NECKLACE <br>| 10K YELLOW GOLD | 'HOOK LINE'</h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=lightning-strike" data-metal="gold" data-price="1999">
+          <div class="category-img-wrap">
+            <img src="necklaces/Lightning Strike.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'lightning-strike')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <p style="margin-top: 8px;">AU$1,999</p>
+          <h2>26.45CT BOULDER OPAL NECKLACE <br>| 10K YELLOW GOLD | 'LIGHTNING STRIKE'</h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=spectral-fire" data-metal="gold" data-price="5999" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="necklaces/Spectral Fire.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'spectral-fire')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$5,999</span>
+            <span class="original-price">AU$8,999</span>
+          </div>
+          <h2>30CT QUEENSLAND BOULDER NECKLACE <br>| 10K YELLOW GOLD | 'SPECTRAL FIRE'</h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=river-fire" data-metal="gold" data-price="1999" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="necklaces/River Fire.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'river-fire')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$1,999</span>
+            <span class="original-price">AU$2,999</span>
+          </div>
+          <h2>28.90CT BOULDER OPAL NECKLACE <br>| 10K YELLOW GOLD | 'RIVER FIRE'</h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=soul-of-the-sea" data-metal="silver" data-price="16999">
+          <div class="category-img-wrap">
+            <img src="necklaces/Soul of the Sea.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'soul-of-the-sea')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <p style="margin-top: 8px;">AU$16,999</p>
+          <h2>74.90CT SOLID BLACK OPAL NECKLACE <br>| STERLING SILVER | 'SOUL OF THE SEA'</h2>
+        </a>
+      </div>
+    </section>
+
+
+    <div class="benefit-header"> 
+      <h1 style="font-size: 23px;">WHY SHOP WITH US?</h1>
+    </div>
+    <section class="benefits">
+      <div class="benefit-item">
+        <i class="fa-solid fa-gem"></i>
+        <p>Authentic Australian Opals</p>
+      </div>
+
+      <div class="benefit-item">
+        <i class="fa-solid fa-truck"></i>
+        <p>Free Shipping</p>
+      </div>
+
+      <div class="benefit-item">
+        <i class="fa-solid fa-rotate-left"></i>
+        <p>30 Day Returns</p>
+      </div>
+
+      <div class="benefit-item">
+        <i class="fa-solid fa-shield-heart"></i>
+        <p>Lifetime Warranty</p>
+      </div>
     </section>
 
     <footer>
         <div class="footer-top">
-            <img class="logo" src="logo/logo.png" width="120px" height="auto">
+            <img class="logo footer-logo" src="logo/logo.png" width="120px" height="auto">
             <h2 style="font-weight: 300; font-size: 25px; font-style: italic;">Leading experts in Opal jewellery, we were so obsessed with giving our customers<br>the best possible experience we created our very own world-class Opal Museum</p>
         </div>
         <div class="footer-bottom">
