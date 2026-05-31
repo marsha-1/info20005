@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bracelets-Majulix Opal Jewellery</title>
+    <title>Gifts-Majulix Opal Jewellery</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">  
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
@@ -53,45 +53,125 @@
         </div>
       </div>
     </header>
-
-    <section class="page-hero">
-        <h2 class="breadcrumb"><a href="index.html">HOME</a>/BRACELETS</h2>
-        <h1>Bracelets</h1>
-        <h2 style="font-size: 15px; font-weight: 400;">Discover bracelets designed to be worn every day.</h2>
+    <section class="banner-split">
+      <div class="banner-image">
+          <img src="hero/gifts.png">
+      </div>
+      <div class="banner-text">
+          <h1>Gift Differently</h1>
+          <p>From birthdays to anniversaries, find a piece as special as the person receiving it. Each opal is one of a kind — just like them.</p>
+      </div>
     </section>
-
-    <div class="filter-sort-bar">
-      <div class="filters">
-        <button class="filter-btn active" data-filter="all">ALL</button>
-        <button class="filter-btn" data-filter="gold">GOLD</button>
-        <button class="filter-btn" data-filter="silver">SILVER</button>
-        <button class="filter-btn" data-filter="under500">UNDER AU$500</button>
-        <button class="filter-btn" data-filter="under1000">UNDER AU$1000</button>
-        <button class="filter-btn" data-filter="sale">SALE</button>
-      </div>
-      <div class="sort-bar">
-        <div class="sort-select" onclick="toggleSort()">
-          <span id="sort-label">SORT</span>
-          <i class="fa-solid fa-chevron-down"></i>
-        </div>
-        <div class="sort-dropdown" id="sort-dropdown">
-          <h2 style="font-size: 13px;" class="sort-option" onclick="sortProducts('low', event)">
-            <span class="sort-check">PRICE: LOW TO HIGH</span>
-          </h2>
-          <h2 style="font-size: 13px;" class="sort-option" onclick="sortProducts('high', event)">
-            <span class="sort-check">PRICE: HIGH TO LOW</span> 
-          </h2>
-        </div>
-      </div>
-    </div>
-
+    
+    <section class="banner">
+      <h1 style="font-size: 30px; padding-top: 30px;">NECKLACES</h1>
+      <p style="font-size: 18px;">Perfect piece to celebrate special moment.</p>
+      <h2><a href="necklaces.html">SHOP ALL</a></h2>
+    </section>
     <section class="categories product-list">
       <div class="category">
-        <a href="products.html?id=teal-tide" data-metal="silver" data-price="499" data-sale="true">
+        <a href="products.html?id=wish-upon-a-star" data-metal="silver" data-price="2299">
           <div class="category-img-wrap">
-            <img src="bracelets/Teal Tide.jpg">
+            <img src="necklaces/Wish Upon A Star.jpg">
             <p class="explore">QUICK VIEW</p>
-            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'teal-tide')">
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'wish-upon-a-star')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <p style="margin-top: 8px;">AU$2,299</p>
+          <h2>36CT CRYSTAL OPAL NECKLACE <br>| STERLING SILVER | 'HOOK LINE'</h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=heart-glow" data-metal="gold" data-price="349" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="necklaces/Heart Glow.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'heart-glow')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$349</span>
+            <span class="original-price">AU$599</span>
+          </div>
+          <h2>1.80CT CRYSTAL OPAL NECKLACE <br>| 10K YELLOW GOLD | 'HEART GLOW'</h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=hook-line" data-metal="gold" data-price="599">
+          <div class="category-img-wrap">
+            <img src="necklaces/Hook Line.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'hook-line')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <p style="margin-top: 8px;">AU$599</p>
+          <h2>5.30CT CRYSTAL OPAL NECKLACE <br>| 10K YELLOW GOLD | 'HOOK LINE'</h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=winged-light" data-metal="gold" data-price="349" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="necklaces/Winged Light.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'winged-light')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$349</span>
+            <span class="original-price">AU$599</span>
+          </div>
+          <h2>3.10CT CRYSTAL OPAL NECKLACE <br>| 10K YELLOW GOLD | 'WINGED LIGHT'</h2>
+        </a>
+      </div>
+    </section>
+    <section class="banner">
+      <h1 style="font-size: 30px; padding-top: 30px;">EARRINGS</h1>
+      <p style="font-size: 18px;">Delicate details that elevate every look.</p>
+      <h2><a href="earrings.html">SHOP ALL</a></h2>
+    </section>
+    <section class="categories product-list">
+      <div class="category">
+        <a href="products.html?id=colour-bars" data-metal="gold" data-price="1299">
+          <div class="category-img-wrap">
+            <img src="earrings/Colour Bars.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'colour-bars')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <p style="margin-top: 8px;">AU$1,299</p>
+          <h2>25CT CRYSTAL OPAL DROP EARRINGS <br>| 10K YELLOW GOLD | 'COLOUR BARS'</h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=flash-and-awe" data-metal="silver" data-price="999" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="earrings/Flash and Awe.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'flash-and-awe')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$999</span>
+            <span class="original-price">AU$1,499</span>
+          </div>
+          <h2>12.45CT CRYSTAL OPAL DROP EARRINGS <br>| STERLING SILVER | 'FLASH AND AWE'</h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=crystal-whisper" data-metal="silver" data-price="499" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="earrings/Crystal Whisper.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'crystal-whisper')">
               <i class="fa-regular fa-heart"></i>
             </button>
             <span class="product-tag">SALE</span>
@@ -100,20 +180,48 @@
             <span class="sale-price">AU$499</span>
             <span class="original-price">AU$799</span>
           </div>
-          <h2>5 STONE CRYSTAL OPAL BRACELET <br>| STERLING SILVER | 'TEAL TIDE'</h2>
+          <h2>9.65CT NATURAL CRYSTAL OPAL STUDS <br>| STERLING SILVER | 'CRYSTAL WHISPER'</h2>
         </a>
       </div>
       <div class="category">
-        <a href="products.html?id=grand-shore" data-metal="silver" data-price="1999">
+        <a href="products.html?id=violet-dream" data-metal="silver" data-price="699" data-sale="true">
           <div class="category-img-wrap">
-            <img src="bracelets/Grand Shore.jpg">
+            <img src="earrings/Violet Dream.jpg">
             <p class="explore">QUICK VIEW</p>
-            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'grand-shore')">
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'violet-dream')">
               <i class="fa-regular fa-heart"></i>
             </button>
+            <span class="product-tag">SALE</span>
           </div>
-          <p style="margin-top: 8px;">AU$1,999</p>
-          <h2>38.50CT BOULDER OPAL BRACELET <br>| STERLING SILVER | 'GRAND SHORE'</h2>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$699</span>
+            <span class="original-price">AU$999</span>
+          </div>
+          <h2>24.10CT CRYSTAL TEARDROP OPAL EARRINGS <br>| STERLING SILVER | 'VIOLET DREAM'</h2>
+        </a>
+      </div>
+    </section>
+    <section class="banner">
+      <h1 style="font-size: 30px; padding-top: 30px;">BRACELETS</h1>
+      <p style="font-size: 18px;">Timeless piece for everyday luxury.</p>
+      <h2><a href="bracelets.html">SHOP ALL</a></h2>
+    </section>
+    <section class="categories product-list">
+      <div class="category">
+        <a href="products.html?id=pearl-tide" data-metal="silver" data-price="499" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="bracelets/Pearl Tide.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'pearl-tide')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$499</span>
+            <span class="original-price">AU$799</span>
+          </div>
+          <h2>6.80CT OPAL BRACELET <br>| STERLING SILVER | 'PEARL TIDE'</h2>
         </a>
       </div>
       <div class="category">
@@ -134,23 +242,6 @@
         </a>
       </div>
       <div class="category">
-        <a href="products.html?id=reef-walk" data-metal="silver" data-price="499" data-sale="true">
-          <div class="category-img-wrap">
-            <img src="bracelets/Reef Walk.jpg">
-            <p class="explore">QUICK VIEW</p>
-            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'reef-walk')">
-              <i class="fa-regular fa-heart"></i>
-            </button>
-            <span class="product-tag">SALE</span>
-          </div>
-          <div style="margin-top: 5px;">
-            <span class="sale-price">AU$499</span>
-            <span class="original-price">AU$799</span>
-          </div>
-          <h2>5 STONE LIGHT OPAL BRACELET <br>| STERLING SILVER | 'REEF WALK'</h2>
-        </a>
-      </div>
-      <div class="category">
         <a href="products.html?id=ivory-oval" data-metal="silver" data-price="1499">
           <div class="category-img-wrap">
             <img src="bracelets/Ivory Oval.jpg">
@@ -161,96 +252,6 @@
           </div>
           <p style="margin-top: 8px;">AU$1,499</p>
           <h2>24.10CT LARGE OVAL OPAL BRACELET <br>| STERLING SILVER | 'IVORY OVAL'</h2>
-        </a>
-      </div>
-      <div class="category">
-        <a href="products.html?id=teardrop-shore" data-metal="silver" data-price="1499" data-sale="true">
-          <div class="category-img-wrap">
-            <img src="bracelets/Teardrop Shore.jpg">
-            <p class="explore">QUICK VIEW</p>
-            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'teardrop-shore')">
-              <i class="fa-regular fa-heart"></i>
-            </button>
-            <span class="product-tag">SALE</span>
-          </div>
-          <div style="margin-top: 5px;">
-            <span class="sale-price">AU$1,499</span>
-            <span class="original-price">AU$2,499</span>
-          </div>
-          <h2>19.35CT CRYSTAL OPAL BRACELET <br>| STERLING SILVER | 'TEARDROP SHORE'</h2>
-        </a>
-      </div>
-      <div class="category">
-        <a href="products.html?id=soft-light" data-metal="silver" data-price="1499">
-          <div class="category-img-wrap">
-            <img src="bracelets/Soft Light.jpg">
-            <p class="explore">QUICK VIEW</p>
-            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'soft-light')">
-              <i class="fa-regular fa-heart"></i>
-            </button>
-          </div>
-          <p style="margin-top: 8px;">AU$1,499</p>
-          <h2>21.80CT LARGE STONE OPAL BRACELET <br>| STERLING SILVER | 'SOFT LIGHT'</h2>
-        </a>
-      </div>
-      <div class="category">
-        <a href="products.html?id=white-shore" data-metal="silver" data-price="1199">
-          <div class="category-img-wrap">
-            <img src="bracelets/White Shore.jpg">
-            <p class="explore">QUICK VIEW</p>
-            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'white-shore')">
-              <i class="fa-regular fa-heart"></i>
-            </button>
-          </div>
-          <p style="margin-top: 8px;">AU$1,199</p>
-          <h2>17.60CT LARGE STONE OPAL BRACELET <br>| STERLING SILVER | 'WHITE SHORE'</h2>
-        </a>
-      </div>
-      <div class="category">
-        <a href="products.html?id=crystal-flex" data-metal="silver" data-price="499" data-sale="true">
-          <div class="category-img-wrap">
-            <img src="bracelets/Crystal Flex.jpg">
-            <p class="explore">QUICK VIEW</p>
-            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'crystal-flex')">
-              <i class="fa-regular fa-heart"></i>
-            </button>
-            <span class="product-tag">SALE</span>
-          </div>
-          <div style="margin-top: 5px;">
-            <span class="sale-price">AU$499</span>
-            <span class="original-price">AU$799</span>
-          </div>
-          <h2>8.90CT CRYSTAL OPAL BRACELET <br>| STERLING SILVER | 'CRYSTAL FLEX'</h2>
-        </a>
-      </div>
-      <div class="category">
-        <a href="products.html?id=pearl-tide" data-metal="silver" data-price="499" data-sale="true">
-          <div class="category-img-wrap">
-            <img src="bracelets/Pearl Tide.jpg">
-            <p class="explore">QUICK VIEW</p>
-            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'pearl-tide')">
-              <i class="fa-regular fa-heart"></i>
-            </button>
-            <span class="product-tag">SALE</span>
-          </div>
-          <div style="margin-top: 5px;">
-            <span class="sale-price">AU$499</span>
-            <span class="original-price">AU$799</span>
-          </div>
-          <h2>6.80CT OPAL BRACELET <br>| STERLING SILVER | 'PEARL TIDE'</h2>
-        </a>
-      </div>
-      <div class="category">
-        <a href="products.html?id=double-stack" data-metal="silver" data-price="599">
-          <div class="category-img-wrap">
-            <img src="bracelets/Double Stacks.jpg">
-            <p class="explore">QUICK VIEW</p>
-            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'double-stack')">
-              <i class="fa-regular fa-heart"></i>
-            </button>
-          </div>
-          <p style="margin-top: 8px;">AU$599</p>
-          <h2>12.40CT CRYSTAL OPAL DOUBLE STACK <br>| STERLING SILVER | 'DOUBLE STACK'</h2>
         </a>
       </div>
       <div class="category">
@@ -266,55 +267,74 @@
           <h2>15.20CT CRYSTAL OPAL CUFF <br>| STERLING SILVER | 'WHITE CUFF'</h2>
         </a>
       </div>
+    </section>
+    <section class="banner">
+      <h1 style="font-size: 30px; padding-top: 30px;">RINGS</h1>
+      <p style="font-size: 18px;">Designed to be treasured for a lifetime.</p>
+      <h2><a href="rings.html">SHOP ALL</a></h2>
+    </section>
+    <section class="categories product-list">
       <div class="category">
-        <a href="products.html?id=coastal-wave" data-metal="silver" data-price="999" data-sale="true">
+        <a href="products.html?id=constellation" data-metal="gold" data-price="1499">
           <div class="category-img-wrap">
-            <img src="bracelets/Coastal Wave.jpg">
+            <img src="rings/Constellation.jpg">
             <p class="explore">QUICK VIEW</p>
-            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'coastal-wave')">
-              <i class="fa-regular fa-heart"></i>
-            </button>
-            <span class="product-tag">SALE</span>
-          </div>
-          <div style="margin-top: 5px;">
-            <span class="sale-price">AU$999</span>
-            <span class="original-price">AU$1,499</span>
-          </div>
-          <h2>20.80CT SOLID SEMI-BLACK OPAL BRACELET <br>| STRELING SILVER | 'COASTAL WAVE'</h2>
-        </a>
-      </div>
-      <div class="category">
-        <a href="products.html?id=outback-cuff" data-metal="silver" data-price="1499">
-          <div class="category-img-wrap">
-            <img src="bracelets/Outback Cuff.jpg">
-            <p class="explore">QUICK VIEW</p>
-            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'outback-cuff')">
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'constellation')">
               <i class="fa-regular fa-heart"></i>
             </button>
           </div>
           <p style="margin-top: 8px;">AU$1,499</p>
-          <h2>32.15CT BOULDER OPAL BRACELET <br>| STERLING SILVER | 'OUTBACK CUFF'</h2>
+          <h2>MULTI STONE CRYSTAL OPAL RING <br>| 9K YELLOW GOLD | 'CONSTELLATION' </h2>
         </a>
       </div>
       <div class="category">
-        <a href="products.html?id=green-garden" data-metal="silver" data-price="349" data-sale="true">
+        <a href="products.html?id=silver-whisper" data-metal="silver" data-price="499" data-sale="true">
           <div class="category-img-wrap">
-            <img src="bracelets/Green Garden.jpg">
+            <img src="rings/Silver Whisper.jpg">
             <p class="explore">QUICK VIEW</p>
-            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'green-garden')">
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'silver-whisper')">
               <i class="fa-regular fa-heart"></i>
             </button>
             <span class="product-tag">SALE</span>
           </div>
           <div style="margin-top: 5px;">
-            <span class="sale-price">AU$349</span>
-            <span class="original-price">AU$599</span>
+            <span class="sale-price">AU$499</span>
+            <span class="original-price">AU$799</span>
           </div>
-          <h2>10 STONE CRYSTAL OPAL BRACELET <br>| STERLING SILVER | 'GREEN GARDEN'</h2>
+          <h2>17.45CT QUEENSLAND BOULDER RING <br>| STERLING SILVER | 'SILVER WHISPER' </h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=coloured-depth" data-metal="gold" data-price="1699">
+          <div class="category-img-wrap">
+            <img src="rings/Coloured Depths.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'coloured-depth')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <p style="margin-top: 8px;">AU$1,699</p>
+          <h2>13.85CT LIGHTNING RIDGE BLACK OPAL RING <br>| 9K YELLOW GOLD | 'COLOURED DEPTH' </h2>
+        </a>
+      </div>
+      <div class="category">
+        <a href="products.html?id=prismatic-flash" data-metal="gold" data-price="2499" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="rings/Prismatic Flash.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'prismatic-flash')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$2,499</span>
+            <span class="original-price">AU$3,499</span>
+          </div>
+          <h2>11.65CT QUEENSLAND BOULDER RING <br>| 10K YELLOW GOLD | 'PRISMATIC FLASH' </h2>
         </a>
       </div>
     </section>
-
     <div class="benefit-header"> 
       <h1 style="font-size: 23px;">WHY SHOP WITH US?</h1>
     </div>

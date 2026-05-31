@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clearance-Majulix Opal Jewellery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">  
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> 
+  </head>
+  <body>
+    <div id="search-overlay">
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="Search products..." onkeydown="if(event.key === 'Enter') window.location.href='search.html?q=' + this.value">        
+        <button onclick="document.getElementById('search-overlay').style.display='none'">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div id="search-results"></div>
+    </div>
+    <div class="ticker">
+      <span>FREE SHIPPING ON ALL ORDERS &nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp; NEW COLLECTION NOW AVAILABLE &nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp; HANDCRAFTED FINE OPAL JEWELLERY &nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp; ENJOY 10% OFF YOUR FIRST ORDER &nbsp;&nbsp;&nbsp;</span>
+    </div> 
+    <header>
+      <div class="header-inner">
+        <div class="logo-wrap">
+          <a href="index.html"><img class="logo" src="logo/logo.png" width="90px" height="auto"></a>
+          <div class="logo-dot"></div>
+        </div>
+        <nav>
+          <a href="engagement.html">ENGAGEMENT</a>
+          <a href="mens.html">MEN'S</a> 
+          <a href="gifts.html">GIFTS</a>
+          <a href="statement.html">STATEMENT</a>
+          <a href="clearance.html" style="color: #A64B4B;">CLEARANCE</a>       
+        </nav>
+        <div class="header-icons">
+        <button class="icon" onclick="document.getElementById('search-overlay').style.display='flex'">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <button class="icon">
+          <i class="fa-regular fa-heart"></i>
+        </button>        
+        <button class="icon">
+          <i class="fa-regular fa-user"></i>
+        </button>
+        <a href="cart.html">
+          <button class="icon">
+            <i class="fa-solid fa-bag-shopping"></i>
+          </button> 
+        </a>
+        </div>
+      </div>
+    </header>
+
+    <section class="page-hero">
+        <h2 class="breadcrumb"><a href="index.html">HOME</a>/CLEARANCE</h2>
+        <h1>Clearance</h1>
+        <h2 style="font-size: 15px; font-weight: 400;">Up to 40% off Sale.</h2>
+    </section>
+
+    <div class="filter-sort-bar">
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">ALL</button>
+        <button class="filter-btn" data-filter="gold">GOLD</button>
+        <button class="filter-btn" data-filter="silver">SILVER</button>
+        <button class="filter-btn" data-filter="under500">UNDER AU$500</button>
+        <button class="filter-btn" data-filter="under1000">UNDER AU$1000</button>
+      </div>
+      <div class="sort-bar">
+        <div class="sort-select" onclick="toggleSort()">
+          <span id="sort-label">SORT</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <div class="sort-dropdown" id="sort-dropdown">
+          <h2 style="font-size: 13px;" class="sort-option" onclick="sortProducts('low', event)">
+            <span class="sort-check">PRICE: LOW TO HIGH</span>
+          </h2>
+          <h2 style="font-size: 13px;" class="sort-option" onclick="sortProducts('high', event)">
+            <span class="sort-check">PRICE: HIGH TO LOW</span> 
+          </h2>
+        </div>
+      </div>
+    </div>
+
+    <section class="categories product-list" id="all-grid"></section>
+    
+    <div class="benefit-header"> 
+      <h1 style="font-size: 23px;">WHY SHOP WITH US?</h1>
+    </div>
+    <section class="benefits">
+      <div class="benefit-item">
+        <i class="fa-solid fa-gem"></i>
+        <p>Authentic Australian Opals</p>
+      </div>
+
+      <div class="benefit-item">
+        <i class="fa-solid fa-truck"></i>
+        <p>Free Shipping</p>
+      </div>
+
+      <div class="benefit-item">
+        <i class="fa-solid fa-rotate-left"></i>
+        <p>30 Day Returns</p>
+      </div>
+
+      <div class="benefit-item">
+        <i class="fa-solid fa-shield-heart"></i>
+        <p>Lifetime Warranty</p>
+      </div>
+    </section>
+    <footer>
+        <div class="footer-top">
+            <img class="logo footer-logo" src="logo/logo.png" width="120px" height="auto">
+            <h2 style="font-weight: 300; font-size: 25px; font-style: italic;">Leading experts in Opal jewellery, we were so obsessed with giving our customers<br>the best possible experience we created our very own world-class Opal Museum</p>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-col">
+            <p>CUSTOMER SERVICE</p>
+            <p>Australia phone number +61738577740</p>
+            <p>Monday to Friday 10:00am - 5:00pm AEST</p>
+            <p>Saturday 10:00am - 4:00pm AEST</p>
+            <p>Sunday 10:00am - 3:00pm AEST</p>
+            <p>201 Lutwyche rd, Windsor, 4030, Brisbane, Australia</p>
+          </div>
+          <div class="footer-col">
+            <p>NEWSLETTER</p>
+            <p>Receive our newsletter and discover our stories, collections, and surprises.</p>
+            <input type="email" placeholder="SUBSCRIBE">
+          </div>          
+          <div class="footer-col" style="margin-left: auto; text-align: right;">
+            <p>FOLLOW US</p>
+            <div class="social" style="justify-content: flex-end;">
+              <i class="fa-brands fa-facebook"></i>
+              <i class="fa-brands fa-instagram"></i>
+              <i class="fa-brands fa-youtube"></i>
+            </div>
+        </div>
+      </div>
+      <p class="copyright">Copyright © 2026 Marsha. All Rights Reserved.</h2>    
+    </footer>
+    <script src="products.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

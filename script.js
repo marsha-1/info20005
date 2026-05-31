@@ -289,3 +289,60 @@ document.addEventListener('click', (e) => {
     if (dropdown) dropdown.style.display = 'none';
   }
 });
+
+const clearanceGrid = document.getElementById('clearance-grid');
+
+if (clearanceGrid) {
+  const saleProducts = Object.entries(products).filter(([key, p]) => p.sale === true);
+  saleProducts.forEach(([key, p]) => {
+  const numericPrice = parseInt(p.salePrice.replace(/[^0-9]/g, ''));
+  clearanceGrid.innerHTML += `
+    <div class="category">
+      <a href="products.html?id=${key}" data-metal="${p.metal || ''}" data-price="${numericPrice}" data-sale="true">
+        <div class="category-img-wrap">
+          <img src="${p.image}" alt="${p.name}">
+          <p class="explore">QUICK VIEW</p>
+          <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, '${key}')">
+            <i class="fa-regular fa-heart"></i>
+          </button>
+          <span class="product-tag">SALE</span>
+        </div>
+        <div style="margin-top: 5px;">
+          <span class="sale-price">${p.salePrice}</span>
+          <span class="original-price">${p.price}</span>
+        </div>
+        <h2>${p.name}</h2>
+      </a>
+    </div>
+  `;
+});}
+
+const allGrid = document.getElementById('all-grid');
+
+if (allGrid) {
+  Object.entries(products).forEach(([key, p]) => {
+    const numericPrice = parseInt((p.salePrice || p.price).replace(/[^0-9]/g, ''));
+    allGrid.innerHTML += `
+      <div class="category">
+        <a href="products.html?id=${key}" data-metal="${p.metal || ''}" data-price="${numericPrice}" data-sale="${p.sale}">
+          <div class="category-img-wrap">
+            <img src="${p.image}" alt="${p.name}">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, '${key}')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            ${p.sale ? '<span class="product-tag">SALE</span>' : ''}
+          </div>
+          <div style="margin-top: 5px;">
+            ${p.sale ? `<span class="sale-price">${p.salePrice}</span><span class="original-price">${p.price}</span>` : `<p>${p.price}</p>`}
+          </div>
+          <h2>${p.name}</h2>
+        </a>
+      </div>
+    `;
+  });
+
+  const items = Array.from(allGrid.querySelectorAll('.category'));
+  items.sort(() => Math.random() - 0.5);
+  items.forEach(item => allGrid.appendChild(item));
+}
