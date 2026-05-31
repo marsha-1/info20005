@@ -10,6 +10,21 @@
     <link rel="stylesheet" href="style.css"> 
   </head>
   <body>
+    <div id="cart-drawer" style="display:none;">
+        <div id="cart-drawer-overlay" onclick="closeCartDrawer()"></div>
+        <div id="cart-drawer-inner">
+          <div id="cart-drawer-header" style="display: flex; justify-content: flex-end;">
+            <button onclick="closeCartDrawer()"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+          <h2 style="font-size: 25px;">YOUR PRODUCT HAS BEEN <br>ADDED TO CART!</h2>
+          <div id="cart-drawer-items"></div>
+          <div id="cart-drawer-footer">
+            <div id="cart-drawer-subtotal"></div>
+            <a href="cart.html" id="cart-drawer-checkout">VIEW BAG AND CHECKOUT</a>
+            <button onclick="closeCartDrawer()" id="cart-drawer-continue">CONTINUE SHOPPING</button>
+          </div>
+        </div>
+    </div>
     <div id="search-overlay">
       <div class="search-box">
         <input type="text" id="search-input" placeholder="Search products..." onkeydown="if(event.key === 'Enter') window.location.href='search.html?q=' + this.value">        
@@ -39,9 +54,11 @@
         <button class="icon" onclick="document.getElementById('search-overlay').style.display='flex'">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
-        <button class="icon">
-          <i class="fa-regular fa-heart"></i>
-        </button>        
+        <a href="favorites.html">
+          <button class="icon">
+            <i class="fa-regular fa-heart"></i>
+          </button>        
+        </a>
         <button class="icon">
           <i class="fa-regular fa-user"></i>
         </button>

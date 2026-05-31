@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bracelets-Majulix Opal Jewellery</title>
+    <title>Cart-Majulix Opal Jewellery</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">  
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
@@ -15,25 +15,198 @@
     </div> 
     <header>
       <div class="header-inner">
-        <button class="icon" onclick="history.back()">
+        <button class="icon" onclick="history.back()" style="margin-left: 150px;">
             <i class="fa-solid fa-arrow-left"></i>
         </button>
-          <img class="logo" src="logo/logo.png" width="120px" height="auto">
+        <div class="logo-wrap">
+          <a href="index.html"><img class="logo" src="logo/logo.png" width="90px" height="auto" style="margin-right: 700px;"></a>
           <div class="logo-dot"></div>
         </div>
       </div>
     </header>
-    <section class="cart-page">
-        <div class="cart-left">
-        <h2 id="cart-count" style="font-size: 30px;">YOU HAVE 0 ITEMS IN YOUR CART.</h2>
+
+    <div class="cart-progress">
+      <div class="cart-progress-inner">
+        <div class="cart-step active">
+          <div class="cart-step-dot full"></div>
+          <span>CART</span>
+        </div>
+        <div class="cart-step-line"></div>
+        <div class="cart-step">
+          <div class="cart-step-dot"></div>
+          <span>CHECKOUT</span>
+        </div>
+        <div class="cart-step-line"></div>
+        <div class="cart-step">
+          <div class="cart-step-dot"></div>
+          <span>PAYMENT</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cart-layout">
+      <div class="cart-left">
+        <h1 class="cart-title" style="font-size: 30px; font-weight: bold;">MY CART</h1>
         <div id="cart-container"></div>
-        <div class="cart-subtotal">
-            <span style="font-family: 'Roboto Condensed', sans-serif; font-weight: 400;">SUBTOTAL</span>
-            <span id="cart-subtotal" style="font-family: 'Roboto Condensed', sans-serif; font-weight: 400;">AU$0.00</span>
+      </div>
+      <div class="cart-right">
+        <h1 class="cart-title" style="font-size: 30px;">ORDER SUMMARY</h1>
+        <div class="order-summary">
+          <div class="order-row">
+            <span>SUBTOTAL</span>
+            <span id="summary-items">AU$0</span>
+          </div>
+          <div class="order-row">
+            <span>GST INCLUDED (10%)</span>
+            <span id="summary-gst">AU$0</span>
+          </div>
+          <div class="order-row" id="discount-row" style="color:#A64B4B;">
+            <span>DISCOUNT</span>
+            <span id="summary-discount">AU$0</span>
+          </div>
+          <div class="order-row order-total">
+            <span>ORDER TOTAL</span>
+            <span id="summary-total">AU$0</span>
+          </div>
+          <div class="promo-box">
+            <p>PROMO CODE</p>
+            <p style="font-size: 10px; margin-top: 0;">TRY THIS: INFO20005ISFUN</p>
+            <div class="promo-input-wrap">
+              <input type="text" id="promo-input" placeholder="ENTER CODE">
+              <button onclick="applyPromo()">APPLY</button>
+            </div>
+            <p id="promo-message" style="font-size:12px; margin-top:8px;"></p>
+          </div>
+          <a href="checkout.html" class="checkout-btn">PROCEED TO CHECKOUT</a>
         </div>
-        <button class="checkout-btn">CHECKOUT</button>
-        </div>
+      </div>
+    </div>
+    <section class="keep-exploring">
+      <section class="banner" style="padding-top: 0;">
+        <h1 style="padding-top: 40px;">KEEP EXPLORING</h1>
+      </section>
     </section>
+    <div class="categories" style="padding-top: 0;">
+      <div class="category">
+        <a class="explore-card" id="explore-card-1" href="#">
+          <div class="category-img-wrap">
+            <img src="" class="explore-img" id="explore-img-1">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" id="explore-heart-1" onclick="event.preventDefault();">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <p id="explore-price-1" style="margin-top: 8px;"></p>
+          <h2 id="explore-name-1"></h2>
+        </a>
+        <button class="add-to-cart-quick" id="explore-cart-1">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
+      </div>
+      <div class="category">
+        <a class="explore-card" id="explore-card-2" href="#">
+          <div class="category-img-wrap">
+            <img src="" class="explore-img" id="explore-img-2">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" id="explore-heart-2" onclick="event.preventDefault();">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <p id="explore-price-2" style="margin-top: 8px;"></p>
+          <h2 id="explore-name-2"></h2>
+        </a>
+        <button class="add-to-cart-quick" id="explore-cart-2">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
+      </div>
+      <div class="category">
+        <a class="explore-card" id="explore-card-3" href="#">
+          <div class="category-img-wrap">
+            <img src="" class="explore-img" id="explore-img-3">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" id="explore-heart-3" onclick="event.preventDefault();">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <p id="explore-price-3" style="margin-top: 8px;"></p>
+          <h2 id="explore-name-3"></h2>
+        </a>
+        <button class="add-to-cart-quick" id="explore-cart-3">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
+      </div>
+      <div class="category">
+        <a class="explore-card" id="explore-card-4" href="#">
+          <div class="category-img-wrap">
+            <img src="" class="explore-img" id="explore-img-4">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" id="explore-heart-4" onclick="event.preventDefault();">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <p id="explore-price-4" style="margin-top: 8px;"></p>
+          <h2 id="explore-name-4"></h2>
+        </a>
+        <button class="add-to-cart-quick" id="explore-cart-4">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
+      </div>
+    </div>
+
+    <div class="benefit-header"> 
+      <h1 style="font-size: 23px;">WHY SHOP WITH US?</h1>
+    </div>
+    <section class="benefits">
+      <div class="benefit-item">
+        <i class="fa-solid fa-gem"></i>
+        <p>Authentic Australian Opals</p>
+      </div>
+
+      <div class="benefit-item">
+        <i class="fa-solid fa-truck"></i>
+        <p>Free Shipping</p>
+      </div>
+
+      <div class="benefit-item">
+        <i class="fa-solid fa-rotate-left"></i>
+        <p>30 Day Returns</p>
+      </div>
+
+      <div class="benefit-item">
+        <i class="fa-solid fa-shield-heart"></i>
+        <p>Lifetime Warranty</p>
+      </div>
+    </section>
+    <footer>
+        <div class="footer-top">
+            <img class="logo footer-logo" src="logo/logo.png" width="120px" height="auto">
+            <h2 style="font-weight: 300; font-size: 25px; font-style: italic;">Leading experts in Opal jewellery, we were so obsessed with giving our customers<br>the best possible experience we created our very own world-class Opal Museum</p>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-col">
+            <p>CUSTOMER SERVICE</p>
+            <p>Australia phone number +61738577740</p>
+            <p>Monday to Friday 10:00am - 5:00pm AEST</p>
+            <p>Saturday 10:00am - 4:00pm AEST</p>
+            <p>Sunday 10:00am - 3:00pm AEST</p>
+            <p>201 Lutwyche rd, Windsor, 4030, Brisbane, Australia</p>
+          </div>
+          <div class="footer-col">
+            <p>NEWSLETTER</p>
+            <p>Receive our newsletter and discover our stories, collections, and surprises.</p>
+            <input type="email" placeholder="SUBSCRIBE">
+          </div>          
+          <div class="footer-col" style="margin-left: auto; text-align: right;">
+            <p>FOLLOW US</p>
+            <div class="social" style="justify-content: flex-end;">
+              <i class="fa-brands fa-facebook"></i>
+              <i class="fa-brands fa-instagram"></i>
+              <i class="fa-brands fa-youtube"></i>
+            </div>
+          </div>
+      </div>
+      <p class="copyright">Copyright © 2026 Marsha. All Rights Reserved.</h2>    
+    </footer>
 
   <script src="products.js"></script>
   <script src="script.js"></script>

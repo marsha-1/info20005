@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Clearance-Majulix Opal Jewellery</title>
+    <title>Favorites-Majulix Opal Jewellery</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">  
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
@@ -71,38 +71,17 @@
       </div>
     </header>
 
-    <section class="page-hero">
-        <h2 class="breadcrumb"><a href="index.html">HOME</a>/CLEARANCE</h2>
-        <h1>Clearance</h1>
-        <h2 style="font-size: 15px; font-weight: 400;">Up to 40% off Sale.</h2>
+    <section class="hero" style="height: 400px; overflow: hidden;">
+      <img class="hero-slide-active" src="hero/ringhero.png" style="width: 100%; height: 100%; object-fit: cover;">
     </section>
 
-    <div class="filter-sort-bar">
-      <div class="filters">
-        <button class="filter-btn active" data-filter="all">ALL</button>
-        <button class="filter-btn" data-filter="gold">GOLD</button>
-        <button class="filter-btn" data-filter="silver">SILVER</button>
-        <button class="filter-btn" data-filter="under500">UNDER AU$500</button>
-        <button class="filter-btn" data-filter="under1000">UNDER AU$1000</button>
-      </div>
-      <div class="sort-bar">
-        <div class="sort-select" onclick="toggleSort()">
-          <span id="sort-label">SORT</span>
-          <i class="fa-solid fa-chevron-down"></i>
-        </div>
-        <div class="sort-dropdown" id="sort-dropdown">
-          <h2 style="font-size: 13px;" class="sort-option" onclick="sortProducts('low', event)">
-            <span class="sort-check">PRICE: LOW TO HIGH</span>
-          </h2>
-          <h2 style="font-size: 13px;" class="sort-option" onclick="sortProducts('high', event)">
-            <span class="sort-check">PRICE: HIGH TO LOW</span> 
-          </h2>
-        </div>
-      </div>
-    </div>
+    <section class="promo-section">
+        <h1 style="text-align: center;">MY FAVORITES</h1>
+    </section>
 
-    <section class="categories product-list" id="all-grid"></section>
-    
+    <section class="categories product-list" id="favourites-grid"></section>
+
+
     <div class="benefit-header"> 
       <h1 style="font-size: 23px;">WHY SHOP WITH US?</h1>
     </div>

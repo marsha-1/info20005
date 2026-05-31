@@ -10,6 +10,21 @@
     <link rel="stylesheet" href="style.css"> 
   </head>
   <body>
+    <div id="cart-drawer" style="display:none;">
+        <div id="cart-drawer-overlay" onclick="closeCartDrawer()"></div>
+        <div id="cart-drawer-inner">
+          <div id="cart-drawer-header" style="display: flex; justify-content: flex-end;">
+            <button onclick="closeCartDrawer()"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+          <h2 style="font-size: 25px;">YOUR PRODUCT HAS BEEN <br>ADDED TO CART!</h2>
+          <div id="cart-drawer-items"></div>
+          <div id="cart-drawer-footer">
+            <div id="cart-drawer-subtotal"></div>
+            <a href="cart.html" id="cart-drawer-checkout">VIEW BAG AND CHECKOUT</a>
+            <button onclick="closeCartDrawer()" id="cart-drawer-continue">CONTINUE SHOPPING</button>
+          </div>
+        </div>
+    </div>
     <div id="search-overlay">
       <div class="search-box">
         <input type="text" id="search-input" placeholder="Search products..." onkeydown="if(event.key === 'Enter') window.location.href='search.html?q=' + this.value">        
@@ -39,9 +54,11 @@
         <button class="icon" onclick="document.getElementById('search-overlay').style.display='flex'">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
-        <button class="icon">
-          <i class="fa-regular fa-heart"></i>
-        </button>        
+        <a href="favorites.html">
+          <button class="icon">
+            <i class="fa-regular fa-heart"></i>
+          </button>        
+        </a>
         <button class="icon">
           <i class="fa-regular fa-user"></i>
         </button>
@@ -97,6 +114,9 @@
           <p style="margin-top: 8px;">AU$5,999</p>
           <h2>24.10CT SOLID AUSTRALIAN CRYSTAL OPAL <BR> | 'HEART OF GLASS' |</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('heart-of-glass')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=deep-ocean" data-price="4999">
@@ -110,6 +130,9 @@
           <p style="margin-top: 8px;">AU$4,999</p>
           <h2>19.35CT LIGHTNING RIDGE BLACK UNSET OPAL | 'DEEP OCEAN' |</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('deep-ocean')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=blue-rockpool" data-metal="silver" data-price="1499">
@@ -123,6 +146,9 @@
           <p style="margin-top: 8px;">AU$1,499</p>
           <h2>1.70CT SOLID AUSTRALIAN CRYSTAL OPAL | 'BLUE ROCKPOOL' |</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('blue-rockpool')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=ocean-pair" data-metal="silver" data-price="1499">
@@ -136,6 +162,9 @@
           <p style="margin-top: 8px;">AU$1,499</p>
           <h2>11.90CT QUEENSLAND BOULDER UNSET OPAL | 'OCEAN PAIR' |</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('ocean-pair')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=celestial" data-metal="silver" data-price="1499" data-sale="true">
@@ -153,6 +182,9 @@
           </div>
           <h2>6.90CT SOLID AUSTRALIAN CRYSTAL OPAL <br> | 'CELESTAL' |</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('celestial')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=solar-flare" data-metal="silver" data-price="4499" data-sale="true">
@@ -170,7 +202,10 @@
           </div>
           <h2>21.80CT QUEENSLAND BOULDER UNSET OPAL | 'SOLAR FLARE' |</h2>
         </a>
-      </div>      
+        <button class="add-to-cart-quick" onclick="addToCart('solar-flare')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
+      </div>
       <div class="category">
         <a href="products.html?id=misty-morning" data-metal="silver" data-price="2499">
           <div class="category-img-wrap">
@@ -183,6 +218,9 @@
           <p style="margin-top: 8px;">AU$2,499</p>
           <h2>6.50CT QUEENSLAND BOULDER UNSET OPAL | 'MISTY MORNING' |</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('misty-morning')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=antilles" data-price="1999" data-sale="true">
@@ -200,6 +238,9 @@
           </div>
           <h2>8.90CT QUEENSLAND BOULDER UNSET OPAL | 'ANTILLES' |</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('antilles')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=azure-mosaic" data-price="3499">
@@ -213,6 +254,9 @@
           <p style="margin-top: 8px;">AU$3,499</p>
           <h2>14.85CT QUEENSLAND BOULDER UNSET OPAL | 'AZURE MOSAIC' |</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('azure-mosaic')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=dancing-in-the-dark" data-price="2999" data-sale="true">
@@ -230,6 +274,9 @@
           </div>
           <h2>12.40CT SOLID CRYSTAL UNSET OPAL <br>| 'DANCING IN THE DARK' |</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('dancing-in-the-dark')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=dewy-morning" data-price="1999" data-sale="true">
@@ -247,6 +294,9 @@
           </div>
           <h2>9.20CT SOLID AUSTRALIAN CRYSTAL OPAL <br>| 'DEWY MORNING' |</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('dewy-morning')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=drops-of-jupiter" data-price="3999">
@@ -260,6 +310,9 @@
           <p style="margin-top: 8px;">AU$3,999</p>
           <h2>17.60CT SOLID AUSTRALIAN CRYSTAL OPAL <br> | 'DROPS OF JUPITER' |</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('drops-of-jupiter')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=happy-stingray" data-price="2499" data-sale="true">
@@ -275,11 +328,14 @@
             <span class="sale-price">AU$2,499</span>
             <span class="original-price">AU$3,499</span>
           </div>
-          <h2>10.55CT SOLID AUSTRALIAN CRYSTAL OPAL | 'HAPPY STINGRAY' |</h2>
+          <h2>10.55CT SOLID AUSTRALIAN CRYSTAL OPAL <br>| 'HAPPY STINGRAY' |</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('happy-stingray')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
-        <a href="products.html?id=pink-sea"  data-price="2999" data-sale="true">
+        <a href="products.html?id=pink-sea" data-price="2999" data-sale="true">
           <div class="category-img-wrap">
             <img src="unset/Pink Sea.jpg">
             <p class="explore">QUICK VIEW</p>
@@ -294,6 +350,9 @@
           </div>
           <h2>12.40CT SOLID AUSTRALIAN CRYSTAL OPAL<BR> | 'PINK SEA' |</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('pink-sea')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=pure-morning" data-price="1999">
@@ -307,6 +366,9 @@
           <p style="margin-top: 8px;">AU$1,999</p>
           <h2>8.90CT SOLID AUSTRALIAN CRYSTAL OPAL <BR>| 'PURE MORNING' |</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('pure-morning')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=rainbow-opal" data-metal="silver" data-price="3499">
@@ -320,6 +382,9 @@
           <p style="margin-top: 8px;">AU$3,499</p>
           <h2>15.20CT SOLID AUSTRALIAN CRYSTAL OPAL <BR>| 'RAINBOW OPAL' |</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('rainbow-opal')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=mighty-pluto" data-price="1999">
@@ -333,6 +398,9 @@
           <p style="margin-top: 8px;">AU$1,999</p>
           <h2>1.40CT SOLID AUSTRALIAN CRYSTAL OPAL <BR>| 'MIGHTY PLUTO' |</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('mighty-pluto')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=glitterball" data-price="2499">
@@ -346,6 +414,9 @@
           <p style="margin-top: 8px;">AU$2,499</p>
           <h2>4.55CT SOLID AUSTRALIAN CRYSTAL OPAL <BR>| 'GLITTERBALL' |</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('glitterball')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=colour-currents" data-price="1999" data-sale="true">
@@ -363,6 +434,9 @@
           </div>
           <h2>21.90CT QUEENSLAND BOULDER UNSET OPAL | 'COLOUR CURRENTS' |</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('colour-currents')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
     </section>
 

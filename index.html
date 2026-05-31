@@ -11,6 +11,21 @@
     <link rel="stylesheet" href="mobile.css" media="(max-width: 844px)">
   </head>
   <body>
+    <div id="cart-drawer" style="display:none;">
+        <div id="cart-drawer-overlay" onclick="closeCartDrawer()"></div>
+        <div id="cart-drawer-inner">
+          <div id="cart-drawer-header" style="display: flex; justify-content: flex-end;">
+            <button onclick="closeCartDrawer()"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+          <h2 style="font-size: 25px;">YOUR PRODUCT HAS BEEN <br>ADDED TO CART!</h2>
+          <div id="cart-drawer-items"></div>
+          <div id="cart-drawer-footer">
+            <div id="cart-drawer-subtotal"></div>
+            <a href="cart.html" id="cart-drawer-checkout">VIEW BAG AND CHECKOUT</a>
+            <button onclick="closeCartDrawer()" id="cart-drawer-continue">CONTINUE SHOPPING</button>
+          </div>
+        </div>
+    </div>
     <div id="search-overlay">
       <div class="search-box">
         <input type="text" id="search-input" placeholder="Search products..." onkeydown="if(event.key === 'Enter') window.location.href='search.html?q=' + this.value">        
@@ -40,9 +55,11 @@
         <button class="icon" onclick="document.getElementById('search-overlay').style.display='flex'">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
-        <button class="icon">
-          <i class="fa-regular fa-heart"></i>
-        </button>        
+        <a href="favorites.html">
+          <button class="icon">
+            <i class="fa-regular fa-heart"></i>
+          </button>        
+        </a>
         <button class="icon">
           <i class="fa-regular fa-user"></i>
         </button>
@@ -128,6 +145,9 @@
           </div>
           <h2>10.15CT QUEENSLAND BOULDER NECKLACE <br>| STERLING SILVER | 'MOONBEAM DROP'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('moonbeam-drop')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=spectral-fire" data-metal="gold" data-price="5999" data-sale="true">
@@ -145,6 +165,9 @@
           </div>
           <h2>30CT QUEENSLAND BOULDER NECKLACE <br>| 10K YELLOW GOLD | 'SPECTRAL FIRE'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('spectral-fire')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category"> 
         <a href="products.html?id=ocean-trilogy" data-metal="silver" data-price="649" data-sale="true">
@@ -162,6 +185,9 @@
           </div>
           <h2>17.85CT LIGHTNING RIDGE BLACK OPAL RING <br>| STRELING SILVER | 'OCEAN TRILOGY'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('ocean-trilogy')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=coastal-wave" data-metal="silver" data-price="999" data-sale="true">
@@ -179,6 +205,9 @@
           </div>
           <h2>20.80CT SOLID SEMI-BLACK OPAL BRACELET <br>| STRELING SILVER | 'COASTAL WAVE'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('coastal-wave')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
     </section>
 
@@ -200,7 +229,7 @@
           <div class="feature-content">
               <h2>SIGNATURE BRACELETS</h2>
               <p>Create your signature look with opal bracelets designed to be worn alone or stacked together.</p>
-              <p><a href="#">SHOP NOW</a></p>
+              <p><a href="bracelets.html">SHOP NOW</a></p>
           </div>
       </div>
       <div class="feature-card">
@@ -209,7 +238,7 @@
           <div class="feature-content">
               <h2>NEW ARRIVALS</h2>
               <p>Discover new favourites, ready to be added to your collection.</p>
-              <p><a href="#">SHOP NOW</a></p>
+              <p><a href="all.html">SHOP NOW</a></p>
           </div>
       </div>
       <div class="feature-card">
@@ -218,7 +247,7 @@
           <div class="feature-content">
               <h2>TIMELESS RINGS.</h2>
               <p>Discover beautifully crafted rings for every moment.</p>
-              <p><a href="#">SHOP NOW</a></p>
+              <p><a href="rings.html">SHOP NOW</a></p>
           </div>
       </div>
     </section>
@@ -228,17 +257,21 @@
       <p style="font-size: 18px;">Showcasing the unique beauty of genuine Australian opals.</p>
     </section>
     <section class="categories">
-      <div class="category">  
-        <a href="products.html?id=#" data-price="1,499">
-        <div class="category-img-wrap">
-          <img src="unset/blue rockpool.jpg">
-          <p class="explore">QUICK VIEW</p>
-          <button class="heart-btn">
-            <i class="fa-regular fa-heart"></i>
-          </button>
-        </div>
-        <p>AU$1,499</p>
-        <h2>1.70CT QUEENSLAND BOULDER UNSET OPAL <br>| 'BLUE ROCKPOOL' |</h2>
+      <div class="category">
+        <a href="products.html?id=blue-rockpool" data-metal="silver" data-price="1499">
+          <div class="category-img-wrap">
+            <img src="unset/blue rockpool.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'blue-rockpool')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <p style="margin-top: 8px;">AU$1,499</p>
+          <h2>1.70CT SOLID AUSTRALIAN CRYSTAL OPAL | 'BLUE ROCKPOOL' |</h2>
+        </a>
+        <button class="add-to-cart-quick" onclick="addToCart('blue-rockpool')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=ocean-pair" data-metal="silver" data-price="1499">
@@ -252,34 +285,45 @@
           <p style="margin-top: 8px;">AU$1,499</p>
           <h2>11.90CT QUEENSLAND BOULDER UNSET OPAL | 'OCEAN PAIR' |</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('ocean-pair')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
-      <div class="category">  
-        <a href="products.html?id=#" data-price="1,499">
-        <div class="category-img-wrap">
-          <img src="unset/celestial.jpg">
-          <p class="explore">QUICK VIEW</p>
-          <span class="product-tag">SALE</span>
-          <button class="heart-btn">
-            <i class="fa-regular fa-heart"></i>
-          </button>
-        </div>
-        <div style="margin-top: 5px;">
-          <span class="sale-price">AU$1,499</span>
-          <span class="original-price">AU$1,999</span>
-        <h2>6.90CT SOLID AUSTRALIAN CRYSTAL OPAL <br>| 'CELESTAL' |</h2>
-        </div>
+      <div class="category">
+        <a href="products.html?id=celestial" data-metal="silver" data-price="1499" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="unset/celestial.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'celestial')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">AU$1,499</span>
+            <span class="original-price">AU$1,999</span>
+          </div>
+          <h2>6.90CT SOLID AUSTRALIAN CRYSTAL OPAL <br> | 'CELESTAL' |</h2>
+        </a>
+        <button class="add-to-cart-quick" onclick="addToCart('celestial')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
-      <div class="category">  
-        <a href="products.html?id=#" data-price="2,499">
-        <div class="category-img-wrap">
-          <img src="unset/misty morning.jpg">
-          <p class="explore">QUICK VIEW</p>
-          <button class="heart-btn">
-            <i class="fa-regular fa-heart"></i>
-          </button>
-        </div>
-        <p>AU$2,499</p>
-        <h2>6.50CT QUEENSLAND BOULDER UNSET OPAL <br>| 'MISTY MORNING' |</h2>
+      <div class="category">
+        <a href="products.html?id=misty-morning" data-metal="silver" data-price="2499">
+          <div class="category-img-wrap">
+            <img src="unset/misty morning.jpg">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, 'misty-morning')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <p style="margin-top: 8px;">AU$2,499</p>
+          <h2>6.50CT QUEENSLAND BOULDER UNSET OPAL | 'MISTY MORNING' |</h2>
+        </a>
+        <button class="add-to-cart-quick" onclick="addToCart('misty-morning')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
     </section>
 

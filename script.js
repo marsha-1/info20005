@@ -1,119 +1,250 @@
 document.addEventListener("DOMContentLoaded", () => {
   const cartContainer = document.getElementById("cart-container");
-  const cartCount = document.getElementById("cart-count");
   const cartSubtotal = document.getElementById("cart-subtotal");
 
   if (!cartContainer) return;
 
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-  cartCount.textContent = `YOU HAVE ${cart.length} ITEM${cart.length !== 1 ? "S" : ""} IN YOUR CART.`;
-
-  let total = 0;
   cartContainer.innerHTML = "";
 
   if (cart.length === 0) {
     cartContainer.innerHTML = "<p>Your cart is empty.</p>";
-    cartSubtotal.textContent = "AU$0.00";
+    if (cartSubtotal) cartSubtotal.textContent = "AU$0.00";
     return;
   }
 
-  cart.forEach((product, index) => {
-    const price = Number(product.price.replace("AU$", "").replace(",", ""));
-    total += price;
+  cart.forEach((item, index) => {
+    const p = products[item.id];
+    const isOnSale = p && p.sale;
 
-    cartContainer.innerHTML += `
-      <div class="cart-item">
-        <img src="${product.image}" alt="${product.name}">
-
-        <div>
-          <h2>${product.name}</h2>
-          <p>${product.price}</p>
+    const div = document.createElement('div');
+    div.className = 'cart-item cart-page-item';
+    div.innerHTML = `
+      <div class="cart-item-img-wrap" style="margin-left:15px">
+        <img src="${item.image}" alt="${item.name}" style="width:150px; height:200px; object-fit:cover; display:block; border-radius:0">
+      </div>
+      <div class="cart-item-info" style="margin-left:15px;">
+        <h2 style="font-size:20px">${item.name}</h2>
+        <div style="margin-top: 6px;">
+          ${isOnSale
+            ? `<span class="sale-price">${p.salePrice}</span> <span class="original-price">${p.price}</span>`
+            : `<p>${item.price}</p>`}
         </div>
-      <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>        
+        <div class="qty-controls">
+          <button onclick="updateCartQty(${index}, -1)">−</button>
+          <span>${item.qty}</span>
+          <button onclick="updateCartQty(${index}, 1)">+</button>
+        </div>
+        <button class="remove-btn" onclick="removeFromCartPage(${index})">REMOVE</button>
+      </div>      
+    `;
+    cartContainer.appendChild(div);
+  });
+
+  updateCartTotal();
+});
+
+function updateCartQty(index, change) {
+  let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  cart[index].qty += change;
+  if (cart[index].qty <= 0) cart.splice(index, 1);
+  localStorage.setItem('cart', JSON.stringify(cart));
+  location.reload();
+}
+
+function removeFromCartPage(index) {
+  let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  cart.splice(index, 1);
+  localStorage.setItem('cart', JSON.stringify(cart));
+  location.reload();
+}
+
+function updateCartTotal() {
+  const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+
+  const subtotal = cart.reduce((sum, item) => {
+    const price = parseInt((item.price || '0').replace(/[^0-9]/g, ''));
+    return sum + price * item.qty;
+  }, 0);
+
+  const discount = Math.round(subtotal * (appliedDiscount || 0));
+  const total = subtotal - discount;
+  const gst = Math.round(total * 0.1);
+
+  const subtotalEl = document.getElementById('cart-subtotal');
+  const itemsEl = document.getElementById('summary-items');
+  const gstEl = document.getElementById('summary-gst');
+  const totalEl = document.getElementById('summary-total');
+  const discountEl = document.getElementById('summary-discount');
+
+  if (subtotalEl) subtotalEl.textContent = `AU$${subtotal.toLocaleString()}`;
+  if (itemsEl) itemsEl.textContent = `AU$${subtotal.toLocaleString()}`;
+  if (gstEl) gstEl.textContent = `AU$${gst.toLocaleString()}`;
+  if (totalEl) totalEl.textContent = `AU$${total.toLocaleString()}`;
+  if (discountEl) {
+    discountEl.textContent = discount > 0 ? `-AU$${discount.toLocaleString()}` : 'AU$0';
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const addBtn = document.querySelector(".add-to-cart");
+ 
+  if (addBtn) {
+    addBtn.addEventListener("click", () => {
+      const id = new URLSearchParams(window.location.search).get("id");
+      const product = products[id];
+ 
+      if (!product) return;
+ 
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+ 
+      const existing = cart.find(item => item.id === id);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({
+          id: id,
+          name: product.name,
+          price: product.salePrice || product.price,
+          image: product.image,
+          qty: 1
+        });
+      }
+ 
+      localStorage.setItem("cart", JSON.stringify(cart));
+      openCartDrawer();
+    });
+  }
+});
+ 
+function addToCart(id) {
+  const p = products[id];
+  if (!p) return;
+ 
+  let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+ 
+  const existing = cart.find(item => item.id === id);
+  if (existing) {
+    existing.qty += 1;
+  } else {
+    cart.push({
+      id: id,
+      name: p.name,
+      price: p.salePrice || p.price,
+      image: p.image,
+      qty: 1
+    });
+  }
+ 
+  localStorage.setItem('cart', JSON.stringify(cart));
+  openCartDrawer();
+}
+ 
+function openCartDrawer() {
+  const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  const drawer = document.getElementById('cart-drawer');
+  const itemsDiv = document.getElementById('cart-drawer-items');
+  const subtotalDiv = document.getElementById('cart-drawer-subtotal');
+
+  if (!drawer || !itemsDiv || !subtotalDiv) return;
+
+  itemsDiv.innerHTML = '';
+
+  cart.forEach((item, index) => {
+    const p = products[item.id];
+    const isOnSale = p && p.sale;
+
+    itemsDiv.innerHTML += `
+      <div class="cart-drawer-item">
+        <img src="${item.image}" alt="${item.name}">
+        <div class="cart-drawer-item-info">
+          ${isOnSale ? '<span class="product-tag" style="position:static; display:inline-block; margin-bottom:4px;">SALE</span>' : ''}
+          <h2>${item.name}</h2>
+          <div>
+            ${isOnSale ? `<span class="sale-price">${p.salePrice}</span> <span class="original-price">${p.price}</span>` : `<p>${item.price}</p>`}
+          </div>
+          <div class="qty-controls">
+            <button onclick="updateQty(${index}, -1)">−</button>
+            <span>${item.qty}</span>
+            <button onclick="updateQty(${index}, 1)">+</button>
+          </div>
+          <button class="remove-btn" onclick="removeFromDrawer(${index})">REMOVE</button>
+        </div>
       </div>
     `;
   });
 
-  cartSubtotal.textContent = `AU$${total.toLocaleString("en-AU", {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2
-  })}`;
-});
+  const total = cart.reduce((sum, item) => {
+    const price = parseInt((item.price || '0').replace(/[^0-9]/g, ''));
+    return sum + price * item.qty;
+  }, 0);
 
-function removeFromCart(index) {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  cart.splice(index, 1);
-  localStorage.setItem("cart", JSON.stringify(cart));
-  location.reload();
+  subtotalDiv.innerHTML = `
+    <span>SUBTOTAL</span>
+    <span>AU$${total.toLocaleString()}</span>
+  `;
+
+  drawer.style.display = 'block';
 }
 
+function updateQty(index, change) {
+  let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  cart[index].qty += change;
+  if (cart[index].qty <= 0) {
+    cart.splice(index, 1);
+  }
+  localStorage.setItem('cart', JSON.stringify(cart));
+  openCartDrawer();
+}
 
-document.addEventListener("DOMContentLoaded", () => {
-  const addBtn = document.querySelector(".add-to-cart");
+function removeFromDrawer(index) {
+  let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  cart.splice(index, 1);
+  localStorage.setItem('cart', JSON.stringify(cart));
+  openCartDrawer();
+}
 
-  if (!addBtn) return;
-
-  addBtn.addEventListener("click", () => {
-    const id = new URLSearchParams(window.location.search).get("id");
-    const product = products[id];
-
-    if (!product) return;
-
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-    cart.push({
-      id: id,
-      name: product.name,
-      price: product.price,
-      image: product.image
-    });
-
-    localStorage.setItem("cart", JSON.stringify(cart));
-    const popup = document.getElementById("cart-popup");
-
-    popup.style.display = "block";
-
-    setTimeout(() => {
-        popup.style.display = "none";
-    }, 4000);
-
-    console.log("Added to cart");
-  });
-});
-
+function closeCartDrawer() {
+  const drawer = document.getElementById('cart-drawer');
+  if (drawer) drawer.style.display = 'none';
+}
+ 
 const slides = document.querySelectorAll('.hero-slide');
 let current = 0;
-
-setInterval(() => {
-  slides[current].classList.remove('active');
-  current = (current + 1) % slides.length;
-  slides[current].classList.add('active');
-}, 3000);
-
+ 
+if (slides.length > 0) {
+  setInterval(() => {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }, 3000);
+}
+ 
 let lastScroll = 0;
 const ticker = document.querySelector('.ticker');
 const header = document.querySelector('header');
-
-window.addEventListener('scroll', () => {
-  const currentScroll = window.scrollY;
-
-  if (currentScroll > lastScroll && currentScroll > 50) {
-    ticker.style.transform = 'translateY(-100%)';
-    ticker.style.transition = 'transform 0.3s ease';
-    header.style.transform = 'translateY(-137px)';
-    header.style.transition = 'transform 0.3s ease';
-  } else {
-    ticker.style.transform = 'translateY(0)';
-    ticker.style.transition = 'transform 0.3s ease';
-    header.style.transform = 'translateY(0)';
-    header.style.transition = 'transform 0.3s ease';
-  }
-
-  lastScroll = currentScroll;
+ 
+if (ticker && header) {
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.scrollY;
+ 
+    if (currentScroll > lastScroll && currentScroll > 50) {
+      ticker.style.transform = 'translateY(-100%)';
+      ticker.style.transition = 'transform 0.3s ease';
+      header.style.transform = 'translateY(-137px)';
+      header.style.transition = 'transform 0.3s ease';
+    } else {
+      ticker.style.transform = 'translateY(0)';
+      ticker.style.transition = 'transform 0.3s ease';
+      header.style.transform = 'translateY(0)';
+      header.style.transition = 'transform 0.3s ease';
+    }
+ 
+    lastScroll = currentScroll;
+  });
 }
-);
-
+ 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -121,28 +252,27 @@ const observer = new IntersectionObserver((entries) => {
     }
   });
 }, { threshold: 0.1 });
-
+ 
 document.querySelectorAll('.category').forEach(cat => {
   observer.observe(cat);
 });
-
+ 
 const filterBtns = document.querySelectorAll('.filter-btn');
-const productLinks = document.querySelectorAll('.product-list .category a');
-
+ 
 filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
     filterBtns.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-
+ 
     const filter = btn.dataset.filter;
     const categories = document.querySelectorAll('.product-list .category');
-
+ 
     categories.forEach(cat => {
       const a = cat.querySelector('a');
       const metal = a.dataset.metal;
       const price = parseInt(a.dataset.price);
       const sale = a.dataset.sale;
-
+ 
       if (filter === 'all') {
         cat.style.display = 'block';
       } else if (filter === 'gold' && metal === 'gold') {
@@ -161,27 +291,27 @@ filterBtns.forEach(btn => {
     });
   });
 });
-
+ 
 const searchInput = document.getElementById('search-input');
-
+ 
 if (searchInput) {
   searchInput.addEventListener('input', () => {
     const query = searchInput.value.toLowerCase();
     const resultsDiv = document.getElementById('search-results');
     resultsDiv.innerHTML = '';
-
+ 
     if (query.length < 2) return;
-
+ 
     const matches = Object.entries(products).filter(([key, p]) =>
       p.name.toLowerCase().includes(query)
     );
-
+ 
     if (matches.length === 0) {
       resultsDiv.innerHTML = '<p>No results found.</p>';
       return;
     }
-
-      matches.slice(0, 4).forEach(([key, p]) => {        
+ 
+    matches.slice(0, 4).forEach(([key, p]) => {
       resultsDiv.innerHTML += `
         <div class="search-result-item" onclick="window.location.href='products.html?id=${key}'">
           <img src="${p.image}" alt="${p.name}">
@@ -193,25 +323,34 @@ if (searchInput) {
       `;
     });
   });
+ 
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      const query = searchInput.value;
+      if (query.trim() !== '') {
+        window.location.href = 'search.html?q=' + encodeURIComponent(query);
+      }
+    }
+  });
 }
-
+ 
 const searchResultsGrid = document.getElementById('search-results-grid');
-
+ 
 if (searchResultsGrid) {
   const params = new URLSearchParams(window.location.search);
   const query = params.get('q');
-
+ 
   if (query) {
     document.getElementById('search-title').textContent = `RESULTS FOR "${query}"`;
-
+ 
     const matches = Object.entries(products).filter(([key, p]) =>
       p.name.toLowerCase().includes(query.toLowerCase())
     );
-
+ 
     if (matches.length === 0) {
       searchResultsGrid.innerHTML = '<p style="padding: 2rem;">No results found.</p>';
     } else {
-      matches.forEach(([key, p]) => {        
+      matches.forEach(([key, p]) => {
         searchResultsGrid.innerHTML += `
           <a href="products.html?id=${key}">
             <div class="category-img-wrap">
@@ -226,11 +365,10 @@ if (searchResultsGrid) {
     }
   }
 }
-
-
+ 
 function toggleFav(btn, id) {
   let favs = JSON.parse(localStorage.getItem('favourites') || '[]');
-  
+
   if (favs.includes(id)) {
     favs = favs.filter(f => f !== id);
     btn.classList.remove('active');
@@ -240,13 +378,14 @@ function toggleFav(btn, id) {
     btn.classList.add('active');
     btn.innerHTML = '<i class="fa-solid fa-heart" style="color:#c0392b"></i>';
   }
-  
+
   localStorage.setItem('favourites', JSON.stringify(favs));
 }
 
-// load saved favourites on page load
 document.querySelectorAll('.heart-btn').forEach(btn => {
-  const id = btn.getAttribute('onclick').match(/'([^']+)'\)/)[1];
+  const match = btn.getAttribute('onclick').match(/'([^']+)'\)/);
+  if (!match) return;
+  const id = match[1];
   const favs = JSON.parse(localStorage.getItem('favourites') || '[]');
   if (favs.includes(id)) {
     btn.classList.add('active');
@@ -254,16 +393,52 @@ document.querySelectorAll('.heart-btn').forEach(btn => {
   }
 });
 
+const favouritesGrid = document.getElementById('favourites-grid');
 
+if (favouritesGrid) {
+  const favs = JSON.parse(localStorage.getItem('favourites') || '[]');
+
+  if (favs.length === 0) {
+    favouritesGrid.innerHTML = '<p style="padding: 2rem;">You have no favourites yet.</p>';
+  } else {
+    favs.forEach(key => {
+      const p = products[key];
+      if (!p) return;
+      favouritesGrid.innerHTML += `
+        <div class="category">
+          <a href="products.html?id=${key}">
+            <div class="category-img-wrap">
+              <img src="${p.image}" alt="${p.name}">
+              <p class="explore">QUICK VIEW</p>
+              <button class="heart-btn active" onclick="event.preventDefault(); toggleFav(this, '${key}')">
+                <i class="fa-solid fa-heart" style="color:#c0392b"></i>
+              </button>
+            </div>
+            <div style="margin-top: 5px;">
+              ${p.sale ? `<span class="sale-price">${p.salePrice}</span><span class="original-price">${p.price}</span>` : `<p>${p.price}</p>`}
+            </div>
+            <h2>${p.name}</h2>
+          </a>
+          <button class="add-to-cart-quick" onclick="addToCart('${key}')">
+            <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+          </button>
+        </div>
+      `;
+    });
+  }
+}
+ 
 function toggleSort() {
   const dropdown = document.getElementById('sort-dropdown');
-  dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+  if (dropdown) dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
 }
-
+ 
 function sortProducts(type, e) {
   const grid = document.querySelector('.product-list');
+  if (!grid) return;
+ 
   const items = Array.from(grid.querySelectorAll('.category'));
-
+ 
   items.sort((a, b) => {
     const priceA = parseInt(a.querySelector('a').dataset.price);
     const priceB = parseInt(b.querySelector('a').dataset.price);
@@ -271,54 +446,66 @@ function sortProducts(type, e) {
     if (type === 'high') return priceB - priceA;
     return 0;
   });
-
+ 
   items.forEach(p => grid.appendChild(p));
-
+ 
   const labels = {
     low: 'PRICE: LOW TO HIGH',
     high: 'PRICE: HIGH TO LOW',
   };
-
-  document.getElementById('sort-label').textContent = labels[type];
-  document.getElementById('sort-dropdown').style.display = 'none';
+ 
+  const sortLabel = document.getElementById('sort-label');
+  if (sortLabel) sortLabel.textContent = labels[type];
+ 
+  const sortDropdown = document.getElementById('sort-dropdown');
+  if (sortDropdown) sortDropdown.style.display = 'none';
 }
-// close dropdown when clicking outside
+ 
 document.addEventListener('click', (e) => {
   if (!e.target.closest('.sort-bar')) {
     const dropdown = document.getElementById('sort-dropdown');
     if (dropdown) dropdown.style.display = 'none';
   }
 });
-
+ 
 const clearanceGrid = document.getElementById('clearance-grid');
-
+ 
 if (clearanceGrid) {
   const saleProducts = Object.entries(products).filter(([key, p]) => p.sale === true);
+ 
   saleProducts.forEach(([key, p]) => {
-  const numericPrice = parseInt(p.salePrice.replace(/[^0-9]/g, ''));
-  clearanceGrid.innerHTML += `
-    <div class="category">
-      <a href="products.html?id=${key}" data-metal="${p.metal || ''}" data-price="${numericPrice}" data-sale="true">
-        <div class="category-img-wrap">
-          <img src="${p.image}" alt="${p.name}">
-          <p class="explore">QUICK VIEW</p>
-          <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, '${key}')">
-            <i class="fa-regular fa-heart"></i>
-          </button>
-          <span class="product-tag">SALE</span>
-        </div>
-        <div style="margin-top: 5px;">
-          <span class="sale-price">${p.salePrice}</span>
-          <span class="original-price">${p.price}</span>
-        </div>
-        <h2>${p.name}</h2>
-      </a>
-    </div>
-  `;
-});}
-
+    const numericPrice = parseInt(p.salePrice.replace(/[^0-9]/g, ''));
+    clearanceGrid.innerHTML += `
+      <div class="category">
+        <a href="products.html?id=${key}" data-metal="${p.metal || ''}" data-price="${numericPrice}" data-sale="true">
+          <div class="category-img-wrap">
+            <img src="${p.image}" alt="${p.name}">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, '${key}')">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <span class="product-tag">SALE</span>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="sale-price">${p.salePrice}</span>
+            <span class="original-price">${p.price}</span>
+          </div>
+          <h2>${p.name}</h2>
+        </a>
+        <button class="add-to-cart-quick" onclick="addToCart('${key}')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
+      </div>
+    `;
+  });
+ 
+  const clearanceItems = Array.from(clearanceGrid.querySelectorAll('.category'));
+  clearanceItems.sort(() => Math.random() - 0.5);
+  clearanceItems.forEach(item => clearanceGrid.appendChild(item));
+}
+ 
 const allGrid = document.getElementById('all-grid');
-
+ 
 if (allGrid) {
   Object.entries(products).forEach(([key, p]) => {
     const numericPrice = parseInt((p.salePrice || p.price).replace(/[^0-9]/g, ''));
@@ -338,11 +525,185 @@ if (allGrid) {
           </div>
           <h2>${p.name}</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('${key}')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
+      </div>
+    `;
+  });
+ 
+  const allItems = Array.from(allGrid.querySelectorAll('.category'));
+  allItems.sort(() => Math.random() - 0.5);
+  allItems.forEach(item => allGrid.appendChild(item));
+}
+ 
+// Newsletter popup
+const newsletterPopup = document.getElementById('newsletter-popup');
+if (newsletterPopup) {
+  setTimeout(() => {
+    newsletterPopup.style.display = 'flex';
+  }, 3000);
+ 
+  const closeNewsletter = document.getElementById('close-newsletter');
+  if (closeNewsletter) {
+    closeNewsletter.addEventListener('click', () => {
+      newsletterPopup.style.display = 'none';
+    });
+  }
+ 
+  newsletterPopup.addEventListener('click', (e) => {
+    if (e.target === newsletterPopup) {
+      newsletterPopup.style.display = 'none';
+    }
+  });
+}
+ 
+// Randomize popular searches
+const searchBtn = document.querySelector('.icon[onclick*="search-overlay"]');
+if (searchBtn) {
+  searchBtn.addEventListener('click', () => {
+    const allProducts = Object.values(products);
+    const shuffled = allProducts.sort(() => Math.random() - 0.5);
+    const popular = shuffled.slice(0, 5);
+ 
+    const popularCol = document.querySelector('.search-col');
+    if (popularCol) {
+      popularCol.innerHTML = '<p class="search-col-title">POPULAR SEARCHES</p>';
+      popular.forEach(p => {
+        popularCol.innerHTML += `
+          <a href="search.html?q=${encodeURIComponent(p.name)}">${p.name}</a>
+        `;
+      });
+    }
+  });
+}
+
+const imgs = ['product-img-1', 'product-img-2', 'product-img-3', 'product-img-4'];
+imgs.forEach((imgId, i) => {
+  const el = document.getElementById(imgId);
+  if (el && product.images && product.images[i]) {
+    el.src = product.images[i];
+  } else if (el) {
+    el.style.display = 'none';
+  }
+});
+
+const promoCodes = {
+  'NEWMEMBER': { discount: 0.10, label: '10% off for new members!' },
+  'MAJULIX15': { discount: 0.15, label: '15% off!' },
+  'INFO20005ISFUN': { discount: 1, label: 'INFO20005 IS FUN!! YOUR CART IS FREE!' },
+};
+
+let appliedDiscount = 0;
+
+function applyPromo() {
+  const input = document.getElementById('promo-input');
+  const message = document.getElementById('promo-message');
+  const code = input.value.trim().toUpperCase();
+
+  if (promoCodes[code]) {
+    appliedDiscount = promoCodes[code].discount;
+    message.style.color = 'green';
+    message.textContent = `✓ ${promoCodes[code].label}`;
+    updateCartTotal();
+  } else {
+    appliedDiscount = 0;
+    message.style.color = '#A64B4B';
+    message.textContent = 'Invalid promo code.';
+    updateCartTotal();
+  }
+}
+
+const checkoutItems = document.getElementById('checkout-items');
+
+if (checkoutItems) {
+  const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  const savedDiscount = parseFloat(localStorage.getItem('appliedDiscount') || '0');
+
+  let subtotal = 0;
+
+  cart.forEach(item => {
+    const p = products[item.id];
+    const isOnSale = p && p.sale;
+    const price = parseInt((item.price || '0').replace(/[^0-9]/g, ''));
+    subtotal += price * item.qty;
+
+    checkoutItems.innerHTML += `
+      <div class="checkout-item">
+        <div style="position:relative; width:60px; flex-shrink:0;">
+          <img src="${item.image}" alt="${item.name}" style="width:100px; height:120px; object-fit:cover;">
+        </div>
+        <div style="flex:1; margin-left:45px;">
+          <h2 style="font-size:15px; margin-bottom:10px">${item.name}</h2>
+          <p style="font-size:12px; margin-top:4px;">
+            ${isOnSale
+              ? `<span class="sale-price">${p.salePrice}</span> <span class="original-price">${p.price}</span>`
+              : item.price}
+          </p>
+          <p style="font-size:12px; color:var(--text-brown);">Qty: ${item.qty}</p>
+        </div>
       </div>
     `;
   });
 
-  const items = Array.from(allGrid.querySelectorAll('.category'));
-  items.sort(() => Math.random() - 0.5);
-  items.forEach(item => allGrid.appendChild(item));
+  const discount = Math.round(subtotal * savedDiscount);
+  const total = subtotal - discount;
+  const gst = Math.round(total * 0.1);
+
+  const setEl = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+  setEl('checkout-total', `AU$${total.toLocaleString()}`);
+  setEl('checkout-subtotal', `AU$${subtotal.toLocaleString()}`);
+  setEl('checkout-gst', `AU$${gst.toLocaleString()}`);
+  setEl('checkout-discount', discount > 0 ? `-AU$${discount.toLocaleString()}` : 'AU$0');
+  setEl('checkout-total-2', `AU$${total.toLocaleString()}`);
+}
+
+function applyPromo() {
+  const input = document.getElementById('promo-input');
+  const message = document.getElementById('promo-message');
+  const code = input.value.trim().toUpperCase();
+
+  if (promoCodes[code]) {
+    appliedDiscount = promoCodes[code].discount;
+    localStorage.setItem('appliedDiscount', appliedDiscount);
+    message.style.color = 'green';
+    message.textContent = `✓ ${promoCodes[code].label}`;
+    updateCartTotal();
+  } else {
+    appliedDiscount = 0;
+    localStorage.setItem('appliedDiscount', 0);
+    message.style.color = '#A64B4B';
+    message.textContent = 'Invalid promo code.';
+    updateCartTotal();
+  }
+}
+
+function submitCheckout() {
+  const email = document.getElementById('email');
+  const emailError = document.getElementById('email-error');
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!emailRegex.test(email.value)) {
+    emailError.style.display = 'block';
+    email.style.border = '1px solid #A64B4B';
+    return;
+  } else {
+    emailError.style.display = 'none';
+    email.style.border = '1px solid var(--support)';
+  }
+
+  const firstName = document.getElementById('first-name').value;
+  const lastName = document.getElementById('last-name').value;
+  const phone = document.getElementById('phone').value;
+  const address = document.getElementById('address').value;
+  const city = document.getElementById('city').value;
+  const postcode = document.getElementById('postcode').value;
+  const state = document.getElementById('state').value;
+
+  if (!firstName || !lastName || !phone || !address || !city || !postcode || !state) {
+    alert('Please fill in all fields.');
+    return;
+  }
+
+  window.location.href = 'payment.html';
 }

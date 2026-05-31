@@ -3,16 +3,34 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Majulix Opal Jewellery</title>
+    <title>Product — Majulix Opal Jewellery</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">  
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css"> 
   </head>
   <body>
+    <div id="cart-drawer" style="display:none;">
+      <div id="cart-drawer-overlay" onclick="closeCartDrawer()"></div>
+      <div id="cart-drawer-inner">
+        <div id="cart-drawer-header" style="display:flex; justify-content:flex-end;">
+          <button onclick="closeCartDrawer()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <h2 style="font-size:25px;">YOUR PRODUCT HAS BEEN <br>ADDED TO CART!</h2>
+        <div id="cart-drawer-items"></div>
+        <div id="cart-drawer-footer">
+          <div id="cart-drawer-subtotal"></div>
+          <a href="cart.html" id="cart-drawer-checkout">VIEW BAG AND CHECKOUT</a>
+          <button onclick="closeCartDrawer()" id="cart-drawer-continue">CONTINUE SHOPPING</button>
+        </div>
+      </div>
+    </div>
+
     <div id="search-overlay">
       <div class="search-box">
-        <input type="text" id="search-input" placeholder="Search products..." onkeydown="if(event.key === 'Enter') window.location.href='search.html?q=' + this.value">        
+        <input type="text" id="search-input" placeholder="Search products..."
+          onkeydown="if(event.key==='Enter') window.location.href='search.html?q='+this.value">
         <button onclick="document.getElementById('search-overlay').style.display='none'">
           <i class="fa-solid fa-xmark"></i>
         </button>
@@ -22,111 +40,160 @@
 
     <div class="ticker">
       <span>FREE SHIPPING ON ALL ORDERS &nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp; NEW COLLECTION NOW AVAILABLE &nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp; HANDCRAFTED FINE OPAL JEWELLERY &nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp; ENJOY 10% OFF YOUR FIRST ORDER &nbsp;&nbsp;&nbsp;</span>
-    </div> 
+    </div>
+
     <header>
       <div class="header-inner">
-        <button class="icon" onclick="document.getElementById('search-overlay').style.display='flex'">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </button>        
         <div class="logo-wrap">
-          <img class="logo" src="logo/logo.png" width="120px" height="auto">
-          <div class="logo-dot"></div>
+          <a href="index.html"><img class="logo" src="logo/logo.png" width="90px" height="auto"></a>
         </div>
-        <a href="cart.html">
-          <button class="icon">
-            <i class="fa-solid fa-bag-shopping"></i>
-          </button> 
-        </a>
+        <nav>
+          <a href="engagement.html">ENGAGEMENT</a>
+          <a href="mens.html">MEN'S</a>
+          <a href="gifts.html">GIFTS</a>
+          <a href="statement.html">STATEMENT</a>
+          <a href="clearance.html" style="color:#A64B4B;">CLEARANCE</a>
+        </nav>
+        <div class="header-icons">
+          <button class="icon" onclick="document.getElementById('search-overlay').style.display='flex'">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+          <a href="favorites.html">
+            <button class="icon"><i class="fa-regular fa-heart"></i></button>
+          </a>
+          <button class="icon"><i class="fa-regular fa-user"></i></button>
+          <a href="cart.html">
+            <button class="icon"><i class="fa-solid fa-bag-shopping"></i></button>
+          </a>
+        </div>
       </div>
-      <nav>
-        <a href="rings.html">RINGS</a>
-        <a href="earrings.html">EARRINGS</a>
-        <a href="bracelets.html">BRACELETS</a>
-        <a href="necklaces.html">NECKLACES</a>       
-      </nav>
     </header>
-    
-    <section class="page-hero">
-        <h2 class="breadcrumb">
-            <a href="index.html">HOME</a> /
-            <a id ="breadcrumb-category" href="#">CATEGORY</a> /
-            <span id ="breadcrumb-name"></span>
-        </h2>
-    </section>
+
+    <div class="page-hero">
+      <h2 class="breadcrumb">
+        <a href="index.html">HOME</a> /
+        <a id="breadcrumb-category" href="#">CATEGORY</a> /
+        <span id="breadcrumb-name"></span>
+      </h2>
+    </div>
 
     <section class="product-page">
-        <div class="product-image">
-          <button class="slider-btn prev" onclick="changeImage(-1)">
-            &#10094;
-          </button>
-          <img id="product-img" src="" alt="">
-          <button class="slider-btn next" onclick="changeImage(-1)">
-            &#10095;
-          </button>
-          <div class="product-thumbnails">
-            <img class="thumbnail" src="" alt="">
-            <img class="thumbnail" src="" alt="">
-            <img class="thumbnail" src="" alt="">
-            <img class="thumbnail" src="" alt="">
-          </div>
+      <div class="product-image">
+        <div class="product-img-wrap"><img id="product-img-1" src="" alt=""></div>
+        <div class="product-img-wrap"><img id="product-img-2" src="" alt=""></div>
+        <div class="product-img-wrap"><img id="product-img-3" src="" alt=""></div>
+        <div class="product-img-wrap"><img id="product-img-4" src="" alt=""></div>
       </div>
-        <div class="product-info">
-            <h2 style="font-size: 40px; font-weight: 500;" id="product-name"></h2>
-            <p style="font-size: 20px;" id="product-price"></p>
-            <button class="add-to-cart">ADD TO CART</button>
-            <div id="product-details" style="margin-top: 5px; line-height: 2;"></div>
-        </div>
-    </section>  
-
-    <section class="product-description">
-        <p id="product-description"></p>
+      <div class="product-info">
+        <h1 id="product-name"></h1>
+        <p id="product-price" style="font-size: 20px;"></p>
+        <button class="add-to-cart">ADD TO CART</button>
+        <div id="product-description"></div>
+        <div id="product-details"></div>
+      </div>
     </section>
 
-    <section class="product-video">
-      <iframe id="product-video" width="100%" height="500px"frameborder="0" allowfullscreen style="border-radius: 5px;"></iframe>
+    <section class="benefits" style="padding-top: 40px;">
+      <div class="benefit-item">
+        <i class="fa-solid fa-gem"></i>
+        <p>Authentic Australian Opals</p>
+      </div>
+
+      <div class="benefit-item">
+        <i class="fa-solid fa-truck"></i>
+        <p>Free Shipping</p>
+      </div>
+
+      <div class="benefit-item">
+        <i class="fa-solid fa-rotate-left"></i>
+        <p>30 Day Returns</p>
+      </div>
+
+      <div class="benefit-item">
+        <i class="fa-solid fa-shield-heart"></i>
+        <p>Lifetime Warranty</p>
+      </div>
     </section>
 
     <section class="keep-exploring">
-      <h1 style="font-weight: 800; font-size: 40px;">KEEP EXPLORING</h1>
-      <div class="categories">
-        <a class="category explore-card" href="#">          
-          <div class="category-img-wrap">
-            <img src="" class="explore-img">
-            <p class="explore">QUICK VIEW</p>
-          </div>
-          <h2 id="explore-name-1"></h2>
-          <p id="explore-price-1"></p>
-        </a>
-        <a class="category explore-card" href="#">
-            <div class="category-img-wrap">
-              <img src="" class="explore-img">
-              <p class="explore">QUICK VIEW</p>
-            </div>
-            <h2 id="explore-name-2"></h2>
-            <p id="explore-price-2"></p>
-          </a>
-          <a class="category explore-card" href="#">
-            <div class="category-img-wrap">
-              <img src="" class="explore-img">
-              <p class="explore">QUICK VIEW</p>
-            </div>
-            <h2 id="explore-name-3"></h2>
-            <p id="explore-price-3"></p>
-          </a>
-          <a class="category explore-card" href="#">
-            <div class="category-img-wrap">
-              <img src="" class="explore-img">
-              <p class="explore">QUICK VIEW</p>
-            </div>
-            <h2 id="explore-name-4"></h2>
-            <p id="explore-price-4"></p>
-          </a>      
-        </div>
+      <section class="banner" style="padding-top: 0;">
+        <h1 style="padding-top: 40px;">KEEP EXPLORING</h1>
       </section>
+    </section>
+    <div class="categories" style="padding-top: 0;">
+      <div class="category">
+        <a class="explore-card" id="explore-card-1" href="#">
+          <div class="category-img-wrap">
+            <img src="" class="explore-img" id="explore-img-1">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" id="explore-heart-1" onclick="event.preventDefault();">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <p id="explore-price-1" style="margin-top: 8px;"></p>
+          <h2 id="explore-name-1"></h2>
+        </a>
+        <button class="add-to-cart-quick" id="explore-cart-1">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
+      </div>
+      <div class="category">
+        <a class="explore-card" id="explore-card-2" href="#">
+          <div class="category-img-wrap">
+            <img src="" class="explore-img" id="explore-img-2">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" id="explore-heart-2" onclick="event.preventDefault();">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <p id="explore-price-2" style="margin-top: 8px;"></p>
+          <h2 id="explore-name-2"></h2>
+        </a>
+        <button class="add-to-cart-quick" id="explore-cart-2">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
+      </div>
+      <div class="category">
+        <a class="explore-card" id="explore-card-3" href="#">
+          <div class="category-img-wrap">
+            <img src="" class="explore-img" id="explore-img-3">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" id="explore-heart-3" onclick="event.preventDefault();">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <p id="explore-price-3" style="margin-top: 8px;"></p>
+          <h2 id="explore-name-3"></h2>
+        </a>
+        <button class="add-to-cart-quick" id="explore-cart-3">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
+      </div>
+      <div class="category">
+        <a class="explore-card" id="explore-card-4" href="#">
+          <div class="category-img-wrap">
+            <img src="" class="explore-img" id="explore-img-4">
+            <p class="explore">QUICK VIEW</p>
+            <button class="heart-btn" id="explore-heart-4" onclick="event.preventDefault();">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <p id="explore-price-4" style="margin-top: 8px;"></p>
+          <h2 id="explore-name-4"></h2>
+        </a>
+        <button class="add-to-cart-quick" id="explore-cart-4">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
+      </div>
+    </div>
+
     <footer>
       <div class="footer-top">
-          <img class="logo" src="logo/logo.png" width="120px" height="auto">
-          <h2 style="font-weight: 300; font-size: 25px; font-style: italic;">Leading experts in Opal jewellery, we were so obsessed with giving our customers<br>the best possible experience we created our very own world-class Opal Museum</p>
+        <img class="logo footer-logo" src="logo/logo.png" width="120px" height="auto">
+        <h2 style="font-weight:300; font-size:25px; font-style:italic;">
+          Leading experts in Opal jewellery, we were so obsessed with giving our customers<br>
+          the best possible experience we created our very own world-class Opal Museum
+        </h2>
       </div>
       <div class="footer-bottom">
         <div class="footer-col">
@@ -141,25 +208,20 @@
           <p>NEWSLETTER</p>
           <p>Receive our newsletter and discover our stories, collections, and surprises.</p>
           <input type="email" placeholder="SUBSCRIBE">
-        </div>          
-        <div class="footer-col" style="margin-left: auto; text-align: right;">
+        </div>
+        <div class="footer-col" style="margin-left:auto; text-align:right;">
           <p>FOLLOW US</p>
-          <div class="social" style="justify-content: flex-end;">
+          <div class="social" style="justify-content:flex-end;">
             <i class="fa-brands fa-facebook"></i>
             <i class="fa-brands fa-instagram"></i>
             <i class="fa-brands fa-youtube"></i>
           </div>
+        </div>
       </div>
-    </div>
-    <p class="copyright">Copyright © 2026 Marsha. All Rights Reserved.</h2>    
+      <p class="copyright">Copyright © 2026 Marsha. All Rights Reserved.</p>
     </footer>
 
     <script src="products.js"></script>
     <script src="script.js"></script>
-
-    <div id="cart-popup">
-      Your product has been added to cart!
-    </div>
-
   </body>
 </html>

@@ -10,6 +10,21 @@
     <link rel="stylesheet" href="style.css"> 
   </head>
   <body>
+    <div id="cart-drawer" style="display:none;">
+        <div id="cart-drawer-overlay" onclick="closeCartDrawer()"></div>
+        <div id="cart-drawer-inner">
+          <div id="cart-drawer-header" style="display: flex; justify-content: flex-end;">
+            <button onclick="closeCartDrawer()"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+          <h2 style="font-size: 25px;">YOUR PRODUCT HAS BEEN <br>ADDED TO CART!</h2>
+          <div id="cart-drawer-items"></div>
+          <div id="cart-drawer-footer">
+            <div id="cart-drawer-subtotal"></div>
+            <a href="cart.html" id="cart-drawer-checkout">VIEW BAG AND CHECKOUT</a>
+            <button onclick="closeCartDrawer()" id="cart-drawer-continue">CONTINUE SHOPPING</button>
+          </div>
+        </div>
+    </div>
     <div id="search-overlay">
       <div class="search-box">
         <input type="text" id="search-input" placeholder="Search products..." onkeydown="if(event.key === 'Enter') window.location.href='search.html?q=' + this.value">        
@@ -39,9 +54,11 @@
         <button class="icon" onclick="document.getElementById('search-overlay').style.display='flex'">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
-        <button class="icon">
-          <i class="fa-regular fa-heart"></i>
-        </button>        
+        <a href="favorites.html">
+          <button class="icon">
+            <i class="fa-regular fa-heart"></i>
+          </button>        
+        </a>
         <button class="icon">
           <i class="fa-regular fa-user"></i>
         </button>
@@ -102,6 +119,9 @@
           </div>
           <h2>5 STONE CRYSTAL OPAL BRACELET <br>| STERLING SILVER | 'TEAL TIDE'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('teal-tide')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=grand-shore" data-metal="silver" data-price="1999">
@@ -115,6 +135,9 @@
           <p style="margin-top: 8px;">AU$1,999</p>
           <h2>38.50CT BOULDER OPAL BRACELET <br>| STERLING SILVER | 'GRAND SHORE'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('grand-shore')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=sea-glass" data-metal="silver" data-price="499" data-sale="true">
@@ -132,6 +155,9 @@
           </div>
           <h2>4 STONE LIGHT OPAL BRACELET <br>| STERLING SILVER | 'SEA GLASS'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('sea-glass')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=reef-walk" data-metal="silver" data-price="499" data-sale="true">
@@ -149,6 +175,9 @@
           </div>
           <h2>5 STONE LIGHT OPAL BRACELET <br>| STERLING SILVER | 'REEF WALK'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('reef-walk')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=ivory-oval" data-metal="silver" data-price="1499">
@@ -162,6 +191,9 @@
           <p style="margin-top: 8px;">AU$1,499</p>
           <h2>24.10CT LARGE OVAL OPAL BRACELET <br>| STERLING SILVER | 'IVORY OVAL'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('ivory-oval')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=teardrop-shore" data-metal="silver" data-price="1499" data-sale="true">
@@ -179,6 +211,9 @@
           </div>
           <h2>19.35CT CRYSTAL OPAL BRACELET <br>| STERLING SILVER | 'TEARDROP SHORE'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('teardrop-shore')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=soft-light" data-metal="silver" data-price="1499">
@@ -192,6 +227,9 @@
           <p style="margin-top: 8px;">AU$1,499</p>
           <h2>21.80CT LARGE STONE OPAL BRACELET <br>| STERLING SILVER | 'SOFT LIGHT'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('soft-light')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=white-shore" data-metal="silver" data-price="1199">
@@ -205,6 +243,9 @@
           <p style="margin-top: 8px;">AU$1,199</p>
           <h2>17.60CT LARGE STONE OPAL BRACELET <br>| STERLING SILVER | 'WHITE SHORE'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('white-shore')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=crystal-flex" data-metal="silver" data-price="499" data-sale="true">
@@ -222,6 +263,9 @@
           </div>
           <h2>8.90CT CRYSTAL OPAL BRACELET <br>| STERLING SILVER | 'CRYSTAL FLEX'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('crystal-flex')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=pearl-tide" data-metal="silver" data-price="499" data-sale="true">
@@ -239,6 +283,9 @@
           </div>
           <h2>6.80CT OPAL BRACELET <br>| STERLING SILVER | 'PEARL TIDE'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('pearl-tide')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=double-stack" data-metal="silver" data-price="599">
@@ -252,6 +299,9 @@
           <p style="margin-top: 8px;">AU$599</p>
           <h2>12.40CT CRYSTAL OPAL DOUBLE STACK <br>| STERLING SILVER | 'DOUBLE STACK'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('double-stack')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=white-cuff" data-metal="silver" data-price="699">
@@ -265,6 +315,9 @@
           <p style="margin-top: 8px;">AU$699</p>
           <h2>15.20CT CRYSTAL OPAL CUFF <br>| STERLING SILVER | 'WHITE CUFF'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('white-cuff')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=coastal-wave" data-metal="silver" data-price="999" data-sale="true">
@@ -282,6 +335,9 @@
           </div>
           <h2>20.80CT SOLID SEMI-BLACK OPAL BRACELET <br>| STRELING SILVER | 'COASTAL WAVE'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('coastal-wave')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=outback-cuff" data-metal="silver" data-price="1499">
@@ -295,6 +351,9 @@
           <p style="margin-top: 8px;">AU$1,499</p>
           <h2>32.15CT BOULDER OPAL BRACELET <br>| STERLING SILVER | 'OUTBACK CUFF'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('outback-cuff')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=green-garden" data-metal="silver" data-price="349" data-sale="true">
@@ -312,6 +371,9 @@
           </div>
           <h2>10 STONE CRYSTAL OPAL BRACELET <br>| STERLING SILVER | 'GREEN GARDEN'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('green-garden')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
     </section>
 

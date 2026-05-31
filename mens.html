@@ -10,6 +10,21 @@
     <link rel="stylesheet" href="style.css"> 
   </head>
   <body>
+    <div id="cart-drawer" style="display:none;">
+        <div id="cart-drawer-overlay" onclick="closeCartDrawer()"></div>
+        <div id="cart-drawer-inner">
+          <div id="cart-drawer-header" style="display: flex; justify-content: flex-end;">
+            <button onclick="closeCartDrawer()"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+          <h2 style="font-size: 25px;">YOUR PRODUCT HAS BEEN <br>ADDED TO CART!</h2>
+          <div id="cart-drawer-items"></div>
+          <div id="cart-drawer-footer">
+            <div id="cart-drawer-subtotal"></div>
+            <a href="cart.html" id="cart-drawer-checkout">VIEW BAG AND CHECKOUT</a>
+            <button onclick="closeCartDrawer()" id="cart-drawer-continue">CONTINUE SHOPPING</button>
+          </div>
+        </div>
+    </div>
     <div id="search-overlay">
       <div class="search-box">
         <input type="text" id="search-input" placeholder="Search products..." onkeydown="if(event.key === 'Enter') window.location.href='search.html?q=' + this.value">        
@@ -39,9 +54,11 @@
         <button class="icon" onclick="document.getElementById('search-overlay').style.display='flex'">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
-        <button class="icon">
-          <i class="fa-regular fa-heart"></i>
-        </button>        
+        <a href="favorites.html">
+          <button class="icon">
+            <i class="fa-regular fa-heart"></i>
+          </button>        
+        </a>
         <button class="icon">
           <i class="fa-regular fa-user"></i>
         </button>
@@ -98,6 +115,9 @@
           <p style="margin-top: 8px;">AU$2,999</p>
           <h2>42.95CT BOULDER OPAL NECKLACE <br>| 10K YELLOW GOLD | 'SHADOW FALL'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('shadow-fall')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=earth-cord" data-price="399">
@@ -111,6 +131,9 @@
           <p style="margin-top: 8px;">AU$399</p>
           <h2>66.90CT MATRIX BOULDER OPAL ON CORD <br>| 'EARTH CORD'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('earth-cord')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=terra" data-price="299">
@@ -124,6 +147,9 @@
           <p style="margin-top: 8px;">AU$399</p>
           <h2>25.65CT MATRIX BOULDER OPAL ON CORD <br>| 'TERRA'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('terra')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=pearl-of-fire" data-metal="gold" data-price="2499" data-sale="true">
@@ -139,8 +165,11 @@
             <span class="sale-price">AU$2,499</span>
             <span class="original-price">AU$3,499</span>
           </div>
-          <h2>29.40CT QUEENSLAND BOULDER RING <br>| 10K YELLOW GOLD | 'PEARL OF FIRE' </h2>
+          <h2>29.40CT QUEENSLAND BOULDER RING <br>| 10K YELLOW GOLD | 'PEARL OF FIRE'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('pearl-of-fire')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=midnight-deal" data-metal="silver" data-price="599">
@@ -152,8 +181,11 @@
             </button>
           </div>
           <p style="margin-top: 8px;">AU$599</p>
-          <h2>82.50CT MATRIX BOULDER CUFFLINKS <br>| STERLING SILVER | 'MIDNIGHT DEAL' </h2>
+          <h2>82.50CT MATRIX BOULDER CUFFLINKS <br>| STERLING SILVER | 'MIDNIGHT DEAL'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('midnight-deal')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=the-power" data-metal="silver" data-price="999">
@@ -165,8 +197,11 @@
             </button>
           </div>
           <p style="margin-top: 8px;">AU$999</p>
-          <h2>55CT SOLID CRYSTAL OPAL CUFFLINKS <br>| STERLING SILVER | 'THE POWER' </h2>
+          <h2>55CT SOLID CRYSTAL OPAL CUFFLINKS <br>| STERLING SILVER | 'THE POWER'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('the-power')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=electric-bolt" data-metal="silver" data-price="999">
@@ -178,8 +213,11 @@
             </button>
           </div>
           <p style="margin-top: 8px;">AU$999</p>
-          <h2>101.50CT MATRIX BOULDER OPAL CUFFLINKS <br>| STERLING SILVER | 'ELECTRIC BOLT' </h2>
+          <h2>101.50CT MATRIX BOULDER OPAL CUFFLINKS <br>| STERLING SILVER | 'ELECTRIC BOLT'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('electric-bolt')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=flame-of-passion" data-metal="gold" data-price="4999">
@@ -191,8 +229,11 @@
             </button>
           </div>
           <p style="margin-top: 8px;">AU$4,999</p>
-          <h2>64.55CT QUEENSLAND BOULDER RING <br>| 9K YELLOW GOLD | 'FLAME OF PASSION' </h2>
+          <h2>64.55CT QUEENSLAND BOULDER RING <br>| 9K YELLOW GOLD | 'FLAME OF PASSION'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('flame-of-passion')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=dark-tide" data-metal="gold" data-price="2199" data-sale="true">
@@ -205,11 +246,14 @@
             <span class="product-tag">SALE</span>
           </div>
           <div style="margin-top: 5px;">
-            <span class="sale-price">AU$2199</span>
-            <span class="original-price">AU$3199</span>
+            <span class="sale-price">AU$2,199</span>
+            <span class="original-price">AU$3,199</span>
           </div>
-          <h2>29.90CT BOULDE OPAL NECKLACE <br>| 10K YELLOW GOLD | 'DARK TIDE'</h2>
+          <h2>29.90CT BOULDER OPAL NECKLACE <br>| 10K YELLOW GOLD | 'DARK TIDE'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('dark-tide')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=iron-ridge" data-metal="silver" data-price="699">
@@ -221,8 +265,11 @@
             </button>
           </div>
           <p style="margin-top: 8px;">AU$699</p>
-          <h2>48.10CT NATURAL CRYSTAL OPAL RING <br>| STERLING SILVER | 'IRON RIDGE' </h2>
+          <h2>48.10CT NATURAL CRYSTAL OPAL RING <br>| STERLING SILVER | 'IRON RIDGE'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('iron-ridge')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=lightning-strike" data-metal="gold" data-price="1999">
@@ -236,6 +283,9 @@
           <p style="margin-top: 8px;">AU$1,999</p>
           <h2>26.45CT BOULDER OPAL NECKLACE <br>| 10K YELLOW GOLD | 'LIGHTNING STRIKE'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('lightning-strike')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=storm-breaker" data-metal="silver" data-price="499" data-sale="true">
@@ -251,10 +301,14 @@
             <span class="sale-price">AU$499</span>
             <span class="original-price">AU$799</span>
           </div>
-          <h2>60.25CT NATURAL CRYSTAL OPAL RING <br>| STERLING SILVER | 'STORM BREAKER' </h2>
+          <h2>60.25CT NATURAL CRYSTAL OPAL RING <br>| STERLING SILVER | 'STORM BREAKER'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('storm-breaker')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
     </section>
+
     <div class="benefit-header"> 
       <h1 style="font-size: 23px;">WHY SHOP WITH US?</h1>
     </div>

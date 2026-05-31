@@ -10,6 +10,21 @@
     <link rel="stylesheet" href="style.css"> 
   </head>
   <body>
+    <div id="cart-drawer" style="display:none;">
+        <div id="cart-drawer-overlay" onclick="closeCartDrawer()"></div>
+        <div id="cart-drawer-inner">
+          <div id="cart-drawer-header" style="display: flex; justify-content: flex-end;">
+            <button onclick="closeCartDrawer()"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+          <h2 style="font-size: 25px;">YOUR PRODUCT HAS BEEN<br>ADDED TO CART!</h2>
+          <div id="cart-drawer-items"></div>
+          <div id="cart-drawer-footer">
+            <div id="cart-drawer-subtotal"></div>
+            <a href="cart.html" id="cart-drawer-checkout">VIEW BAG AND CHECKOUT</a>
+            <button onclick="closeCartDrawer()" id="cart-drawer-continue">CONTINUE SHOPPING</button>
+          </div>
+        </div>
+    </div>
     <div id="search-overlay">
       <div class="search-box">
         <input type="text" id="search-input" placeholder="Search products..." onkeydown="if(event.key === 'Enter') window.location.href='search.html?q=' + this.value">        
@@ -39,9 +54,11 @@
         <button class="icon" onclick="document.getElementById('search-overlay').style.display='flex'">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
-        <button class="icon">
-          <i class="fa-regular fa-heart"></i>
-        </button>        
+        <a href="favorites.html">
+          <button class="icon">
+            <i class="fa-regular fa-heart"></i>
+          </button>        
+        </a>
         <button class="icon">
           <i class="fa-regular fa-user"></i>
         </button>
@@ -104,6 +121,9 @@
           </div>
           <h2>3.40CT CRYSTAL OPAL NECKLACE <br>| 10K YELLOW GOLD | 'GOLDEN CLASSIC'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('golden-classic')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=brilliant-drop" data-metal="gold" data-price="1199">
@@ -117,6 +137,9 @@
           <p style="margin-top: 8px;">AU$1,199</p>
           <h2>10.55CT BOULDER OPAL NECKLACE <br>| 10K YELLOW GOLD | 'BRILLIANT DROP'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('brilliant-drop')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=shadow-fall" data-metal="gold" data-price="2999">
@@ -130,6 +153,9 @@
           <p style="margin-top: 8px;">AU$2,999</p>
           <h2>42.95CT BOULDER OPAL NECKLACE <br>| 10K YELLOW GOLD | 'SHADOW FALL'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('shadow-fall')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=silver-statement" data-metal="silver" data-price="349" data-sale="true">
@@ -147,6 +173,9 @@
           </div>
           <h2>4.75CT NATURAL CRYSTAL OPAL NECKLACE <br>| STERLING SILVER | 'SILVER STATEMENT'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('silver-statement')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=twin-hearts" data-metal="gold" data-price="349" data-sale="true">
@@ -164,6 +193,9 @@
           </div>
           <h2>2.15CT CRYSTAL OPAL NECKLACE <br>| 10K YELLOW GOLD | 'TWIN HEARTS'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('twin-hearts')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=petal-bloom" data-metal="silver" data-price="349" data-sale="true">
@@ -181,6 +213,9 @@
           </div>
           <h2>1.20CT CRYSTAL OPAL NECKLACE <br>| STERLING SILVER | 'PETAL BLOOM'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('petal-bloom')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=heart-glow" data-metal="gold" data-price="349" data-sale="true">
@@ -198,6 +233,9 @@
           </div>
           <h2>1.80CT CRYSTAL OPAL NECKLACE <br>| 10K YELLOW GOLD | 'HEART GLOW'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('heart-glow')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=wave-rider" data-metal="gold" data-price="349" data-sale="true">
@@ -215,6 +253,9 @@
           </div>
           <h2>2.80CT CRYSTAL OPAL NECKLACE <br>| 10K YELLOW GOLD | 'WAVE RIDER'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('wave-rider')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=moonbeam-drop" data-metal="silver" data-price="349" data-sale="true">
@@ -232,6 +273,9 @@
           </div>
           <h2>10.15CT QUEENSLAND BOULDER NECKLACE <br>| STERLING SILVER | 'MOONBEAM DROP'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('moonbeam-drop')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=winged-light" data-metal="gold" data-price="349" data-sale="true">
@@ -249,6 +293,9 @@
           </div>
           <h2>3.10CT CRYSTAL OPAL NECKLACE <br>| 10K YELLOW GOLD | 'WINGED LIGHT'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('winged-light')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=hook-line" data-metal="gold" data-price="599">
@@ -262,6 +309,9 @@
           <p style="margin-top: 8px;">AU$599</p>
           <h2>5.30CT CRYSTAL OPAL NECKLACE <br>| 10K YELLOW GOLD | 'HOOK LINE'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('hook-line')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=wish-upon-a-star" data-metal="silver" data-price="2299">
@@ -273,8 +323,11 @@
             </button>
           </div>
           <p style="margin-top: 8px;">AU$2,299</p>
-          <h2>36CT CRYSTAL OPAL NECKLACE <br>| STERLING SILVER | 'HOOK LINE'</h2>
+          <h2>36CT CRYSTAL OPAL NECKLACE <br>| STERLING SILVER | 'WISH UPON A STAR'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('wish-upon-a-star')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=lightning-strike" data-metal="gold" data-price="1999">
@@ -288,6 +341,9 @@
           <p style="margin-top: 8px;">AU$1,999</p>
           <h2>26.45CT BOULDER OPAL NECKLACE <br>| 10K YELLOW GOLD | 'LIGHTNING STRIKE'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('lightning-strike')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=spectral-fire" data-metal="gold" data-price="5999" data-sale="true">
@@ -305,6 +361,9 @@
           </div>
           <h2>30CT QUEENSLAND BOULDER NECKLACE <br>| 10K YELLOW GOLD | 'SPECTRAL FIRE'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('spectral-fire')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=poseidon" data-metal="silver" data-price="2699">
@@ -318,6 +377,9 @@
           <p style="margin-top: 8px;">AU$2,699</p>
           <h2>6.60CT SOLID BLACK OPAL NECKLACE <br>| STERLING SILVER | 'POSEIDON'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('poseidon')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=river-fire" data-metal="gold" data-price="1999" data-sale="true">
@@ -335,6 +397,9 @@
           </div>
           <h2>28.90CT BOULDER OPAL NECKLACE <br>| 10K YELLOW GOLD | 'RIVER FIRE'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('river-fire')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=dark-tide" data-metal="gold" data-price="2199" data-sale="true">
@@ -347,11 +412,14 @@
             <span class="product-tag">SALE</span>
           </div>
           <div style="margin-top: 5px;">
-            <span class="sale-price">AU$2199</span>
-            <span class="original-price">AU$3199</span>
+            <span class="sale-price">AU$2,199</span>
+            <span class="original-price">AU$3,199</span>
           </div>
-          <h2>29.90CT BOULDE OPAL NECKLACE <br>| 10K YELLOW GOLD | 'DARK TIDE'</h2>
+          <h2>29.90CT BOULDER OPAL NECKLACE <br>| 10K YELLOW GOLD | 'DARK TIDE'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('dark-tide')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
       <div class="category">
         <a href="products.html?id=soul-of-the-sea" data-metal="silver" data-price="16999">
@@ -365,9 +433,11 @@
           <p style="margin-top: 8px;">AU$16,999</p>
           <h2>74.90CT SOLID BLACK OPAL NECKLACE <br>| STERLING SILVER | 'SOUL OF THE SEA'</h2>
         </a>
+        <button class="add-to-cart-quick" onclick="addToCart('soul-of-the-sea')">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
       </div>
     </section>
-
 
     <div class="benefit-header"> 
       <h1 style="font-size: 23px;">WHY SHOP WITH US?</h1>
