@@ -317,11 +317,14 @@ if (searchInput) {
           <img src="${p.image}" alt="${p.name}">
           <div>
             <h2>${p.name}</h2>
-            <p>${p.price}</p>
+            ${p.sale
+              ? `<span class="sale-price">${p.salePrice}</span> <span class="original-price">${p.price}</span>`
+              : `<p style="margin-top:8px; font-size:13px;">${p.price}</p>`}
           </div>
         </div>
       `;
     });
+
   });
  
   searchInput.addEventListener('keydown', (e) => {
@@ -334,6 +337,18 @@ if (searchInput) {
   });
 }
  
+function openSearch() {
+  document.getElementById('search-overlay').style.display = 'flex';
+  document.getElementById('search-backdrop').style.display = 'block';
+  document.body.style.overflow = 'hidden';
+}
+
+function closeSearch() {
+  document.getElementById('search-overlay').style.display = 'none';
+  document.getElementById('search-backdrop').style.display = 'none';
+  document.body.style.overflow = '';
+}
+
 const searchResultsGrid = document.getElementById('search-results-grid');
  
 if (searchResultsGrid) {
@@ -351,15 +366,29 @@ if (searchResultsGrid) {
       searchResultsGrid.innerHTML = '<p style="padding: 2rem;">No results found.</p>';
     } else {
       matches.forEach(([key, p]) => {
+        const numericPrice = parseInt((p.salePrice || p.price).replace(/[^0-9]/g, ''));
         searchResultsGrid.innerHTML += `
-          <a href="products.html?id=${key}">
-            <div class="category-img-wrap">
-              <img src="${p.image}" alt="${p.name}">
-              <p class="explore">QUICK VIEW</p>
-            </div>
-            <h2 style="margin-top: 5px;">${p.name}</h2>
-            <p>${p.price}</p>
-          </a>
+          <div class="category" data-metal="${p.metal || ''}" data-price="${numericPrice}" data-sale="${p.sale}">
+            <a href="products.html?id=${key}">
+              <div class="category-img-wrap">
+                <img src="${p.image}" alt="${p.name}">
+                <p class="explore">QUICK VIEW</p>
+                <button class="heart-btn" onclick="event.preventDefault(); toggleFav(this, '${key}')">
+                  <i class="fa-regular fa-heart"></i>
+                </button>
+                ${p.sale ? '<span class="product-tag">SALE</span>' : ''}
+              </div>
+              <div style="margin-top: 5px;">
+                ${p.sale
+                  ? `<span class="sale-price">${p.salePrice}</span><span class="original-price">${p.price}</span>`
+                  : `<p>${p.price}</p>`}
+              </div>
+              <h2>${p.name}</h2>
+            </a>
+            <button class="add-to-cart-quick" onclick="addToCart('${key}')">
+              <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+            </button>
+          </div>
         `;
       });
     }
@@ -706,4 +735,130 @@ function submitCheckout() {
   }
 
   window.location.href = 'payment.html';
+}
+
+function selectPayment(el, type) {
+  document.querySelectorAll('.payment-option').forEach(opt => {
+    opt.classList.remove('active');
+    const fields = opt.querySelector('.payment-fields');
+    if (fields) fields.style.display = 'none';
+  });
+
+  el.classList.add('active');
+  el.querySelector('input[type="radio"]').checked = true;
+
+  if (type === 'card') {
+    document.getElementById('card-fields').style.display = 'block';
+  }
+}
+
+function formatCard(input) {
+  let val = input.value.replace(/\D/g, '').substring(0, 16);
+  input.value = val.replace(/(.{4})/g, '$1 ').trim();
+}
+
+function submitPayment() {
+  const selected = document.querySelector('input[name="payment"]:checked');
+  if (!selected) {
+    alert('Please select a payment method.');
+    return;
+  }
+  localStorage.removeItem('cart');
+  localStorage.removeItem('appliedDiscount');
+  window.location.href = 'confirmation.html';
+}
+
+function submitPayment() {
+  const selected = document.querySelector('input[name="payment"]:checked');
+  if (!selected) {
+    alert('Please select a payment method.');
+    return;
+  }
+
+  if (selected.value === 'card') {
+    const cardNumber = document.querySelector('#card-fields input[placeholder="1234 5678 9012 3456"]');
+    const expiry = document.querySelector('#card-fields input[placeholder="MM/YY"]');
+    const cvv = document.querySelector('#card-fields input[placeholder="123"]');
+    const name = document.querySelector('#card-fields input[placeholder="Full name"]');
+
+    const cardClean = cardNumber.value.replace(/\s/g, '');
+    const expiryRegex = /^(0[1-9]|1[0-2])\/\d{2}$/;
+    const cvvRegex = /^\d{3}$/;
+
+    let valid = true;
+
+    if (cardClean.length !== 16) {
+      cardNumber.style.border = '1px solid #A64B4B';
+      valid = false;
+    } else {
+      cardNumber.style.border = '1px solid var(--support)';
+    }
+
+    if (!expiryRegex.test(expiry.value)) {
+      expiry.style.border = '1px solid #A64B4B';
+      valid = false;
+    } else {
+      expiry.style.border = '1px solid var(--support)';
+    }
+
+    if (!cvvRegex.test(cvv.value)) {
+      cvv.style.border = '1px solid #A64B4B';
+      valid = false;
+    } else {
+      cvv.style.border = '1px solid var(--support)';
+    }
+
+    if (name.value.trim() === '') {
+      name.style.border = '1px solid #A64B4B';
+      valid = false;
+    } else {
+      name.style.border = '1px solid var(--support)';
+    }
+
+    if (!valid) {
+      return;
+    }
+  }
+
+  localStorage.removeItem('cart');
+  localStorage.removeItem('appliedDiscount');
+  window.location.href = 'confirmation.html';
+}
+
+function openJoinDrawer() {
+  document.getElementById('join-drawer').style.display = 'block';
+}
+
+function closeJoinDrawer() {
+  document.getElementById('join-drawer').style.display = 'none';
+}
+
+function submitJoin() {
+  const firstName = document.getElementById('join-first-name').value.trim();
+  const lastName = document.getElementById('join-last-name').value.trim();
+  const email = document.getElementById('join-email');
+  const phone = document.getElementById('join-phone').value.trim();
+  const emailError = document.getElementById('join-email-error');
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  let valid = true;
+
+  if (!emailRegex.test(email.value)) {
+    emailError.style.display = 'block';
+    email.style.border = '1px solid #A64B4B';
+    valid = false;
+  } else {
+    emailError.style.display = 'none';
+    email.style.border = '1px solid var(--support)';
+  }
+
+  if (!firstName || !lastName || !phone) {
+    alert('Please fill in all fields.');
+    valid = false;
+  }
+
+  if (!valid) return;
+
+  document.getElementById('join-success').style.display = 'block';
+  setTimeout(() => closeJoinDrawer(), 2000);
 }

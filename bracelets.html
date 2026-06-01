@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="mobile.css" media="(max-width: 844px)">
   </head>
   <body>
     <div id="cart-drawer" style="display:none;">
@@ -27,13 +28,14 @@
     </div>
     <div id="search-overlay">
       <div class="search-box">
-        <input type="text" id="search-input" placeholder="Search products..." onkeydown="if(event.key === 'Enter') window.location.href='search.html?q=' + this.value">        
-        <button onclick="document.getElementById('search-overlay').style.display='none'">
+        <input type="text" id="search-input" placeholder="Search products..." onkeydown="if(event.key === 'Enter') { window.location.href='search.html?q=' + this.value; }">
+        <button onclick="closeSearch()">
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
       <div id="search-results"></div>
     </div>
+
     <div class="ticker">
       <span>FREE SHIPPING ON ALL ORDERS &nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp; NEW COLLECTION NOW AVAILABLE &nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp; HANDCRAFTED FINE OPAL JEWELLERY &nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp; ENJOY 10% OFF YOUR FIRST ORDER &nbsp;&nbsp;&nbsp;</span>
     </div> 
@@ -59,9 +61,6 @@
             <i class="fa-regular fa-heart"></i>
           </button>        
         </a>
-        <button class="icon">
-          <i class="fa-regular fa-user"></i>
-        </button>
         <a href="cart.html">
           <button class="icon">
             <i class="fa-solid fa-bag-shopping"></i>

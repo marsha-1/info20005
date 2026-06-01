@@ -3,54 +3,79 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Majulix Opal Jewellery</title>
+    <title>Clearance-Majulix Opal Jewellery</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">  
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="mobile.css" media="(max-width: 844px)">
   </head>
   <body>
+    <div id="cart-drawer" style="display:none;">
+        <div id="cart-drawer-overlay" onclick="closeCartDrawer()"></div>
+        <div id="cart-drawer-inner">
+          <div id="cart-drawer-header" style="display: flex; justify-content: flex-end;">
+            <button onclick="closeCartDrawer()"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+          <h2 style="font-size: 25px;">YOUR PRODUCT HAS BEEN <br>ADDED TO CART!</h2>
+          <div id="cart-drawer-items"></div>
+          <div id="cart-drawer-footer">
+            <div id="cart-drawer-subtotal"></div>
+            <a href="cart.html" id="cart-drawer-checkout">VIEW BAG AND CHECKOUT</a>
+            <button onclick="closeCartDrawer()" id="cart-drawer-continue">CONTINUE SHOPPING</button>
+          </div>
+        </div>
+    </div>
     <div id="search-overlay">
       <div class="search-box">
-        <input type="text" id="search-input" placeholder="Search products..." onkeydown="if(event.key === 'Enter') window.location.href='search.html?q=' + this.value">        
-        <button onclick="document.getElementById('search-overlay').style.display='none'">
+        <input type="text" id="search-input" placeholder="Search products..." onkeydown="if(event.key === 'Enter') { window.location.href='search.html?q=' + this.value; }">
+        <button onclick="closeSearch()">
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
       <div id="search-results"></div>
     </div>
+
     <div class="ticker">
       <span>FREE SHIPPING ON ALL ORDERS &nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp; NEW COLLECTION NOW AVAILABLE &nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp; HANDCRAFTED FINE OPAL JEWELLERY &nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp; ENJOY 10% OFF YOUR FIRST ORDER &nbsp;&nbsp;&nbsp;</span>
     </div> 
     <header>
       <div class="header-inner">
-        <button class="icon" onclick="document.getElementById('search-overlay').style.display='flex'">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </button>        
         <div class="logo-wrap">
-          <img class="logo" src="logo/logo.png" width="120px" height="auto">
+          <a href="index.html"><img class="logo" src="logo/logo.png" width="90px" height="auto"></a>
           <div class="logo-dot"></div>
         </div>
+        <nav>
+          <a href="engagement.html">ENGAGEMENT</a>
+          <a href="mens.html">MEN'S</a> 
+          <a href="gifts.html">GIFTS</a>
+          <a href="statement.html">STATEMENT</a>
+          <a href="clearance.html" style="color: #A64B4B;">CLEARANCE</a>       
+        </nav>
+        <div class="header-icons">
+        <button class="icon" onclick="document.getElementById('search-overlay').style.display='flex'">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <a href="favorites.html">
+          <button class="icon">
+            <i class="fa-regular fa-heart"></i>
+          </button>        
+        </a>
         <a href="cart.html">
           <button class="icon">
             <i class="fa-solid fa-bag-shopping"></i>
           </button> 
         </a>
+        </div>
       </div>
-      <nav>
-        <a href="rings.html">RINGS</a>
-        <a href="earrings.html">EARRINGS</a>
-        <a href="bracelets.html">BRACELETS</a>
-        <a href="necklaces.html">NECKLACES</a>       
-      </nav>
     </header>
+
     <section class="page-hero">
       <h2 class="breadcrumb"><a href="index.html">HOME</a> / SEARCH</h2>
       <h2 id="search-title"style="font-size: 50px; font-weight: 500; letter-spacing: 10%;">Search Results</h2>
     </section>
-
-    <section class="product-grid" id="search-results-grid">
-    </section>
+    
+    <section class="categories product-list" id="search-results-grid"></section>
 
     <footer>
       <div class="footer-top">

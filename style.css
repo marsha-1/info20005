@@ -1012,16 +1012,15 @@ footer {
 
 #search-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
-  background: rgba(244, 241, 238, 0.9);
-  z-index: 999;
+  height: 30%;
+  background: var(--white);
   display: none;
   flex-direction: column;
   align-items: center;
-  padding-top: 5rem;
+  padding: 20px 150px 0px;
+  box-sizing: border-box;
+  z-index: 9999;
 }
 
 .search-box {
@@ -1053,29 +1052,36 @@ footer {
 
 #search-results {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  padding: 2rem;
-  width: 60%;
-  margin-top: 2rem;
+  gap: 16px;
+  margin-top: 16px;
+  width: 100%;
 }
 
 .search-result-item {
   display: flex;
-  gap: 1rem;
+  gap: 12px;
   align-items: center;
   cursor: pointer;
-  width: calc(50% - 0.75rem);
+  padding: 8px;
+  border: 1px solid var(--support2);
+  flex: 1;
 }
 
 .search-result-item img {
-  width: 80px;
-  height: 80px;
+  width: 50px;
+  height: 60px;
   object-fit: cover;
 }
 
-.search-result-item:hover h2 {
-  text-decoration: underline;
+.search-result-item h2 {
+  font-size: 11px;
+  color: var(--dark-brown);
+}
+
+.search-result-item p {
+  font-size: 11px;
+  color: var(--text-brown);
+  margin-top: 4px;
 }
 
 .btn-pulse {
@@ -1364,4 +1370,140 @@ footer {
 
 .form-row .form-group {
   flex: 1;
+}
+
+.payment-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.payment-option {
+  border: 1px solid var(--support);
+  padding: 16px;
+  cursor: pointer;
+  transition: border 0.2s;
+}
+
+.payment-option.active {
+  border: 1px solid var(--dark-brown);
+}
+
+.payment-option-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: var(--dark-brown);
+}
+
+.payment-option-header input[type="radio"] {
+  accent-color: var(--dark-brown);
+}
+
+.payment-icons {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+  font-size: 24px;
+}
+
+.payment-icons .fa-cc-mastercard {
+  color: #eb001b;
+}
+
+.payment-icons .fa-cc-visa {
+  color: #1a1f71;
+}
+
+.payment-fields {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-top: 1px solid var(--support2);
+  padding-top: 16px;
+}
+
+.confirmation-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  padding: 60px 150px;
+}
+
+.confirmation-box {
+  text-align: center;
+  max-width: 500px;
+}
+
+.confirmation-box h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 48px;
+  color: var(--dark-brown);
+  margin-bottom: 16px;
+}
+
+.confirmation-box p {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 15px;
+  color: var(--text-brown);
+  margin-bottom: 8px;
+}
+
+.confirmation-divider {
+  width: 60px;
+  height: 1px;
+  background: var(--support);
+  margin: 24px auto;
+}
+
+.confirmation-contact {
+  font-size: 13px;
+  color: var(--accent-brown);
+}
+
+.confirmation-email {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 14px;
+  color: var(--dark-brown);
+  text-decoration: underline;
+  display: block;
+  margin: 4px 0 12px;
+}
+
+#join-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+}
+
+#join-drawer-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+}
+
+#join-drawer-inner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 420px;
+  height: 100%;
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  box-shadow: -8px 0 30px rgba(0,0,0,0.15);
 }

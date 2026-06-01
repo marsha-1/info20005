@@ -28,12 +28,44 @@
     </div>
     <div id="search-overlay">
       <div class="search-box">
-        <input type="text" id="search-input" placeholder="Search products..." onkeydown="if(event.key === 'Enter') window.location.href='search.html?q=' + this.value">        
-        <button onclick="document.getElementById('search-overlay').style.display='none'">
+        <input type="text" id="search-input" placeholder="Search products..." onkeydown="if(event.key === 'Enter') { window.location.href='search.html?q=' + this.value; }">
+        <button onclick="closeSearch()">
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
       <div id="search-results"></div>
+    </div>
+    <div id="search-backdrop" onclick="closeSearch()"></div>
+    <div id="join-drawer" style="display:none;">
+      <div id="join-drawer-overlay" onclick="closeJoinDrawer()"></div>
+      <div id="join-drawer-inner">
+        <div style="display:flex; justify-content:flex-end;">
+          <button onclick="closeJoinDrawer()" style="background:none; border:none; cursor:pointer; font-size:20px;"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <h2 style="font-size:20px; margin-bottom:8px;">JOIN FOR FREE</h2>
+        <p style="font-size:13px; color:var(--text-brown); margin-bottom:24px;">Create an account to save your favourites and track your orders.</p>
+
+        <div class="form-group" style="margin-bottom:12px;">
+          <label>FIRST NAME</label>
+          <input type="text" id="join-first-name" placeholder="First name">
+        </div>
+        <div class="form-group" style="margin-bottom:12px;">
+          <label>LAST NAME</label>
+          <input type="text" id="join-last-name" placeholder="Last name">
+        </div>
+        <div class="form-group" style="margin-bottom:12px;">
+          <label>EMAIL</label>
+          <input type="email" id="join-email" placeholder="Email address">
+          <p id="join-email-error" style="color:#A64B4B; font-size:12px; margin-top:4px; display:none;">Please enter a valid email address.</p>
+        </div>
+        <div class="form-group" style="margin-bottom:24px;">
+          <label>PHONE</label>
+          <input type="tel" id="join-phone" placeholder="Phone number">
+        </div>
+
+        <button onclick="submitJoin()" style="width:100%; padding:16px; background:var(--dark-brown); color:var(--white); border:none; font-family:'Roboto Condensed',sans-serif; font-size:13px; letter-spacing:0.15em; cursor:pointer;">CREATE ACCOUNT</button>
+        <p id="join-success" style="display:none; color:green; font-size:13px; margin-top:12px; text-align:center;">✓ Account created successfully!</p>
+      </div>
     </div>
     <div class="ticker">
       <span>FREE SHIPPING ON ALL ORDERS &nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp; NEW COLLECTION NOW AVAILABLE &nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp; HANDCRAFTED FINE OPAL JEWELLERY &nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp; ENJOY 10% OFF YOUR FIRST ORDER &nbsp;&nbsp;&nbsp;</span>
@@ -60,9 +92,6 @@
             <i class="fa-regular fa-heart"></i>
           </button>        
         </a>
-        <button class="icon">
-          <i class="fa-regular fa-user"></i>
-        </button>
         <a href="cart.html">
           <button class="icon">
             <i class="fa-solid fa-bag-shopping"></i>
@@ -79,8 +108,7 @@
       <div class="hero-text">
         <h1 style="color: #F4F1EE;">OPAL IN THE LIGHT</h1>
         <h2 style="color: #F4F1EE; font-weight: 400;">Each piece is shaped by natural Australian opal.<br>Simple, unique, and easy to wear every day.</h2>
-        <a href="#" class="hero-btn">OUR STORY</a>
-      </div>
+        </div>
     </section>
     <section class="banner">
       <h1 style="font-size: 30px;">SHOP BY CATEGORIES</h1>
@@ -219,8 +247,7 @@
           <p>As our welcome gifts, enjoy 10% off your first purchase.</p>
           <p>Terms and Conditions apply*</p>
         </div>
-        <a href="#" class="promo-button">JOIN FOR FREE</a>
-      </div>
+        <a href="#" class="promo-button" onclick="event.preventDefault(); openJoinDrawer()">JOIN FOR FREE</a>      </div>
     </section>
 
     <section class="feature-grid">

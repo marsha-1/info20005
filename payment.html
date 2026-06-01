@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment—Majulix Opal Jewellery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mobile.css" media="(max-width: 844px)">
+  </head>
+  <body>
+    <div class="ticker">
+      <span>FREE SHIPPING ON ALL ORDERS &nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp; NEW COLLECTION NOW AVAILABLE &nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp; HANDCRAFTED FINE OPAL JEWELLERY &nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp; ENJOY 10% OFF YOUR FIRST ORDER &nbsp;&nbsp;&nbsp;</span>
+    </div>
+    <header>
+      <div class="header-inner">
+        <button class="icon" onclick="history.back()" style="margin-left: 150px;">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <div class="logo-wrap">
+          <a href="index.html"><img class="logo" src="logo/logo.png" width="90px" height="auto" style="margin-right: 700px;"></a>
+        </div>
+      </div>
+    </header>
+
+    <div class="cart-progress">
+      <div class="cart-progress-inner">
+        <div class="cart-step active">
+          <div class="cart-step-dot full"></div>
+          <span>CART</span>
+        </div>
+        <div class="cart-step-line"></div>
+        <div class="cart-step active">
+          <div class="cart-step-dot full"></div>
+          <span>CHECKOUT</span>
+        </div>
+        <div class="cart-step-line"></div>
+        <div class="cart-step active">
+          <div class="cart-step-dot full"></div>
+          <span>PAYMENT</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cart-layout">
+      <div class="cart-left">
+        <h1 class="cart-title" style="font-size: 30px;">PAYMENT METHOD</h1>
+
+        <div class="payment-methods">
+          <div class="payment-option" onclick="selectPayment(this, 'card')">
+            <div class="payment-option-header">
+              <input type="radio" name="payment" value="card">
+              <span>CREDIT / DEBIT CARD</span>
+              <div class="payment-icons">
+                <i class="fa-brands fa-cc-mastercard"></i>
+                <i class="fa-brands fa-cc-visa"></i>
+              </div>
+            </div>
+            <div class="payment-fields" id="card-fields" style="display:none;">
+              <div class="form-group">
+                <label>CARD NUMBER</label>
+                <input type="text" placeholder="1234 5678 9012 3456" maxlength="19" oninput="formatCard(this)">
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label style="padding-top: 16px;">EXPIRY DATE</label>
+                  <input type="text" placeholder="MM/YY" maxlength="5">
+                </div>
+                <div class="form-group">
+                  <label style="padding-top: 16px;">CVV</label>
+                  <input type="text" placeholder="123" maxlength="3">
+                </div>
+              </div>
+              <div class="form-group">
+                <label style="padding-top: 16px;">NAME ON CARD</label>
+                <input type="text" placeholder="Full name">
+              </div>
+            </div>
+          </div>
+
+          <div class="payment-option" onclick="selectPayment(this, 'paypal')">
+            <div class="payment-option-header">
+              <input type="radio" name="payment" value="paypal">
+              <span>PAYPAL</span>
+              <i class="fa-brands fa-cc-paypal" style="font-size:24px; color:#003087;"></i>
+            </div>
+          </div>
+
+          <div class="payment-option" onclick="selectPayment(this, 'applepay')">
+            <div class="payment-option-header">
+              <input type="radio" name="payment" value="applepay">
+              <span>APPLE PAY</span>
+              <i class="fa-brands fa-apple" style="font-size:24px;"></i>
+            </div>
+          </div>
+
+          <div class="payment-option" onclick="selectPayment(this, 'googlepay')">
+            <div class="payment-option-header">
+              <input type="radio" name="payment" value="googlepay">
+              <span>GOOGLE PAY</span>
+              <i class="fa-brands fa-google" style="font-size:22px;"></i>
+            </div>
+          </div>
+        </div>
+
+        <button class="checkout-btn" onclick="submitPayment()" style="margin-top:24px;">PLACE ORDER</button>
+      </div>
+
+      <div class="cart-right">
+        <h1 class="cart-title" style="font-size: 30px;">ORDER SUMMARY</h1>
+        <div class="order-summary">
+          <div class="order-row order-total" style="margin-bottom: 16px;">
+            <span>TOTAL</span>
+            <span id="checkout-total">AU$0</span>
+          </div>
+          <div id="checkout-items"></div>
+          <div class="order-row" style="border-top: 1px solid var(--support); margin-top: 16px; padding-top: 16px;">
+            <span>ITEMS</span>
+            <span id="checkout-subtotal">AU$0</span>
+          </div>
+          <div class="order-row">
+            <span>GST INCLUDED (10%)</span>
+            <span id="checkout-gst">AU$0</span>
+          </div>
+          <div class="order-row" style="color:#A64B4B;">
+            <span>DISCOUNT</span>
+            <span id="checkout-discount">AU$0</span>
+          </div>
+          <div class="order-row order-total">
+            <span>TOTAL</span>
+            <span id="checkout-total-2">AU$0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="benefit-header"> 
+      <h1 style="font-size: 23px;">WHY SHOP WITH US?</h1>
+    </div>
+    <section class="benefits">
+      <div class="benefit-item">
+        <i class="fa-solid fa-gem"></i>
+        <p>Authentic Australian Opals</p>
+      </div>
+
+      <div class="benefit-item">
+        <i class="fa-solid fa-truck"></i>
+        <p>Free Shipping</p>
+      </div>
+
+      <div class="benefit-item">
+        <i class="fa-solid fa-rotate-left"></i>
+        <p>30 Day Returns</p>
+      </div>
+
+      <div class="benefit-item">
+        <i class="fa-solid fa-shield-heart"></i>
+        <p>Lifetime Warranty</p>
+      </div>
+    </section>
+    <footer>
+        <div class="footer-top">
+            <img class="logo footer-logo" src="logo/logo.png" width="120px" height="auto">
+            <h2 style="font-weight: 300; font-size: 25px; font-style: italic;">Leading experts in Opal jewellery, we were so obsessed with giving our customers<br>the best possible experience we created our very own world-class Opal Museum</p>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-col">
+            <p>CUSTOMER SERVICE</p>
+            <p>Australia phone number +61738577740</p>
+            <p>Monday to Friday 10:00am - 5:00pm AEST</p>
+            <p>Saturday 10:00am - 4:00pm AEST</p>
+            <p>Sunday 10:00am - 3:00pm AEST</p>
+            <p>201 Lutwyche rd, Windsor, 4030, Brisbane, Australia</p>
+          </div>
+          <div class="footer-col">
+            <p>NEWSLETTER</p>
+            <p>Receive our newsletter and discover our stories, collections, and surprises.</p>
+            <input type="email" placeholder="SUBSCRIBE">
+          </div>          
+          <div class="footer-col" style="margin-left: auto; text-align: right;">
+            <p>FOLLOW US</p>
+            <div class="social" style="justify-content: flex-end;">
+              <i class="fa-brands fa-facebook"></i>
+              <i class="fa-brands fa-instagram"></i>
+              <i class="fa-brands fa-youtube"></i>
+            </div>
+          </div>
+      </div>
+      <p class="copyright">Copyright © 2026 Marsha. All Rights Reserved.</h2>    
+    </footer>
+
+    <script src="products.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
