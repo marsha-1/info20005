@@ -862,3 +862,10 @@ function submitJoin() {
   document.getElementById('join-success').style.display = 'block';
   setTimeout(() => closeJoinDrawer(), 2000);
 }
+
+function toggleMenu() {
+  const menu = document.getElementById('mobile-menu');
+  if (menu) {
+    menu.style.display = menu.style.display === 'none' || menu.style.display === '' ? 'block' : 'none';
+  }
+}

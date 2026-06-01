@@ -3,10 +3,10 @@
     font-size: 11px;
   }
   .header-inner {
-    padding: 0 16px;
+    padding: 10px 10px 10px;
     position: relative;
   }
-  .nav{
+  nav{
     display: none !important; 
   }
   .logo-wrap{
@@ -15,15 +15,444 @@
   }
   .logo{
     width: 70px !important;
+    margin-left: 170px !important
   }
   .logo-dot {
       display: none;
     }
-    .header-icons {
-      margin-left: auto;
-      gap: 8px;
+  .header-icons {
+    margin-left: 250px;
+    gap: 5px;
+  }
+  .icon {
+    font-size: 14px;
     }
-    .icon {
-      font-size: 14px;
-    }
+
+  .hamburger {
+      display: block !important;
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      color: var(--dark-brown);
+      z-index: 999;
+      position: relative;
+  }
+
+  #mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+  }
+
+  #mobile-menu-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+  }
+
+  #mobile-menu-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 75%;
+    height: 100%;
+    background: var(--white);
+    padding: 24px;
+    box-sizing: border-box;
+    box-shadow: 8px 0 30px rgba(0,0,0,0.15);
+  }
+
+.mobile-nav {
+    display: flex !important;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .mobile-nav a {
+    display: block !important;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 16px;
+    letter-spacing: 0.15em;
+    color: var(--dark-brown);
+    text-decoration: none;
+    border-bottom: 1px solid var(--support2);
+    padding-bottom: 20px;
+  }
+
+  .hero-text h1 {
+    font-size: 30px !important;
+  }
+
+  .hero-text h2 {
+    font-size: 14px !important;
+    max-width: 250px;
+  }
+
+  .hero-text {
+    left: 1rem !important;
+    bottom: 40px !important;
+  }
+
+  .categories {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    padding: 16px !important;
+    gap: 10px !important;
+  }
+
+  .categories .category:last-child:nth-child(odd) {
+    grid-column: span 1;
+    margin: 0 auto;
+  }
+
+  .categories .category-img-wrap {
+    aspect-ratio: 1/1;
+  }
+
+  .categories .category-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .promo-section {
+    padding: 32px 24px;
+  }
+
+  .promo-inner {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    text-align: center;
+  }
+
+  .promo-button {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  .promo-copy {
+    max-width: 100% !important;
+  }
+
+  .promo-inner h2 {
+    font-size: 20px;
+  }
+
+  .promo-copy p {
+    font-size: 13px;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr !important;
+    padding: 16px !important;
+    gap: 16px !important;
+  }
+
+  .feature-card img {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .feature-content {
+    padding: 16px !important;
+  }
+
+  .feature-content h2 {
+    font-size: 18px;
+  }
+
+  .feature-content p {
+    font-size: 13px;
+  }
+
+  .benefits {
+  grid-template-columns: repeat(2, 1fr) !important;
+  padding: 16px 24px !important;
+  gap: 16px !important;
+}
+
+  .benefit-item {
+    padding: 16px !important;
+  }
+
+  .benefit-item i {
+    font-size: 20px !important;
+  }
+
+  .benefit-item p {
+    font-size: 12px !important;
+  }
+
+  .footer-logo {
+    margin-left: 100px !important;
+    display: block;
+  }
+
+  .footer-top {
+    flex-direction: column !important;
+    text-align: center;
+    padding: 24px !important;
+    gap: 16px !important;
+  }
+
+  .footer-top h2 {
+    font-size: 15px !important;
+  }
+
+  .footer-bottom {
+    flex-direction: column !important;
+    padding: 24px !important;
+    gap: 24px !important;
+  }
+
+  .footer-col {
+    margin-left: 0 !important;
+    text-align: left !important;
+  }
+
+  .footer-col input {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .social {
+    justify-content: flex-start !important;
+  }
+
+  .copyright {
+    text-align: center;
+    padding: 16px;
+    font-size: 11px;
+  }
+
+  .page-hero {
+    padding: 24px 16px !important;
+  }
+
+  .page-hero h1 {
+    font-size: 28px !important;
+  }
+
+  .breadcrumb {
+    font-size: 11px !important;
+  }
+
+  .page-hero h2 {
+    font-size: 13px !important;
+  }
+
+  .filter-sort-bar {
+    padding: 16px !important;
+    margin-right: 0 !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+  }
+
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    flex: 1;
+  }
+
+  .filter-btn {
+    padding: 6px 10px !important;
+  }
+
+  .sort-bar {
+    align-self: flex-end !important;
+    padding-bottom: 10px !important;
+  }
+
+  .banner-split {
+    flex-direction: column !important;
+    height: auto !important;
+    padding: 0 !important;
+  }
+
+  .banner-image {
+    width: 100% !important;
+  }
+
+  .banner-image img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .banner-text {
+    padding: 24px 16px !important;
+  }
+
+  .banner-text h1 {
+    font-size: 28px !important;
+  }
+
+  .banner-text p {
+    font-size: 13px !important;
+  }
+
+  #search-overlay {
+    padding: 24px 16px !important;
+    height: auto !important;
+    min-height: 50% !important;
+  }
+
+  .search-box {
+    width: 100% !important;
+    gap: 8px !important;
+  }
+
+  .search-box input {
+    width: 100% !important;
+  }
+
+  #search-results {
+    flex-direction: column !important;
+    gap: 8px !important;
+    width: 90% !important;
+  }
+
+  .search-result-item {
+    width: 90% !important;
+  }
+
+  .cart-progress {
+    padding: 16px !important;
+  }
+
+  .cart-progress-inner {
+    gap: 8px !important;
+  }
+
+  .cart-step span {
+    font-size: 10px !important;
+  }
+
+  .cart-step-line {
+    width: 40px !important;
+  }
+
+  .cart-layout {
+    flex-direction: column !important;
+    padding: 16px !important;
+    gap: 24px !important;
+  }
+
+  .cart-left {
+    width: 100% !important;
+  }
+
+  .cart-right {
+    width: 100% !important;
+    position: static !important;
+    box-sizing: border-box !important;
+    margin-top: 0 !important;
+  }
+
+  .cart-item {
+    padding: 16px 0 !important;
+  }
+
+  .cart-item-img-wrap img {
+    width: 100px !important;
+    height: 130px !important;
+  }
+
+  .order-summary {
+    gap: 8px !important;
+    width: 100% !important;
+  }
+
+  .promo-input-wrap {
+    flex-direction: row !important;
+  }
+
+  .checkout-btn {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+  }
+
+  .icon[onclick="history.back()"] {
+    margin-left: 16px !important;
+  }
+
+  .keep-exploring {
+    padding: 16px !important;
+    margin: 16px !important;
+  }
+
+  .keep-exploring .banner {
+    text-align: center !important;
+    padding: 0 !important;
+  }
+
+  .keep-exploring .banner h1 {
+    font-size: 20px !important;
+    padding-top: 20px !important;
+    white-space: nowrap !important;
+  }
+
+  .checkout-form {
+    width: 100% !important;
+  }
+
+  .form-group {
+    width: 100% !important;
+  }
+
+  .form-group input,
+  .form-group select {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .form-row {
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+
+  .form-row .form-group {
+    width: 100% !important;
+  }
+
+  .confirmation-page {
+    padding: 40px 16px !important;
+    min-height: auto !important;
+  }
+
+  .confirmation-box {
+    width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .confirmation-box h1 {
+    font-size: 32px !important;
+  }
+
+  .confirmation-box h2 {
+    font-size: 13px !important;
+  }
+
+  .checkout-btn {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 16px !important;
+  }
+
 }

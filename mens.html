@@ -40,34 +40,48 @@
     </div> 
     <header>
       <div class="header-inner">
+        <button class="hamburger" onclick="toggleMenu()">
+          <i class="fa-solid fa-bars"></i>
+        </button>
         <div class="logo-wrap">
           <a href="index.html"><img class="logo" src="logo/logo.png" width="90px" height="auto"></a>
           <div class="logo-dot"></div>
         </div>
         <nav>
           <a href="engagement.html">ENGAGEMENT</a>
-          <a href="mens.html">MEN'S</a> 
+          <a href="mens.html">MEN'S</a>
           <a href="gifts.html">GIFTS</a>
           <a href="statement.html">STATEMENT</a>
-          <a href="clearance.html" style="color: #A64B4B;">CLEARANCE</a>       
+          <a href="clearance.html" style="color:#A64B4B;">CLEARANCE</a>
         </nav>
         <div class="header-icons">
-        <button class="icon" onclick="document.getElementById('search-overlay').style.display='flex'">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
-        <a href="favorites.html">
-          <button class="icon">
-            <i class="fa-regular fa-heart"></i>
-          </button>        
-        </a>
-        <a href="cart.html">
-          <button class="icon">
-            <i class="fa-solid fa-bag-shopping"></i>
-          </button> 
-        </a>
+          <button class="icon" onclick="openSearch()">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+          <a href="favorites.html">
+            <button class="icon"><i class="fa-regular fa-heart"></i></button>
+          </a>
+          <a href="cart.html">
+            <button class="icon"><i class="fa-solid fa-bag-shopping"></i></button>
+          </a>
         </div>
       </div>
     </header>
+    <div id="mobile-menu" style="display:none;">
+      <div id="mobile-menu-overlay" onclick="toggleMenu()"></div>
+      <div id="mobile-menu-inner">
+        <button onclick="toggleMenu()" style="background:none; border:none; cursor:pointer; font-size:20px; margin-bottom:24px;">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <nav class="mobile-nav">
+          <a href="engagement.html">ENGAGEMENT</a>
+          <a href="mens.html">MEN'S</a>
+          <a href="gifts.html">GIFTS</a>
+          <a href="statement.html">STATEMENT</a>
+          <a href="clearance.html" style="color:#A64B4B;">CLEARANCE</a>
+        </nav>
+      </div>
+    </div>
 
     <section class="page-hero">
         <h2 class="breadcrumb"><a href="index.html">HOME</a>/MEN'S JEWELLERY</h2>

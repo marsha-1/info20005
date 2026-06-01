@@ -203,29 +203,6 @@ nav a:hover{
   animation: fadeRight 1s ease forwards;
 }
 
-.hero-btn {
-  display: inline-block;
-  border: 1px solid;
-  border-color: var(--background);
-  margin-top: 17px;
-  padding: 8px 8px 8px;
-  font-family: 'Roboto Condensed', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 5px;
-  color: var(--background);
-  text-decoration: none;
-  width: fit-content;
-  animation: fadeRight 1s ease forwards;
-  animation-delay: 1.5s;
-  opacity: 0;
-}
-
-.hero-btn:hover {
-  border-color: var(--support2);
-  color: var(--support2);
-}
-
 @keyframes fadeRight{
   from{
     opacity: 0;
@@ -235,6 +212,10 @@ nav a:hover{
     opacity: 1;
     transform: translateX(0)
   }
+}
+
+.hamburger {
+  display: none;
 }
 
 .categories {
