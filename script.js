@@ -1,3 +1,42 @@
+/*hero slideshow: cycles through .hero-slide elements every 3 seconds */
+const slides = document.querySelectorAll('.hero-slide');
+let current = 0;
+ 
+if (slides.length > 0) {
+  setInterval(() => {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }, 3000);
+}
+
+/*hides ticker and header when scrolling down using translateY, shows tem again when scrollin up*/
+let lastScroll = 0;
+const ticker = document.querySelector('.ticker');
+const header = document.querySelector('header');
+ 
+if (ticker && header) {
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.scrollY;
+ 
+    if (currentScroll > lastScroll && currentScroll > 50) {
+      ticker.style.transform = 'translateY(-100%)';
+      ticker.style.transition = 'transform 0.3s ease';
+      header.style.transform = 'translateY(-137px)';
+      header.style.transition = 'transform 0.3s ease';
+    } else {
+      ticker.style.transform = 'translateY(0)';
+      ticker.style.transition = 'transform 0.3s ease';
+      header.style.transform = 'translateY(0)';
+      header.style.transition = 'transform 0.3s ease';
+    }
+ 
+    lastScroll = currentScroll;
+  });
+}
+
+/*cart page - render cart items
+Reads localStorage cart, builds HTML for each item including the image, name, price (sale or normal), qty controls and remove button*/  
 document.addEventListener("DOMContentLoaded", () => {
   const cartContainer = document.getElementById("cart-container");
   const cartSubtotal = document.getElementById("cart-subtotal");
@@ -45,6 +84,8 @@ document.addEventListener("DOMContentLoaded", () => {
   updateCartTotal();
 });
 
+/*update quantity: adds or remove quantity, remove items if qty = 0
+saves to localStorage and reloads page*/ 
 function updateCartQty(index, change) {
   let cart = JSON.parse(localStorage.getItem('cart') || '[]');
   cart[index].qty += change;
@@ -53,6 +94,8 @@ function updateCartQty(index, change) {
   location.reload();
 }
 
+
+/*remove item: remove item at given index from cart array, saves and reloads*/
 function removeFromCartPage(index) {
   let cart = JSON.parse(localStorage.getItem('cart') || '[]');
   cart.splice(index, 1);
@@ -60,6 +103,8 @@ function removeFromCartPage(index) {
   location.reload();
 }
 
+/*total updates:
+calculates subtotal, applies discount, and 10%GST. will update all summary elements on screen including discount*/
 function updateCartTotal() {
   const cart = JSON.parse(localStorage.getItem('cart') || '[]');
 
@@ -87,6 +132,10 @@ function updateCartTotal() {
   }
 }
 
+
+/*product page: add to cart button
+listens for click on the main add to cart button on product.html, then reads product id from URL,
+adds to localStorage cart, opens drawer*/
 document.addEventListener("DOMContentLoaded", () => {
   const addBtn = document.querySelector(".add-to-cart");
  
@@ -117,7 +166,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
- 
+
+/*quick add to cart feature: called from add to cart buttons on product grid pages, 
+then reads product from products object, adds to localStorage, opens drawer. */
 function addToCart(id) {
   const p = products[id];
   if (!p) return;
@@ -140,7 +191,9 @@ function addToCart(id) {
   localStorage.setItem('cart', JSON.stringify(cart));
   openCartDrawer();
 }
- 
+
+/*cart drawer open: renders cart items in the slide in drawer along with
+sale tags, qty controls and remove button, calulates and shows price total*/
 function openCartDrawer() {
   const cart = JSON.parse(localStorage.getItem('cart') || '[]');
   const drawer = document.getElementById('cart-drawer');
@@ -188,6 +241,7 @@ function openCartDrawer() {
   drawer.style.display = 'block';
 }
 
+/*cart drawer quantity update: updates qty in localStorage and renders the drawer*/
 function updateQty(index, change) {
   let cart = JSON.parse(localStorage.getItem('cart') || '[]');
   cart[index].qty += change;
@@ -198,6 +252,7 @@ function updateQty(index, change) {
   openCartDrawer();
 }
 
+/*cart drawer: remove item, removes item from both cart and drawer*/
 function removeFromDrawer(index) {
   let cart = JSON.parse(localStorage.getItem('cart') || '[]');
   cart.splice(index, 1);
@@ -205,46 +260,13 @@ function removeFromDrawer(index) {
   openCartDrawer();
 }
 
+/*close cart drawer: hides the cart overlay*/
 function closeCartDrawer() {
   const drawer = document.getElementById('cart-drawer');
   if (drawer) drawer.style.display = 'none';
 }
- 
-const slides = document.querySelectorAll('.hero-slide');
-let current = 0;
- 
-if (slides.length > 0) {
-  setInterval(() => {
-    slides[current].classList.remove('active');
-    current = (current + 1) % slides.length;
-    slides[current].classList.add('active');
-  }, 3000);
-}
- 
-let lastScroll = 0;
-const ticker = document.querySelector('.ticker');
-const header = document.querySelector('header');
- 
-if (ticker && header) {
-  window.addEventListener('scroll', () => {
-    const currentScroll = window.scrollY;
- 
-    if (currentScroll > lastScroll && currentScroll > 50) {
-      ticker.style.transform = 'translateY(-100%)';
-      ticker.style.transition = 'transform 0.3s ease';
-      header.style.transform = 'translateY(-137px)';
-      header.style.transition = 'transform 0.3s ease';
-    } else {
-      ticker.style.transform = 'translateY(0)';
-      ticker.style.transition = 'transform 0.3s ease';
-      header.style.transform = 'translateY(0)';
-      header.style.transition = 'transform 0.3s ease';
-    }
- 
-    lastScroll = currentScroll;
-  });
-}
- 
+
+/*adds .visible class to .category elements when they enter the viewport o trigger the CSS slide-in animation*/
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -256,23 +278,26 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.category').forEach(cat => {
   observer.observe(cat);
 });
- 
+
+
+/*filter :listens for filter button clicks, then reads data-metal, data-price, data-sale
+from each .category div and shows or hides accordingly.*/
 const filterBtns = document.querySelectorAll('.filter-btn');
  
 filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
     filterBtns.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
- 
+
     const filter = btn.dataset.filter;
     const categories = document.querySelectorAll('.product-list .category');
- 
+
     categories.forEach(cat => {
       const a = cat.querySelector('a');
-      const metal = a.dataset.metal;
-      const price = parseInt(a.dataset.price);
-      const sale = a.dataset.sale;
- 
+      if (!a) return;
+      const metal = cat.dataset.metal || a.dataset.metal;
+      const price = parseInt(cat.dataset.price || a.dataset.price);
+      const sale = cat.dataset.sale || a.dataset.sale;
       if (filter === 'all') {
         cat.style.display = 'block';
       } else if (filter === 'gold' && metal === 'gold') {
@@ -291,7 +316,9 @@ filterBtns.forEach(btn => {
     });
   });
 });
- 
+
+/*search overlay: listens for input in the search box, filters product by its name, and 
+renders up to 4 matching results with image, name, and price*/
 const searchInput = document.getElementById('search-input');
  
 if (searchInput) {
@@ -336,7 +363,8 @@ if (searchInput) {
     }
   });
 }
- 
+
+/*open and close searcg overlay*/
 function openSearch() {
   document.getElementById('search-overlay').style.display = 'flex';
   document.getElementById('search-backdrop').style.display = 'block';
@@ -349,6 +377,8 @@ function closeSearch() {
   document.body.style.overflow = '';
 }
 
+/*search result grid: reads query from URL, filters products by name, 
+then renders full product cards with filter data attributes*/
 const searchResultsGrid = document.getElementById('search-results-grid');
  
 if (searchResultsGrid) {
@@ -395,6 +425,8 @@ if (searchResultsGrid) {
   }
 }
  
+/*favorite toggle:  adds or removes product id from localStorage favourites array, 
+updates heart icon to solid red when active, outline when inactive.*/
 function toggleFav(btn, id) {
   let favs = JSON.parse(localStorage.getItem('favourites') || '[]');
 
@@ -411,6 +443,8 @@ function toggleFav(btn, id) {
   localStorage.setItem('favourites', JSON.stringify(favs));
 }
 
+/*favorite page :on  page load reads localStorage and fills in saved heart icons
+so favourited items show as active across all pages.*/
 document.querySelectorAll('.heart-btn').forEach(btn => {
   const match = btn.getAttribute('onclick').match(/'([^']+)'\)/);
   if (!match) return;
@@ -422,6 +456,8 @@ document.querySelectorAll('.heart-btn').forEach(btn => {
   }
 });
 
+/*favorit page: reads favourites from localStorage and renders full product cards
+with heart button, sale tags and add to cart*/
 const favouritesGrid = document.getElementById('favourites-grid');
 
 if (favouritesGrid) {
@@ -457,11 +493,14 @@ if (favouritesGrid) {
   }
 }
  
+/*sort toggle drop down*/
 function toggleSort() {
   const dropdown = document.getElementById('sort-dropdown');
   if (dropdown) dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
 }
- 
+
+/*sort producst: sorts .category divs by data-price low to high or high to low,
+then reappends them to the grid in the new order.*/
 function sortProducts(type, e) {
   const grid = document.querySelector('.product-list');
   if (!grid) return;
@@ -490,6 +529,7 @@ function sortProducts(type, e) {
   if (sortDropdown) sortDropdown.style.display = 'none';
 }
  
+/*close sort droppwd down when clicking anywehere outisde*/
 document.addEventListener('click', (e) => {
   if (!e.target.closest('.sort-bar')) {
     const dropdown = document.getElementById('sort-dropdown');
@@ -497,6 +537,8 @@ document.addEventListener('click', (e) => {
   }
 });
  
+/*sale page: filters products where sale == true, renders shuffled product cards
+with sale tags and add to cart button */
 const clearanceGrid = document.getElementById('clearance-grid');
  
 if (clearanceGrid) {
@@ -505,8 +547,8 @@ if (clearanceGrid) {
   saleProducts.forEach(([key, p]) => {
     const numericPrice = parseInt(p.salePrice.replace(/[^0-9]/g, ''));
     clearanceGrid.innerHTML += `
-      <div class="category">
-        <a href="products.html?id=${key}" data-metal="${p.metal || ''}" data-price="${numericPrice}" data-sale="true">
+      <div class="category" data-metal="${p.metal || ''}" data-price="${numericPrice}" data-sale="true">
+        <a href="products.html?id=${key}">
           <div class="category-img-wrap">
             <img src="${p.image}" alt="${p.name}">
             <p class="explore">QUICK VIEW</p>
@@ -515,7 +557,7 @@ if (clearanceGrid) {
             </button>
             <span class="product-tag">SALE</span>
           </div>
-          <div style="margin-top: 5px;">
+          <div style="margin-top:5px;">
             <span class="sale-price">${p.salePrice}</span>
             <span class="original-price">${p.price}</span>
           </div>
@@ -532,7 +574,8 @@ if (clearanceGrid) {
   clearanceItems.sort(() => Math.random() - 0.5);
   clearanceItems.forEach(item => clearanceGrid.appendChild(item));
 }
- 
+
+/*renders all products shuffled randomly with sale tags and add to cart.*/
 const allGrid = document.getElementById('all-grid');
  
 if (allGrid) {
@@ -566,28 +609,6 @@ if (allGrid) {
   allItems.forEach(item => allGrid.appendChild(item));
 }
  
-// Newsletter popup
-const newsletterPopup = document.getElementById('newsletter-popup');
-if (newsletterPopup) {
-  setTimeout(() => {
-    newsletterPopup.style.display = 'flex';
-  }, 3000);
- 
-  const closeNewsletter = document.getElementById('close-newsletter');
-  if (closeNewsletter) {
-    closeNewsletter.addEventListener('click', () => {
-      newsletterPopup.style.display = 'none';
-    });
-  }
- 
-  newsletterPopup.addEventListener('click', (e) => {
-    if (e.target === newsletterPopup) {
-      newsletterPopup.style.display = 'none';
-    }
-  });
-}
- 
-// Randomize popular searches
 const searchBtn = document.querySelector('.icon[onclick*="search-overlay"]');
 if (searchBtn) {
   searchBtn.addEventListener('click', () => {
@@ -617,6 +638,9 @@ imgs.forEach((imgId, i) => {
   }
 });
 
+/*promoCodes object stores valid codes with discount rates and labels.
+applyPromo() validates input, applies discount and updates totals.
+Saves applied discount to localStorage for use on checkout page.*/ 
 const promoCodes = {
   'NEWMEMBER': { discount: 0.10, label: '10% off for new members!' },
   'MAJULIX15': { discount: 0.15, label: '15% off!' },
@@ -643,6 +667,8 @@ function applyPromo() {
   }
 }
 
+/*checkout items order sumarry: reads cart and saved discount from localStorage.
+renders product items and calculates totals for checkout and payment pages.*/
 const checkoutItems = document.getElementById('checkout-items');
 
 if (checkoutItems) {
@@ -707,6 +733,7 @@ function applyPromo() {
   }
 }
 
+/*checkout form validation: validates email format, prvenet proceeding to payment is any field is invalid*/
 function submitCheckout() {
   const email = document.getElementById('email');
   const emailError = document.getElementById('email-error');
@@ -768,6 +795,8 @@ function submitPayment() {
   window.location.href = 'confirmation.html';
 }
 
+/*payment : validates card number (16 digits), expiry (MM/YY), CVV (3 digits) and name, highlights invalid fields in red. 
+Clears cart and redirects to confirmation.*/
 function submitPayment() {
   const selected = document.querySelector('input[name="payment"]:checked');
   if (!selected) {
@@ -825,14 +854,15 @@ function submitPayment() {
   window.location.href = 'confirmation.html';
 }
 
+/* shows and hides join for free slide down)
 function openJoinDrawer() {
   document.getElementById('join-drawer').style.display = 'block';
 }
-
 function closeJoinDrawer() {
   document.getElementById('join-drawer').style.display = 'none';
 }
 
+/*join drawer: validates email format and checks out all required  fields are filled*/
 function submitJoin() {
   const firstName = document.getElementById('join-first-name').value.trim();
   const lastName = document.getElementById('join-last-name').value.trim();
@@ -863,6 +893,7 @@ function submitJoin() {
   setTimeout(() => closeJoinDrawer(), 2000);
 }
 
+/*mobile menu toggle: shows and hide menu*/
 function toggleMenu() {
   const menu = document.getElementById('mobile-menu');
   if (menu) {
